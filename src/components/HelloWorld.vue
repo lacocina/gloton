@@ -40,10 +40,17 @@ export default defineComponent({
     in your IDE for a better DX
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <p class="read-the-docs read-the-docs--brand">Click on the Vite and Vue logos to learn more</p>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use "src/scss/tools/bem-generator" as t-bem;
+
 .read-the-docs {
-  color: #888;
+  color: var(--s-color-brand--primary);
+
+  @include t-bem.modifier(brand) {
+    color: #42b983;
+  }
 }
 </style>
