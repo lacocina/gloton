@@ -1,22 +1,8 @@
 <template lang="pug">
-div
-  button(@click="changeName")
-    | Change name
-  | {{ menuStore.getName }}
-  div
-    button(@click="menuStore.addItem()")
-      | add item
-    div(
-      v-for="item in menuStore.getMenu"
-      class="bg-red-600 dark:bg-green-600"
-      )
-      | {{ item.name }}
+.container.mx-auto.px-4.mt-8
+  TheHeader
+  router-view
 </template>
 <script lang="ts" setup>
-import { useMenuStore } from "./store/menu";
-
-const menuStore = useMenuStore()
-function changeName() {
-  menuStore.name = 'Paco'
-}
+import TheHeader from './components/header/TheHeader.vue'
 </script>
