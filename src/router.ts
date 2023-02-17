@@ -9,9 +9,7 @@ const routes: RouteRecordRaw[] = [
     { path: '/management', component: CategoriesManagement }
 ]
 
-const router = createRouter({
+export const router = createRouter({
     history: createWebHistory(),
     routes
 })
-
-export default router;
