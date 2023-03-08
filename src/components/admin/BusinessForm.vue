@@ -26,7 +26,7 @@ form.business-form.grid.gap-4(@submit.prevent='submitForm')
 </template>
 
 <script lang="ts" setup>
-import BaseButton from "../ui/BaseButton.vue";
+import BaseButton from "@components/ui/BaseButton.vue";
 import { reactive, ref } from 'vue';
 import type { Ref } from "vue";
 
