@@ -16,7 +16,7 @@ div
     | {{ item.name }}
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useMenuStore } from "../store/menu";
 import BusinessForm from "../components/admin/BusinessForm.vue";
 

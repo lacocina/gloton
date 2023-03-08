@@ -1,12 +1,13 @@
 <template lang="pug">
 button.transition-colors.duration-300.px-5.py-2.rounded-sm.font-bold.text-lg(
   :type="buttonType"
-  :class="patata.common + ' ' + patata[buttonStyle]"
+  :class="[patata.common, patata[buttonStyle], margins.marginTop]"
 ) {{ msg }}
 </template>
 
 <script lang="ts" setup>
 import { computed } from "vue";
+import margins from "@css/margin.module.css";
 export interface Props {
   msg: string
   marginButton: 10 | 20
