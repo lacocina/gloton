@@ -1,4 +1,6 @@
 <template lang="pug">
+business-form
+
 div
   button(@click="changeName")
     | Change name
@@ -16,6 +18,7 @@ div
 
 <script setup>
 import { useMenuStore } from "../store/menu";
+import BusinessForm from "../components/admin/BusinessForm.vue";
 
 const menuStore = useMenuStore()
 function changeName() {
