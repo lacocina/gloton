@@ -1,6 +1,6 @@
 <template lang="pug">
-header.mb-8
-  nav.gap-x-3.flex
+header
+  nav
     TheHeaderItem(
       href="/"
       text="Home"

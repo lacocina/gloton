@@ -3,9 +3,7 @@ module.exports = {
     require('postcss-import'),
     require('postcss-simple-vars'),
     require('postcss-nested'),
-    require('tailwindcss/nesting'),
     require('postcss-mixins'),
-    require('tailwindcss'),
     require('autoprefixer'),
   ],
 }

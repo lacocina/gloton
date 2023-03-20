@@ -1,5 +1,3 @@
-@tailwind base;
-
 .material-symbols-rounded {
     display: inline-block;
     font-variation-settings:
@@ -33,7 +31,3 @@
 input {
     color: #213547;
 }
-
-@tailwind components;
-@tailwind utilities;
-

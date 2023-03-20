@@ -1,8 +1,7 @@
 <template lang="pug">
 router-link(
   :to="href"
-  class="bg-green-700 hover:bg-green-800 py-2 px-6 rounded duration-200"
-  active-class="the-header-item--active pointer-events-none"
+  active-class="the-header-item--active"
   ) {{ text }}
 </template>
 
@@ -21,6 +20,6 @@ const props = defineProps({
 
 <style scoped>
 .the-header-item--active {
-  @apply bg-red-500;
+  background-color: red;
 }
 </style>

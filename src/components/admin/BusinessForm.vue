@@ -1,26 +1,26 @@
 <template lang="pug">
 form.business-form.grid.gap-4(@submit.prevent='submitForm')
-  div.grid.gap-0
+  div
     span.symbol-test.material-symbols-rounded storefront
-    div.flex.justify-between.items-start
+    div
       label Nombre del local*
-    input.rounded(type="text"
+    input(type="text"
       v-model.trim="name.val"
       :class="inputErrorStyle(name.isValid)"
       :placeholder="$t('business.form.name')"
       @blur="validateItem('name')")
-    span.text-red-500(v-if="!name.isValid") Debes rellenar el nombre
-  div.grid.gap-2
+    span(v-if="!name.isValid") Debes rellenar el nombre
+  div
     label
       | Numero de calle*
-    input.rounded(type="number"
+    input(type="number"
       v-model.trim="address.val"
       :class="inputErrorStyle(address.isValid)"
       :placeholder="$t('business.form.streetNumber')"
       @blur="validateItem('address')")
-    span.text-red-500(v-if="!address.isValid") Debes poner el número de calle
+    span(v-if="!address.isValid") Debes poner el número de calle
   button(type="submit") Dale!
-  .flex.gap-3
+  div
     base-button(msg="Hello 3", :margin-button="10")
     base-button(msg="Hello 2", button-style="secondary", :margin-button="10")
 </template>

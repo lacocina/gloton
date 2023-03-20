@@ -1,5 +1,5 @@
 <template lang="pug">
-button.transition-colors.duration-300.px-5.py-2.rounded-sm.font-bold.text-lg(
+button(
   :type="buttonType"
   :class="[patata.common, patata[buttonStyle], margins.marginTop]"
 ) {{ msg }}
@@ -36,10 +36,10 @@ const customMarginBottom = computed( () => {
 
 .primary {
   font-weight: bold;
-  @apply bg-primary-500;
+  background-color: var(--color-primary);
 
   &:hover {
-    @apply bg-primary-600;
+    background-color: var(--color-primary);
   }
 }
 
@@ -49,10 +49,10 @@ const customMarginBottom = computed( () => {
 }
 
 .secondary {
-  @apply text-primary-500 border-primary-500 border;
+  border: 1px solid var(--color-primary);
 
   &:hover {
-    @apply bg-primary-500;
+    background-color: var(--color-primary);
     --tw-bg-opacity: 10%;
   }
 }
