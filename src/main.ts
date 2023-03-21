@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import './css/style.css'
+import './css/style.pcss'
 import App from './App.vue'
 import axios from "axios"
 import VueAxios from "vue-axios"

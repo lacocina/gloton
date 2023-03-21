@@ -1,7 +1,7 @@
 <template lang="pug">
 form.business-form.grid.gap-4(@submit.prevent='submitForm')
   div
-    span.symbol-test.material-symbols-rounded storefront
+    span.material-symbols-rounded storefront
     div
       label Nombre del local*
     input(type="text"
@@ -96,14 +96,3 @@ function submitForm() {
 
 </script>
 
-<style lang="postcss">
-.symbol-test {
-  font-variation-settings: 'wght' 400;
-  transition-duration: 300ms;
-  font-size: 90px;
-
-  &:hover {
-    font-variation-settings: 'wght' 500;
-  }
-}
-</style>
