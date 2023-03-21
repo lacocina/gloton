@@ -3,9 +3,15 @@
     color: $color;
 }
 
-@define-mixin btm-modifier $name {
-    @at-root &--$(name) {
-        color: blueviolet;
+@define-mixin btm-element $name {
+    @at-root &__$(name) {
         @mixin-content
     }
 }
+
+@define-mixin btm-modifier $name {
+    @at-root &--$(name) {
+        @mixin-content
+    }
+}
+

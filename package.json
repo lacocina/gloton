@@ -14,6 +14,7 @@
     "pinia": "^2.0.30",
     "postcss-atroot": "^0.2.3",
     "postcss-nested": "^6.0.0",
+    "postcss-normalize": "^10.0.1",
     "vue": "^3.2.45",
     "vue-axios": "^3.5.2",
     "vue-i18n": "9",

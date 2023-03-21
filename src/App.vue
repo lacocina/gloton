@@ -9,3 +9,15 @@
 <script lang="ts" setup>
 import TheHeader from './components/header/TheHeader.vue'
 </script>
+
+<style lang="postcss">
+@import "@csstools/bem-selectors.pcss";
+
+.hello {
+  @mixin btm-modifier variant {
+    background-color: red;
+    font-size: 30px;
+  }
+  @mixin hello var(--color-primary);
+}
+</style>
