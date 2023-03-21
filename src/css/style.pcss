@@ -1,4 +1,6 @@
+@import "@csstools/bem-selectors.pcss";
 @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap);
+
 @font-face {
     font-family: 'Nunito';
     font-style: normal;
@@ -7,6 +9,7 @@
             url(https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap)
             format('woff2');
 }
+
 
 :root {
     font-family: 'Nunito', sans-serif;
@@ -38,4 +41,12 @@
             'wght' 300,
             'GRAD' 0,
             'opsz' 48
+}
+
+.hello {
+    @mixin btm-modifier variant {
+        background-color: red;
+        font-size: 30px;
+    }
+    @mixin hello var(--color-primary);
 }

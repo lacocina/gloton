@@ -1217,6 +1217,11 @@ pkg-types@^1.0.1:
     mlly "^1.0.0"
     pathe "^1.0.0"
 
+postcss-atroot@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/postcss-atroot/-/postcss-atroot-0.2.3.tgz#c421e7a4454ad56ce94e01d224ff8b4d9c1a0241"
+  integrity sha512-QoqnRy93M/OaV1hq460uDeTfSi1dy+43mPkhRmbFY8YfNiwc3JZ8ju8H4OkfgDNXVOlHL0l8ygWAy3NpttzEXA==
+
 postcss-import@^15.1.0:
   version "15.1.0"
   resolved "https://registry.yarnpkg.com/postcss-import/-/postcss-import-15.1.0.tgz#41c64ed8cc0e23735a9698b3249ffdbf704adc70"

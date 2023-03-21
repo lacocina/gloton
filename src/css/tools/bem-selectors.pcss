@@ -1,0 +1,11 @@
+@define-mixin hello $bgcolor, $color: blue {
+    background-color: $bgcolor;
+    color: $color;
+}
+
+@define-mixin btm-modifier $name {
+    @at-root &--$(name) {
+        color: blueviolet;
+        @mixin-content
+    }
+}

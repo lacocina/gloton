@@ -17,6 +17,7 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@css/*": ["./src/css/*"],
+      "@csstools/*": ["./src/css/tools/*"],
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
