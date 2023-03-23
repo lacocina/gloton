@@ -1,0 +1,61 @@
+:root {
+    font-family: 'Nunito', sans-serif;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    /* ==== PRIMITIVE TOKENS */
+    /* Color configs */
+    --pt-color-brand-primary-hue: 36;
+
+    --pt-color-saturation: 80%;
+
+    --pt-color-luminosity-50: 95%;
+    --pt-color-luminosity-100: 90%;
+    --pt-color-luminosity-200: 80%;
+    --pt-color-luminosity-300: 70%;
+    --pt-color-luminosity-400: 60%;
+    --pt-color-luminosity-500: 50%;
+    --pt-color-luminosity-600: 45%;
+    /* --pt-color-luminosity-700: 18%; */
+    /* --pt-color-luminosity-800: 12%; */
+    /* --pt-color-luminosity-900: 5%; */
+
+
+    --pt-color-brand-primary: #E3931A;
+
+    --pt-color-brand-primary-500: hsl(
+            var(--pt-color-brand-primary-hue)
+            var(--pt-color-saturation)
+            var(--pt-color-luminosity-500)
+    );
+
+    --pt-color-brand-primary-600: hsl(
+            var(--pt-color-brand-primary-hue)
+            var(--pt-color-saturation)
+            var(--pt-color-luminosity-600)
+    );
+
+
+    /* ==== SYSTEM TOKENS */
+    --st-font-color-brand-primary-500: var(--pt-color-brand-primary-500);
+    --st-bgc-color-brand-primary-500: var(--pt-color-brand-primary-500);
+    --st-bdc-color-brand-primary-500: var(--pt-color-brand-primary-500);
+
+    --st-font-color-brand-primary-600: var(--pt-color-brand-primary-600);
+    --st-bgc-color-brand-primary-600: var(--pt-color-brand-primary-600);
+    --st-bdc-color-brand-primary-600: var(--pt-color-brand-primary-600);
+
+    /* Breakpoints tokens */
+    --bp-xs: 600px;
+    --bp-sm: 768px;
+    --bp-md: 992px;
+    --bp-lg: 1200px;
+
+    /* Fixes */
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}

@@ -65,7 +65,7 @@
   text-align: right;
   &,
   &::placeholder {
-    color: var(--color-primary);
+    color: orange;
   }
 }
 

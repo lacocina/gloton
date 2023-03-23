@@ -11,7 +11,8 @@ export default defineConfig({
             'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
             '@assets': path.resolve('./src/assets'),
             '@css': path.resolve('./src/css'),
-            '@csstools': path.resolve('./src/css/tools'),
+            '@itcsssettings': path.resolve('./src/css/settings'),
+            '@itcsstools': path.resolve('./src/css/tools'),
             '@components': path.resolve('./src/components')
         },
     },

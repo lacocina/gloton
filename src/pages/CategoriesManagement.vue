@@ -11,7 +11,6 @@ div
     | add item
   div(
     v-for="item in menuStore.getMenu"
-    class="bg-red-600 dark:bg-green-600"
   )
     | {{ item.name }}
 </template>

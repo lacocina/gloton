@@ -31,15 +31,15 @@ const customMarginBottom = computed( () => {
 <style lang="postcss" module="patata">
 .common {
   margin-bottom: v-bind(customMarginBottom);
-  margin-top: var(--large-space);
+  margin-top: 2rem;
 }
 
 .primary {
   font-weight: bold;
-  background-color: var(--color-primary);
+  background-color: orange;
 
   &:hover {
-    background-color: var(--color-primary);
+    background-color: orange;
   }
 }
 
@@ -49,10 +49,10 @@ const customMarginBottom = computed( () => {
 }
 
 .secondary {
-  border: 1px solid var(--color-primary);
+  border: 1px solid orange;
 
   &:hover {
-    background-color: var(--color-primary);
+    background-color: orange;
     --tw-bg-opacity: 10%;
   }
 }
