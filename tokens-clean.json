@@ -1,0 +1,116 @@
+{
+  "core": {
+    "color": {
+      "Body": {
+        "Gray 1": {
+          "value": "#f7f7f7",
+          "type": "color"
+        },
+        "Gray 2": {
+          "value": "#d8d5d1",
+          "type": "color"
+        },
+        "Gray 3": {
+          "value": "#959595",
+          "type": "color"
+        },
+        "Gray 4": {
+          "value": "#787777",
+          "type": "color"
+        },
+        "Gray 5": {
+          "value": "#505050",
+          "type": "color"
+        },
+        "Gray 6": {
+          "value": "#393939",
+          "type": "color"
+        }
+      },
+      "Brand": {
+        "Primary": {
+          "100": {
+            "value": "#fff5e0",
+            "type": "color"
+          },
+          "200": {
+            "value": "#f5d392",
+            "type": "color"
+          },
+          "300": {
+            "value": "#ebb564",
+            "type": "color"
+          },
+          "600": {
+            "value": "#ca7115",
+            "type": "color"
+          },
+          "500 Default": {
+            "value": "#e3931a",
+            "type": "color"
+          }
+        }
+      },
+      "Status": {
+        "Info 100": {
+          "value": "#e5f3ff",
+          "type": "color"
+        },
+        "Info 400": {
+          "value": "#027ae9",
+          "type": "color"
+        },
+        "Success 100": {
+          "value": "#e9fbed",
+          "type": "color"
+        },
+        "Success 400": {
+          "value": "#43be5e",
+          "type": "color"
+        },
+        "Warn 100": {
+          "value": "#fff8dd",
+          "type": "color"
+        },
+        "Warn 600": {
+          "value": "#d3a708",
+          "type": "color"
+        },
+        "Error 100": {
+          "value": "#ffece8",
+          "type": "color"
+        },
+        "Error 400": {
+          "value": "#e54b29",
+          "type": "color"
+        }
+      },
+      "Form": {
+        "Empty field text": {
+          "value": "#d8d5d1",
+          "type": "color"
+        },
+        "Field stroke": {
+          "value": "#d8d5d1",
+          "type": "color"
+        },
+        "Field text": {
+          "value": "#505050",
+          "type": "color"
+        },
+        "Icon field": {
+          "value": "#959595",
+          "type": "color"
+        },
+        "Blocked fill": {
+          "value": "#f0efed",
+          "type": "color"
+        },
+        "Label text": {
+          "value": "#505050",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

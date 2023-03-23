@@ -1,0 +1,31 @@
+/**
+ * Do not edit directly, this file was auto-generated
+ */
+
+:root {
+  --figma-core-color-body-gray-1: #f7f7f7;
+  --figma-core-color-body-gray-2: #d8d5d1;
+  --figma-core-color-body-gray-3: #959595;
+  --figma-core-color-body-gray-4: #787777;
+  --figma-core-color-body-gray-5: #505050;
+  --figma-core-color-body-gray-6: #393939;
+  --figma-core-color-brand-primary-100: #fff5e0;
+  --figma-core-color-brand-primary-200: #f5d392;
+  --figma-core-color-brand-primary-300: #ebb564;
+  --figma-core-color-brand-primary-600: #ca7115;
+  --figma-core-color-brand-primary-500-default: #e3931a;
+  --figma-core-color-status-info-100: #e5f3ff;
+  --figma-core-color-status-info-400: #027ae9;
+  --figma-core-color-status-success-100: #e9fbed;
+  --figma-core-color-status-success-400: #43be5e;
+  --figma-core-color-status-warn-100: #fff8dd;
+  --figma-core-color-status-warn-600: #d3a708;
+  --figma-core-color-status-error-100: #ffece8;
+  --figma-core-color-status-error-400: #e54b29;
+  --figma-core-color-form-empty-field-text: #d8d5d1;
+  --figma-core-color-form-field-stroke: #d8d5d1;
+  --figma-core-color-form-field-text: #505050;
+  --figma-core-color-form-icon-field: #959595;
+  --figma-core-color-form-blocked-fill: #f0efed;
+  --figma-core-color-form-label-text: #505050;
+}

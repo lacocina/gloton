@@ -16,6 +16,8 @@
     "postcss-discard-comments": "^5.1.2",
     "postcss-nested": "^6.0.0",
     "postcss-normalize": "^10.0.1",
+    "token-transformer": "^0.0.30",
+    "style-dictionary": "^3.7.2",
     "vue": "^3.2.45",
     "vue-axios": "^3.5.2",
     "vue-i18n": "9",
