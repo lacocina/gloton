@@ -168,6 +168,10 @@
       "075": {
         "value": "{fontSizes.1} * 0.75",
         "type": "fontSizes"
+      },
+      "test": {
+        "value": "2rem",
+        "type": "fontSizes"
       }
     },
     "color": {
