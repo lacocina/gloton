@@ -64,6 +64,10 @@
       "xl": {
         "value": "32",
         "type": "borderRadius"
+      },
+      "test": {
+        "value": "3px",
+        "type": "borderRadius"
       }
     },
     "fontFamilies": {
