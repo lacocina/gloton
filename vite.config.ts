@@ -21,5 +21,6 @@ export default defineConfig({
             generateScopedName: '[local]--[hash:base64:2]',
             localsConvention: 'camelCaseOnly',
         },
+        devSourcemap: true
     },
 })
