@@ -28,8 +28,10 @@
   .test-color.font-brand-primary font-brand-primary
   .test-color.font-brand-primary.color-luminosity-600 font-brand-primary + color-luminosity-600
 
-  keep-alive
-    router-view
+
+  router-view(v-slot="{ Component }")
+    keep-alive
+      component(:is="Component")
 </template>
 <script lang="ts" setup>
 import TheHeader from './components/header/TheHeader.vue'
@@ -42,7 +44,7 @@ import TheHeader from './components/header/TheHeader.vue'
 .hello {
 
   @mixin btm-modifier variant {
-    background-color: red;
+    background-color: var(--cta-bg);
     font-size: 30px;
   }
 
@@ -57,38 +59,6 @@ import TheHeader from './components/header/TheHeader.vue'
   color: white;
   margin: 0.5rem 0;
   border: 1px solid transparent;
-}
-
-.font-brand-primary {
-  color: hsl(var(--pt-color-brand-primary-hue), var(--pt-color-saturation), var(--pt-color-luminosity-500));
-}
-
-.color-luminosity-600 {
-  --pt-color-luminosity-500: var(--pt-color-luminosity-600);
-}
-
-.font-brand-primary-500 {
-  color: hsl(var(--pt-color-brand-primary-hue), var(--pt-color-saturation), var(--pt-color-luminosity-500));
-}
-
-.bgc-brand-primary-500 {
-  background-color: var(--st-bgc-color-brand-primary-500);
-}
-
-.bdc-brand-primary-500 {
-  border-color: var(--st-bdc-color-brand-primary-500);
-}
-
-.font-brand-primary-600 {
-  color: var(--st-font-color-brand-primary-600);
-}
-
-.bgc-brand-primary-600 {
-  background-color: var(--st-bgc-color-brand-primary-600);
-}
-
-.bdc-brand-primary-600 {
-  border-color: var(--st-bdc-color-brand-primary-600);
 }
 
 </style>
