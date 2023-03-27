@@ -167,6 +167,10 @@
     "075": {
       "value": 12,
       "type": "fontSizes"
+    },
+    "test": {
+      "value": "2rem",
+      "type": "fontSizes"
     }
   },
   "color": {

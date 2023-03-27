@@ -36,7 +36,7 @@ const customMarginBottom = computed( () => {
 
 .primary {
   font-weight: bold;
-  background-color: orange;
+  background-color: var(--color-brand-primary-500-default);
 
   &:hover {
     background-color: orange;
