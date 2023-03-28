@@ -1,33 +1,12 @@
 <template lang="pug">
 .container.mx-auto.px-4.mt-8
   TheHeader
+
+  input(type="checkbox", checked)
+
   .hello hello
-  .hello--variant hello variant
-
-  .test-color.font-brand-primary-100 font-brand-primary-100
-  .test-color.bdc-brand-primary-100 bdc-brand-primary-100
-  .test-color.bgc-brand-primary-100 bgc-brand-primary-100
-
-  .test-color.font-brand-primary-200 font-brand-primary-200
-  .test-color.bdc-brand-primary-200 bdc-brand-primary-200
-  .test-color.bgc-brand-primary-200 bgc-brand-primary-200
-
-  .test-color.font-brand-primary-400 font-brand-primary-400
-  .test-color.bdc-brand-primary-400 bdc-brand-primary-400
-  .test-color.bgc-brand-primary-400 bgc-brand-primary-400
-
-  .test-color.font-brand-primary-500 font-brand-primary-500
-  .test-color.bdc-brand-primary-500 bdc-brand-primary-500
-  .test-color.bgc-brand-primary-500 bgc-brand-primary-500
-
-  .test-color.font-brand-primary-600 font-brand-primary-600
-  .test-color.bdc-brand-primary-600 bdc-brand-primary-600
-  .test-color.bgc-brand-primary-600 bgc-brand-primary-600
-
-
-  .test-color.font-brand-primary font-brand-primary
-  .test-color.font-brand-primary.color-luminosity-600 font-brand-primary + color-luminosity-600
-
+  .font-serif-test Nueva categoría
+  .hello--variant Configuración
 
   router-view(v-slot="{ Component }")
     keep-alive
@@ -38,20 +17,25 @@ import TheHeader from './components/header/TheHeader.vue'
 </script>
 
 <style lang="postcss">
-@import "@itcsssettings/breakpoints.pcss";
+@import "@css/settings/custom-media.pcss";
 @import "@itcsstools/bem-selectors.pcss";
 
 .hello {
 
   @mixin btm-modifier variant {
-    background-color: var(--cta-bg);
-    font-size: 30px;
+    font-size: 1rem;
+    font-style: italic;
   }
 
-  @media (--s-bp-min-width--xs) {
-    background-color: green;
+  @media (--min-width--md) {
+    background-color: yellow;
   }
 
+}
+
+.font-serif-test {
+  font-size: 2rem;
+  font-family: var(--font-family-serif);
 }
 
 .test-color {
