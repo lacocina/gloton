@@ -18,9 +18,3 @@ header
 <script setup>
 import TheHeaderItem from "./TheHeaderItem.vue";
 </script>
-
-<style lang="postcss">
-header {
-
-}
-</style>
