@@ -17,7 +17,7 @@ import TheHeader from './components/header/TheHeader.vue'
 </script>
 
 <style lang="postcss">
-@import "@css/settings/custom-media.pcss";
+@import "@itcsssettings/custom-media.pcss";
 @import "@itcsstools/bem-selectors.pcss";
 
 .hello {
