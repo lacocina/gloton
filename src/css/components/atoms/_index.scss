@@ -1,1 +1,19 @@
 @forward "./material-symbols";
+
+$test-custom: (
+  'padding': 4rem,
+  'margin': 1rem,
+);
+
+@mixin create-custom() {
+  @each $key, $value in $test-custom {
+    --#{$key}: #{$value};
+  }
+}
+
+.class {
+  @include create-custom;
+  padding: var(--padding);
+  background-color: red;
+  font-size: 13px;
+}

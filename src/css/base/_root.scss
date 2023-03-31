@@ -5,6 +5,10 @@
     color: var(--body-font-color);
     background-color: var(--body-bgc-color);
 
+    --s-xs: .25rem;
+    --s-sm: .5rem;
+    --s-md: 1rem;
+
     /* Fixes */
     font-synthesis: none;
     text-rendering: optimizeLegibility;
