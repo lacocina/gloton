@@ -1,0 +1,14 @@
+.o-box {
+  --current-size: var(--s-md);
+  padding: var(--current-size);
+}
+
+.xs {
+  --current-size: var(--s-xs);
+}
+
+.sm {
+  --current-size: var(--s-sm);
+}
+
+/*# sourceMappingURL=o-box.module.css.map */

@@ -1,0 +1,21 @@
+$stack-sizes: (
+        'xs': var(--s-xs),
+        'sm': var(--s-sm),
+        'md': var(--s-md),
+);
+
+.o-stack {
+  --current-size: var(--s-md);
+  padding: var(--current-size);
+  border: 1px solid blue;
+}
+
+@each $property, $value in $stack-sizes {
+  @at-root .o-stack-#{$property} {
+    --current-size: #{$value};
+  }
+}
+
+.block__label {
+  background-color: blue;
+}

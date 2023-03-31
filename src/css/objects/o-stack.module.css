@@ -1,0 +1,23 @@
+.o-stack {
+  --current-size: var(--s-md);
+  padding: var(--current-size);
+  border: 1px solid red;
+}
+
+.o-stack-xs {
+  --current-size: var(--s-xs);
+}
+
+.o-stack-sm {
+  --current-size: var(--s-sm);
+}
+
+.o-stack-md {
+  --current-size: var(--s-md);
+}
+
+.block__label {
+  background-color: blue;
+}
+
+/*# sourceMappingURL=o-stack.module.css.map */
