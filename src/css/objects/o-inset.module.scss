@@ -1,0 +1,29 @@
+@use "../settings/s-spaces" as space;
+
+.o-inset {
+  --current-size: #{space.$s-size-default};
+  padding: var(--current-size);
+  border: 1px solid red;
+}
+
+@each $key, $value in space.$s-map-sizes {
+  @if $value != space.$s-size-default {
+    .#{$key} {
+      --current-size: #{$value};
+    }
+  }
+}
+
+.squish {
+  padding-top: calc(var(--current-size) / 2);
+  padding-bottom: calc(var(--current-size) / 2);
+}
+
+.stretch {
+  padding-left: calc(var(--current-size) / 2);
+  padding-right: calc(var(--current-size) / 2);
+}
+
+.test-inset {
+  background-color: green;
+}

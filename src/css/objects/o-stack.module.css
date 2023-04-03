@@ -1,7 +1,7 @@
 .o-stack {
   --current-size: var(--s-md);
   padding: var(--current-size);
-  border: 1px solid red;
+  border: 1px solid blue;
 }
 
 .o-stack-xs {
@@ -18,6 +18,10 @@
 
 .block__label {
   background-color: blue;
+}
+
+nav {
+  color: red;
 }
 
 /*# sourceMappingURL=o-stack.module.css.map */

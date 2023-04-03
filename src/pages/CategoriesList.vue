@@ -1,5 +1,6 @@
 <template lang="pug">
 .bg-white.p-4.text-white.flex.justify-between.items-center
+  nav Categories list
   .w-full
     div
       input(

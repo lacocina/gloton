@@ -1,7 +1,10 @@
 $s-map-sizes: (
-        'xs': var(--s-xs),
-        'sm': var(--s-sm),
-        'md': var(--s-md),
+        'xs':   var(--s-xs),
+        'sm':   var(--s-sm),
+        'md':   var(--s-md),
+        'lg':   var(--s-lg),
+        'xl':   var(--s-xl),
+        'xxl':  var(--s-xxl),
 );
 
 $s-size-default: map-get($s-map-sizes, 'md');
