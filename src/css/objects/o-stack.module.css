@@ -1,36 +1,67 @@
 .o-stack {
   display: grid;
-  --current-size: var(--s-spacing-md);
-  row-gap: var(--current-size);
-  border: 1px solid green;
+  --o-stack-current-size: var(--spacing-rem-md);
+  row-gap: var(--o-stack-current-size);
 }
 
 .null {
-  --current-size: var(--s-spacing-null);
+  --o-stack-current-size: var(--spacing-rem-null);
+}
+
+.null-px {
+  --o-stack-current-size: var(--spacing-null);
 }
 
 .xxs {
-  --current-size: var(--s-spacing-xxs);
+  --o-stack-current-size: var(--spacing-rem-xxs);
+}
+
+.xxs-px {
+  --o-stack-current-size: var(--spacing-xxs);
 }
 
 .xs {
-  --current-size: var(--s-spacing-xs);
+  --o-stack-current-size: var(--spacing-rem-xs);
+}
+
+.xs-px {
+  --o-stack-current-size: var(--spacing-xs);
 }
 
 .sm {
-  --current-size: var(--s-spacing-sm);
+  --o-stack-current-size: var(--spacing-rem-sm);
+}
+
+.sm-px {
+  --o-stack-current-size: var(--spacing-sm);
+}
+
+.md-px {
+  --o-stack-current-size: var(--spacing-md);
 }
 
 .lg {
-  --current-size: var(--s-spacing-lg);
+  --o-stack-current-size: var(--spacing-rem-lg);
+}
+
+.lg-px {
+  --o-stack-current-size: var(--spacing-lg);
 }
 
 .xl {
-  --current-size: var(--s-spacing-xl);
+  --o-stack-current-size: var(--spacing-rem-xl);
+}
+
+.xl-px {
+  --o-stack-current-size: var(--spacing-xl);
 }
 
 .xxl {
-  --current-size: var(--s-spacing-xxl);
+  --o-stack-current-size: var(--spacing-rem-xxl);
+}
+
+.xxl-px {
+  --o-stack-current-size: var(--spacing-xxl);
 }
 
 /*# sourceMappingURL=o-stack.module.css.map */

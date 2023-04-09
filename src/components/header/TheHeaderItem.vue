@@ -1,11 +1,14 @@
 <template lang="pug">
 router-link(
   :to="href"
-  active-class="the-header-item--active"
+  :class="TheHeaderModule.item"
+  :active-class="TheHeaderModule.active"
   ) {{ text }}
 </template>
 
 <script lang="ts" setup>
+import TheHeaderModule from "@css/components/molecules/the-header.module.css"
+
 const props = defineProps({
   href: {
     type: String,
@@ -17,9 +20,3 @@ const props = defineProps({
   }
 })
 </script>
-
-<style scoped>
-.the-header-item--active {
-  background-color: red;
-}
-</style>

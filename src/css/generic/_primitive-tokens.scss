@@ -1,13 +1,17 @@
+@use '@css/settings/base/_s-spacing.scss' as spacing;
+@use "@css/tools/_custom-properties-creator.scss" as *;
+
 :root {
   --dimension-core:     16;
 
-  --proportion-xxs:     .25;
-  --proportion-xs:      .5;
-  --proportion-sm:      .75;
-  --proportion-md:      1;
-  --proportion-lg:      1.5;
-  --proportion-xl:      2;
-  --proportion-xxl:     4;
+  --proportion-null:    0;
+  --proportion-xxs:     #{spacing.$s-proportion-xxs};
+  --proportion-xs:      #{spacing.$s-proportion-xs};
+  --proportion-sm:      #{spacing.$s-proportion-sm};
+  --proportion-md:      #{spacing.$s-proportion-md};
+  --proportion-lg:      #{spacing.$s-proportion-lg};
+  --proportion-xl:      #{spacing.$s-proportion-xl};
+  --proportion-xxl:     #{spacing.$s-proportion-xxl};
 
   --spacing-md:         calc(var(--dimension-core) * 1px);                      /* 16px */
   --spacing-xxs:        calc(var(--spacing-md)   *  var(--proportion-xxs));     /* 4px  */

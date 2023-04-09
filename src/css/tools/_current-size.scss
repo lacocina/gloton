@@ -1,0 +1,16 @@
+@use "../settings/base/_s-spacing.scss" as spacing;
+@use "./functions/_var-name.scss" as f;
+
+@mixin t-object-current-size($prefix) {
+  @each $key, $value in spacing.$s-map-proportion {
+    @if ($key != spacing.$s-spacing-default-size) {
+      .#{$key} {
+        --#{$prefix}-current-size: #{f.var-name(#{spacing.$s-spacing-rem-prefix}, #{$key})};
+      }
+    }
+
+    .#{$key}-px {
+      --#{$prefix}-current-size: #{f.var-name(#{spacing.$s-spacing-prefix}, #{$key})};
+    }
+  }
+}

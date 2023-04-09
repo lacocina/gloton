@@ -1,3 +1,7 @@
-
+.o-container {
+  width: 100%;
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+}
 
 /*# sourceMappingURL=o-container.module.css.map */

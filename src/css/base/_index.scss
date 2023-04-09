@@ -1,2 +1,8 @@
 @forward "sanitize.css";
 @forward "root";
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: .3s;
+}

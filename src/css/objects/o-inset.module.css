@@ -1,35 +1,66 @@
 .o-inset {
-  --current-size: var(--s-spacing-md);
-  padding: var(--current-size);
-  border: 1px solid red;
+  --o-inset-current-size: var(--spacing-rem-md);
+  padding: var(--o-inset-current-size);
 }
 
 .null {
-  --current-size: var(--s-spacing-null);
+  --o-inset-current-size: var(--spacing-rem-null);
+}
+
+.null-px {
+  --o-inset-current-size: var(--spacing-null);
 }
 
 .xxs {
-  --current-size: var(--s-spacing-xxs);
+  --o-inset-current-size: var(--spacing-rem-xxs);
+}
+
+.xxs-px {
+  --o-inset-current-size: var(--spacing-xxs);
 }
 
 .xs {
-  --current-size: var(--s-spacing-xs);
+  --o-inset-current-size: var(--spacing-rem-xs);
+}
+
+.xs-px {
+  --o-inset-current-size: var(--spacing-xs);
 }
 
 .sm {
-  --current-size: var(--s-spacing-sm);
+  --o-inset-current-size: var(--spacing-rem-sm);
+}
+
+.sm-px {
+  --o-inset-current-size: var(--spacing-sm);
+}
+
+.md-px {
+  --o-inset-current-size: var(--spacing-md);
 }
 
 .lg {
-  --current-size: var(--s-spacing-lg);
+  --o-inset-current-size: var(--spacing-rem-lg);
+}
+
+.lg-px {
+  --o-inset-current-size: var(--spacing-lg);
 }
 
 .xl {
-  --current-size: var(--s-spacing-xl);
+  --o-inset-current-size: var(--spacing-rem-xl);
+}
+
+.xl-px {
+  --o-inset-current-size: var(--spacing-xl);
 }
 
 .xxl {
-  --current-size: var(--s-spacing-xxl);
+  --o-inset-current-size: var(--spacing-rem-xxl);
+}
+
+.xxl-px {
+  --o-inset-current-size: var(--spacing-xxl);
 }
 
 .squish {

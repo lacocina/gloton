@@ -1,0 +1,22 @@
+.the-header {
+  color: var(--color-gray-400);
+  font-size: var(--font-size-100);
+}
+
+.nav {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--spacing-rem-sm);
+  justify-content: end;
+}
+
+.item:hover,
+.active {
+  color: var(--color-brand-primary-500);
+}
+
+.active {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=the-header.module.css.map */

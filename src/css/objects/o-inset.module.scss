@@ -1,19 +1,12 @@
 @use "../settings/base/_s-spacing.scss" as spacing;
-@use "../tools/functions/var-name.scss" as f;
+@use "../tools/current-size";
 
 .o-inset {
-  --current-size: #{spacing.$s-spacing-default-var};
-  padding: var(--current-size);
-  border: 1px solid red;
+  --o-inset-current-size: #{spacing.$s-spacing-default-var};
+  padding: var(--o-inset-current-size);
 }
 
-@each $key, $value in spacing.$s-map-spacing {
-  @if ($key != spacing.$s-spacing-default-size) {
-    .#{$key} {
-      --current-size: #{f.var-name(#{spacing.$s-spacing-prefix}, #{$key})};
-    }
-  }
-}
+@include current-size.t-object-current-size('o-inset');
 
 .squish {
   padding-top: calc(var(--current-size) / 2);

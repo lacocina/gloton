@@ -1,17 +1,10 @@
 @use "../settings/base/_s-spacing.scss" as spacing;
-@use "../tools/functions/var-name.scss" as f;
+@use "../tools/current-size";
 
 .o-stack {
   display: grid;
-  --current-size: #{spacing.$s-spacing-default-var};
-  row-gap: var(--current-size);
-  border: 1px solid green;
+  --o-stack-current-size: #{spacing.$s-spacing-default-var};
+  row-gap: var(--o-stack-current-size);
 }
 
-@each $key, $value in spacing.$s-map-spacing {
-  @if ($key != spacing.$s-spacing-default-size) {
-    .#{$key} {
-      --current-size: #{f.var-name(#{spacing.$s-spacing-prefix}, #{$key})};
-    }
-  }
-}
+@include current-size.t-object-current-size('o-stack')

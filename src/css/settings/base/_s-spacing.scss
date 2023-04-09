@@ -1,22 +1,23 @@
-$s-spacing-xxs:     .25rem;
-$s-spacing-xs:      .5rem;
-$s-spacing-sm:      .75rem;
-$s-spacing-md:      1rem;
-$s-spacing-lg:      1.5rem;
-$s-spacing-xl:      2rem;
-$s-spacing-xxl:     4rem;
+$s-proportion-xxs:     .25;
+$s-proportion-xs:      .5;
+$s-proportion-sm:      .75;
+$s-proportion-md:      1;
+$s-proportion-lg:      1.5;
+$s-proportion-xl:      2;
+$s-proportion-xxl:     4;
 
-$s-spacing-prefix:  's-spacing-';
-$s-spacing-default-size: 'md';
-$s-spacing-default-var: var(--#{$s-spacing-prefix + $s-spacing-default-size});
-
-$s-map-spacing: (
+$s-map-proportion: (
         'null':   0,
-        'xxs':    $s-spacing-xxs,
-        'xs':     $s-spacing-xs,
-        'sm':     $s-spacing-sm,
-        'md':     $s-spacing-md,
-        'lg':     $s-spacing-lg,
-        'xl':     $s-spacing-xl,
-        'xxl':    $s-spacing-xxl,
+        'xxs':    $s-proportion-xxs,
+        'xs':     $s-proportion-xs,
+        'sm':     $s-proportion-sm,
+        'md':     $s-proportion-md,
+        'lg':     $s-proportion-lg,
+        'xl':     $s-proportion-xl,
+        'xxl':    $s-proportion-xxl,
 );
+
+$s-spacing-prefix:  'spacing-';
+$s-spacing-rem-prefix:  'spacing-rem-';
+$s-spacing-default-size: 'md';
+$s-spacing-default-var: var(--#{$s-spacing-rem-prefix + $s-spacing-default-size});
