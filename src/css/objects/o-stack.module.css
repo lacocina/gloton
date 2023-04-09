@@ -1,27 +1,36 @@
 .o-stack {
-  --current-size: var(--s-md);
-  padding: var(--current-size);
-  border: 1px solid blue;
+  display: grid;
+  --current-size: var(--s-spacing-md);
+  row-gap: var(--current-size);
+  border: 1px solid green;
 }
 
-.o-stack-xs {
-  --current-size: var(--s-xs);
+.null {
+  --current-size: var(--s-spacing-null);
 }
 
-.o-stack-sm {
-  --current-size: var(--s-sm);
+.xxs {
+  --current-size: var(--s-spacing-xxs);
 }
 
-.o-stack-md {
-  --current-size: var(--s-md);
+.xs {
+  --current-size: var(--s-spacing-xs);
 }
 
-.block__label {
-  background-color: blue;
+.sm {
+  --current-size: var(--s-spacing-sm);
 }
 
-nav {
-  color: red;
+.lg {
+  --current-size: var(--s-spacing-lg);
+}
+
+.xl {
+  --current-size: var(--s-spacing-xl);
+}
+
+.xxl {
+  --current-size: var(--s-spacing-xxl);
 }
 
 /*# sourceMappingURL=o-stack.module.css.map */

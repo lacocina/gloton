@@ -1,41 +1,21 @@
+@use '@css/settings/base/_s-spacing.scss' as spacing;
+@use "@css/tools/custom-properties-creator.scss" as *;
+
 :root {
   --global-accent-color:    var(--color-brand-primary-500);
 
-  --body-font-size:         calc(var(--dimension-core) * 1px);
-  --body-font-color:        var(--color-body-gray-100);
-  --body-bgc-color:         var(--color-body-gray-900);
+  --body-font-color:        var(--color-gray-100);
+  --body-bgc-color:         var(--color-gray-900);
 
-  --font-color-body-gray-100: var(--color-body-gray-100);
-  --bgc-color-body-gray-100: var(--color-body-gray-100);
-  --bdc-color-body-gray-100: var(--color-body-gray-100);
+  @include custom-properties-creator(spacing.$s-map-spacing, spacing.$s-spacing-prefix);
 
-  --font-color-body-gray-200: var(--color-body-gray-200);
-  --bgc-color-body-gray-200: var(--color-body-gray-200);
-  --bdc-color-body-gray-200: var(--color-body-gray-200);
-
-  --font-color-brand-primary-500: var(--color-brand-primary-500);
-  --bgc-color-brand-primary-500: var(--color-brand-primary-500);
-  --bdc-color-brand-primary-500: var(--color-brand-primary-500);
-
-  --font-color-brand-primary-600: var(--color-brand-primary-600);
-  --bgc-color-brand-primary-600: var(--color-brand-primary-600);
-  --bdc-color-brand-primary-600: var(--color-brand-primary-600);
-
-  /* Breakpoints tokens */
-  --breakpoint-xs: 600px;
-  --breakpoint-sm: 767px;
-  --breakpoint-md: 992px;
-  --breakpoint-lg: 1200px;
-
-  /* Form fields style */
-  --form-field-border-with: var(--border-with);
-  --form-field-border-color: var(--bdc-color-body-gray-200);
-  --form-field-blocked-background-color: var(--bgc-color-body-gray-100);
+  --font-weight-normal: var(--font-weight-400);
+  --font-weight-bold: var(--font-weight-700);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --body-font-color: var(--color-body-gray-900);
+    --body-font-color: var(--color-gray-900);
     --body-bgc-color: white;
   }
 }

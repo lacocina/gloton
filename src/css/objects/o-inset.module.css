@@ -1,27 +1,35 @@
 .o-inset {
-  --current-size: var(--s-md);
+  --current-size: var(--s-spacing-md);
   padding: var(--current-size);
   border: 1px solid red;
 }
 
+.null {
+  --current-size: var(--s-spacing-null);
+}
+
+.xxs {
+  --current-size: var(--s-spacing-xxs);
+}
+
 .xs {
-  --current-size: var(--s-xs);
+  --current-size: var(--s-spacing-xs);
 }
 
 .sm {
-  --current-size: var(--s-sm);
+  --current-size: var(--s-spacing-sm);
 }
 
 .lg {
-  --current-size: var(--s-lg);
+  --current-size: var(--s-spacing-lg);
 }
 
 .xl {
-  --current-size: var(--s-xl);
+  --current-size: var(--s-spacing-xl);
 }
 
 .xxl {
-  --current-size: var(--s-xxl);
+  --current-size: var(--s-spacing-xxl);
 }
 
 .squish {
@@ -34,8 +42,9 @@
   padding-right: calc(var(--current-size) / 2);
 }
 
-.test-inset {
-  background-color: green;
+.section {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /*# sourceMappingURL=o-inset.module.css.map */

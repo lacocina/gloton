@@ -1,25 +1,17 @@
-$stack-sizes: (
-        'xs': var(--s-xs),
-        'sm': var(--s-sm),
-        'md': var(--s-md),
-);
+@use "../settings/base/_s-spacing.scss" as spacing;
+@use "../tools/functions/var-name.scss" as f;
 
 .o-stack {
-  --current-size: var(--s-md);
-  padding: var(--current-size);
-  border: 1px solid blue;
+  display: grid;
+  --current-size: #{spacing.$s-spacing-default-var};
+  row-gap: var(--current-size);
+  border: 1px solid green;
 }
 
-@each $property, $value in $stack-sizes {
-  @at-root .o-stack-#{$property} {
-    --current-size: #{$value};
+@each $key, $value in spacing.$s-map-spacing {
+  @if ($key != spacing.$s-spacing-default-size) {
+    .#{$key} {
+      --current-size: #{f.var-name(#{spacing.$s-spacing-prefix}, #{$key})};
+    }
   }
-}
-
-.block__label {
-  background-color: blue;
-}
-
-nav {
-  color: red;
 }

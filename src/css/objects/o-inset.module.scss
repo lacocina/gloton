@@ -1,15 +1,16 @@
-@use "../settings/s-spaces" as space;
+@use "../settings/base/_s-spacing.scss" as spacing;
+@use "../tools/functions/var-name.scss" as f;
 
 .o-inset {
-  --current-size: #{space.$s-size-default};
+  --current-size: #{spacing.$s-spacing-default-var};
   padding: var(--current-size);
   border: 1px solid red;
 }
 
-@each $key, $value in space.$s-map-sizes {
-  @if $value != space.$s-size-default {
+@each $key, $value in spacing.$s-map-spacing {
+  @if ($key != spacing.$s-spacing-default-size) {
     .#{$key} {
-      --current-size: #{$value};
+      --current-size: #{f.var-name(#{spacing.$s-spacing-prefix}, #{$key})};
     }
   }
 }
@@ -24,6 +25,7 @@
   padding-right: calc(var(--current-size) / 2);
 }
 
-.test-inset {
-  background-color: green;
+.section {
+  padding-left: 0;
+  padding-right: 0;
 }

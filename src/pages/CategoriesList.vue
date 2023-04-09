@@ -1,7 +1,6 @@
 <template lang="pug">
-.bg-white.p-4.text-white.flex.justify-between.items-center
-  nav Categories list
-  .w-full
+div
+  div
     div
       input(
         type="text",
@@ -15,15 +14,15 @@
         :class="patata['nullInputStyles']"
         )
   div
-    .flex.justify-between.items-center
+    div
       input(
         type="text",
         placeholder="0",
         :class="[patata['nullInputStyles'], patata.price]"
         )
       span(:class="patata.price") €
-.bg-white.p-4.text-white.flex.justify-between.items-center
-  .w-full
+div
+  div
     div
       input(
         type="text",
@@ -37,14 +36,13 @@
         :class="patata['nullInputStyles']"
       )
   div
-    .flex.justify-between.items-center
+    div
       input(
         type="text",
         placeholder="0",
         :class="[patata['nullInputStyles'], patata.price]"
       )
       span(:class="patata.price") €
-
 </template>
 
 <script setup lang="ts">

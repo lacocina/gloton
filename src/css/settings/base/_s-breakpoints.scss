@@ -1,0 +1,13 @@
+$s-breakpoint-sm: 640px;
+$s-breakpoint-ms: 768px;
+$s-breakpoint-lg: 1024px;
+$s-breakpoint-xl: 1280px;
+$s-breakpoint-2xl: 1536px;
+
+$s-map-breakpoints: (
+        'sm':   $s-breakpoint-sm,
+        'ms':   $s-breakpoint-ms,
+        'lg':   $s-breakpoint-lg,
+        'xl':   $s-breakpoint-xl,
+        '2xl':  $s-breakpoint-2xl,
+);

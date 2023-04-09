@@ -1,0 +1,40 @@
+$s-color-gray-prefix: 's-color-gray-';
+
+$s-map-color-gray-values: (
+  '50':   #f4f3f1,
+  '100':  #e9e6e2,
+  '200':  #d6d2cb,
+  '300':  #c3beb6,
+  '400':  #aca59a,
+  '500':  #958e83,
+  '600':  #7a746c,
+  '700':  #5d5a56,
+  '800':  #42403d,
+  '900':  #282725,
+);
+
+$s-color-brand-primary-prefix: 's-color-brand-primary-';
+
+$s-map-color-brand-primary-values: (
+  '50':   #fcf4e8,
+  '100':  #faead1,
+  '200':  #f5d4a3,
+  '300':  #f0bf75,
+  '400':  #ebaa47,
+  '500':  #e49319,
+  '600':  #cf8517,
+);
+
+$s-color-feedback-prefix: 's-color-feedback-';
+
+$s-map-color-feedback-values: (
+  'info-100':       #e5f3ff,
+  'info-400':       #027ae9,
+  'success-100':    #e9fbed,
+  'success-400':    #43be5e,
+  'warn-100':       #fff8dd,
+  'warn-600':       #d3a708,
+  'error-100':      #ffece8,
+  'error-400':      #e54b29,
+);
+

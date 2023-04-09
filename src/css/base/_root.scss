@@ -5,14 +5,7 @@
     color: var(--body-font-color);
     background-color: var(--body-bgc-color);
 
-    --s-xs: .25rem;
-    --s-sm: .5rem;
-    --s-md: 1rem;
-    --s-lg: 1.5rem;
-    --s-xl: 2rem;
-    --s-xxl: 4rem;
-
-    /* Fixes */
+    // Fixes
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;

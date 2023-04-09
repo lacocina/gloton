@@ -1,0 +1,11 @@
+//@use "../settings/base/s-breakpoints" as bp;
+//
+//@custom-media --min-width--xs screen and (min-width: 600px);
+//
+//@each $key, $value in bp.$s-map-breakpoints {
+//  @custom-media --min-width--#{$key} screen and (min-width: #{$value});
+//}
+//
+//@each $key, $value in bp.$s-map-breakpoints {
+//  @custom-media --max-width--#{$key} screen and (max-width: #{$value});
+//}
