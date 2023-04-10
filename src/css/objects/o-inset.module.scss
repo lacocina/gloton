@@ -9,13 +9,13 @@
 @include current-size.t-object-current-size('o-inset');
 
 .squish {
-  padding-top: calc(var(--current-size) / 2);
-  padding-bottom: calc(var(--current-size) / 2);
+  padding-top: calc(var(--o-inset-current-size) / 2);
+  padding-bottom: calc(var(--o-inset-current-size) / 2);
 }
 
 .stretch {
-  padding-left: calc(var(--current-size) / 2);
-  padding-right: calc(var(--current-size) / 2);
+  padding-left: calc(var(--o-inset-current-size) / 2);
+  padding-right: calc(var(--o-inset-current-size) / 2);
 }
 
 .section {

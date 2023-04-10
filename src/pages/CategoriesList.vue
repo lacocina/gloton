@@ -1,81 +1,31 @@
 <template lang="pug">
-div
-  div
-    div
-      input(
-        type="text",
-        placeholder="Nombre*",
-        :class="[patata['nullInputStyles'], patata.title]"
-        )
-    div
-      input(
-        type="text",
-        placeholder="Descripción",
-        :class="patata['nullInputStyles']"
-        )
-  div
-    div
-      input(
-        type="text",
-        placeholder="0",
-        :class="[patata['nullInputStyles'], patata.price]"
-        )
-      span(:class="patata.price") €
-div
-  div
-    div
-      input(
-        type="text",
-        placeholder="Nombre*",
-        :class="[patata['nullInputStyles'], patata.title]"
-      )
-    div
-      input(
-        type="text",
-        placeholder="Descripción",
-        :class="patata['nullInputStyles']"
-      )
-  div
-    div
-      input(
-        type="text",
-        placeholder="0",
-        :class="[patata['nullInputStyles'], patata.price]"
-      )
-      span(:class="patata.price") €
+the-hero(title="hello title", subtitle="hello subtitle", :imgSrc="imgSrc")
+o-inset(size="xxl", modifier="stretch").content-page content
+the-footer
 </template>
 
 <script setup lang="ts">
+import TheHero from "@components/layout/TheHero.vue";
+import { getUrlPhoto } from "../services/unsplash";
+import { ref } from "vue";
+import TheFooter from "@components/layout/TheFooter.vue";
+import OInset from "@components/objects/OInset.vue";
+
+const imgSrc = ref('')
+
+getImage();
+async function getImage() {
+  imgSrc.value = await getUrlPhoto();
+}
 
 </script>
 
-<style lang="postcss" module="patata">
-.title {
-  font-weight: bold;
-
-  &::placeholder {
-    color: red;
-  }
-}
-
-.price {
-  font-weight: bold;
-  font-size: 1.5rem;
-  text-align: right;
-  &,
-  &::placeholder {
-    color: orange;
-  }
-}
-
-.null-input-styles {
-  width: 100%;
-  &,
-  &:focus,
-  &:active {
-    border: none;
-    padding: 0;
-    --tw-ring-color: transparent;
-  }
+<style>
+.content-page {
+  background-color: #fff;
+  margin: calc(var(--content-page-overlap) * -1) 0;
+  border-radius: var(--content-page-overlap);
+  position: relative;
+  z-index: 1;
 }
 </style>

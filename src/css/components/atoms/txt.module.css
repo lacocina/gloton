@@ -10,18 +10,23 @@
 }
 
 .title-200 {
+  font-size: var(--font-size-200);
   font-weight: var(--font-weight-700);
 }
 
 .subtitle-200 {
+  font-size: var(--font-size-200);
   font-style: italic;
+  font-weight: var(--font-weight-400);
 }
 
 .subtitle-100 {
   font-size: var(--font-size-100);
   font-style: italic;
+  font-weight: var(--font-weight-400);
 }
 
 .label {
   font-size: var(--font-size-100);
+  font-weight: var(--font-weight-400);
 }
