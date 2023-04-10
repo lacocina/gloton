@@ -6,7 +6,6 @@ button(
 </template>
 
 <script lang="ts" setup>
-import { computed } from "vue";
 import margins from "@css/margin.module.css";
 export interface Props {
   msg: string
@@ -16,21 +15,16 @@ export interface Props {
   disabled?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   buttonType: 'button',
   buttonStyle: 'primary',
   disabled: false
-})
-
-const customMarginBottom = computed( () => {
-  return props.marginButton + 'px'
 })
 
 </script>
 
 <style lang="postcss" module="patata">
 .common {
-  margin-bottom: v-bind(customMarginBottom);
   margin-top: 2rem;
 }
 

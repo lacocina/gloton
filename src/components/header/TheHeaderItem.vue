@@ -9,7 +9,7 @@ router-link(
 <script lang="ts" setup>
 import TheHeaderModule from "@css/components/molecules/the-header.module.css"
 
-const props = defineProps({
+defineProps({
   href: {
     type: String,
     required: true

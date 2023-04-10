@@ -20,7 +20,7 @@ interface Props {
   backButton?: boolean
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 </script>
 
 <style lang="scss" module="hero">

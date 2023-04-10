@@ -11,7 +11,7 @@ interface Props {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl',
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 
 </script>
 

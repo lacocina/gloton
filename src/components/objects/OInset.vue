@@ -12,7 +12,7 @@ interface Props {
   modifier?: 'stretch' | 'squish' | 'section'
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 
 </script>
 
