@@ -5,12 +5,12 @@ const unsplashApi = createApi({
 })
 
 export async function getUrlPhoto() {
-    return await unsplashApi.photos.get(
+    const result = await unsplashApi.photos.get(
         { photoId: 'HlNcigvUi4Q' },
-    ).then(result => {
-        if (result.type === 'success') {
-            const photo = result.response
-            return photo.urls.regular
-        }
-    }).catch(Error)
+    )
+    if (result.type === 'success') {
+        const photo = result.response
+        return photo.urls.regular
+    }
+    throw new Error()
 }

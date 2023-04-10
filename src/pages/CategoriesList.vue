@@ -1,7 +1,9 @@
-<template lang="pug">
-the-hero(title="hello title", subtitle="hello subtitle", :imgSrc="imgSrc")
-o-inset(size="xxl", modifier="stretch").content-page content
-the-footer
+<template>
+  <the-hero title="hello title" subtitle="hello subtitle" :imgSrc="imgSrc"/>
+  <o-inset class="content-page" size="xxl" modifier="stretch">
+    content
+  </o-inset>
+  <the-footer/>
 </template>
 
 <script setup lang="ts">
@@ -11,7 +13,7 @@ import { ref } from "vue";
 import TheFooter from "@components/layout/TheFooter.vue";
 import OInset from "@components/objects/OInset.vue";
 
-const imgSrc = ref('')
+const imgSrc = ref<String>('')
 
 getImage();
 async function getImage() {
