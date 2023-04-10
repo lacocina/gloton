@@ -5,7 +5,6 @@ div(:class="[oStack.oStack, oStack[size]]")
 
 <script lang="ts" setup>
 import oStack from '@css/objects/o-stack.module.css';
-import { defineProps } from 'vue';
 
 interface Props {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl',

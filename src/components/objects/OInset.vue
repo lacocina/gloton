@@ -5,7 +5,6 @@ div(:class="[oInset.oInset, oInset[size], oInset[modifier]]")
 
 <script lang="ts" setup>
 import oInset from '@css/objects/o-inset.module.css';
-import { defineProps } from 'vue';
 
 interface Props {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl',
@@ -13,6 +12,5 @@ interface Props {
 }
 
 defineProps<Props>();
-
 </script>
 
