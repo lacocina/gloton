@@ -22,7 +22,7 @@ defineProps<Props>()
 
 const imgSrc = ref<String>('')
 async function getImage() {
-    imgSrc.value = await getUrlPhoto();
+    imgSrc.value = await getUrlPhoto('HlNcigvUi4Q');
 }
 getImage();
 </script>
