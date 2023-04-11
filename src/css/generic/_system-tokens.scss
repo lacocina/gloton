@@ -11,9 +11,12 @@
   --font-weight-bold:         var(--font-weight-700);
 
   --motion-duration:          var(--transition-duration-500);
+
+  --bgc-color-softest:        var(--color-brand-primary-50)
 }
 
 .dark {
   --content-page-font-color:  var(--color-gray-100);
   --content-page-bgc-color:   var(--color-gray-900);
+  --bgc-color-softest:        var(--color-gray-800);
 }
