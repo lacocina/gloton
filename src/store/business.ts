@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { Business } from "../types/Business";
-import { api } from "../services/api";
+import { MenuCategory } from "../types/MenuCategory";
+// import { api } from "../services/api";
 export const useBusinessStore = () => {
     const businessStore = defineStore('business', {
         state: () => ({
@@ -10,7 +11,9 @@ export const useBusinessStore = () => {
         }),
         getters: {
             getName: (state) => state.business?.name,
-            getMenu: (state) => state.business?.menu
+            getMenuCategories(state): MenuCategory[] | undefined {
+                return state.business?.menu.categories
+            }
         },
         actions:  {
             async fetchBusiness() {
