@@ -1,18 +1,19 @@
 :root {
-  --global-accent-color:    var(--color-brand-primary-500);
+  --global-accent-color:      var(--color-brand-primary-500);
 
-  --body-font-color:        var(--color-gray-900);
-  --body-bgc-color:         var(--color-gray-900);
+  --content-page-font-color:  var(--color-gray-900);
+  --body-bgc-color:           var(--color-gray-900);
 
-  --font-weight-normal: var(--font-weight-400);
-  --font-weight-bold: var(--font-weight-700);
+  --content-page-bgc-color:   white;
+  --content-page-overlap:     var(--border-radius-xl);
 
-  --content-page-overlap: var(--border-radius-xl)
+  --font-weight-normal:       var(--font-weight-400);
+  --font-weight-bold:         var(--font-weight-700);
+
+  --motion-duration:          var(--transition-duration-500);
 }
 
-//@media (prefers-color-scheme: light) {
-//  :root {
-//    --body-font-color: var(--color-gray-900);
-//    --body-bgc-color: white;
-//  }
-//}
+.dark {
+  --content-page-font-color:  var(--color-gray-100);
+  --content-page-bgc-color:   var(--color-gray-900);
+}

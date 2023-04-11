@@ -1,5 +1,7 @@
 .content-page {
-  background-color: #fff;
+  color: var(--content-page-font-color);
+  background-color: var(--content-page-bgc-color);
+  transition: var(--motion-duration);
   margin: calc(var(--content-page-overlap) * -1) 0;
   border-radius: var(--content-page-overlap);
   position: relative;

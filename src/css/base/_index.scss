@@ -4,7 +4,7 @@
 a {
   text-decoration: none;
   color: inherit;
-  transition: .3s;
+  transition: var(--motion-duration);
 }
 
 img {

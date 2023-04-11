@@ -17,7 +17,6 @@ import PageTemplate from "@components/layout/PageTemplate.vue";
 const businessStore = useBusinessStore()
 
 const businessName = computed(() => {
-    console.log(businessStore.business)
     return businessStore.business?.name ?? ''
 })
 </script>

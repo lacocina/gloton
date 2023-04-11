@@ -1,0 +1,13 @@
+.light-dark-mode {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: var(--motion-duration);
+}
+.light-dark-mode:hover {
+  color: var(--global-accent-color);
+  transform: scale(1.05);
+}
+
+/*# sourceMappingURL=light-dark-mode.module.css.map */

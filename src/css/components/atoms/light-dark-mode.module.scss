@@ -1,0 +1,12 @@
+.light-dark-mode {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: var(--motion-duration);
+
+  &:hover {
+    color: var(--global-accent-color);
+    transform: scale(1.05);
+  }
+}
