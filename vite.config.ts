@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import path from "node:path"
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ mode }) => {
     const dev = mode === 'development';
     return {
         plugins: [vue()],
