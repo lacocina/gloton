@@ -13,6 +13,7 @@ export default defineConfig(({ command, mode }) => {
                 'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
                 '@assets': path.resolve('./src/assets'),
                 '@css': path.resolve('./src/css'),
+                '@store': path.resolve('./src/store'),
                 '@components': path.resolve('./src/components')
             },
         },
