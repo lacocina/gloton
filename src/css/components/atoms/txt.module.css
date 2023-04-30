@@ -20,6 +20,10 @@
   font-weight: var(--font-weight-700);
 }
 
+.body-300 {
+  font-size: var(--font-size-300);
+}
+
 .subtitle-200 {
   font-size: var(--font-size-200);
   font-style: italic;
