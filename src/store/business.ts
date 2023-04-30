@@ -11,14 +11,19 @@ export const useBusinessStore = () => {
         }),
         getters: {
             getName: (state) => state.business?.name,
+            getCategoryById: (state) => {
+                return (categoryId: number) => state.business?.menu.categories.find((category) => category.id === categoryId)
+            },
             getMenuCategories(state): MenuCategory[] | undefined {
-                return state.business?.menu.categories
+                return state.business?.menu.categories.filter((category) => {
+                    return category.show && category.items
+                })
             }
         },
         actions:  {
             async fetchBusiness() {
                 try {
-                    // await new Promise((resolve) => setTimeout(resolve, 2000))
+                    await new Promise((resolve) => setTimeout(resolve, 2000))
                     const businessResponse = await fetch('https://gloton-app-default-rtdb.europe-west1.firebasedatabase.app/businesses.json')
                     const businessJson = await businessResponse.json()
                     this.business = businessJson[0]

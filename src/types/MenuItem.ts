@@ -1,5 +1,6 @@
 export interface MenuItem {
     name: string,
     price: number,
-    ingredients?: string[]
+    description?: string
+    show: boolean
 }

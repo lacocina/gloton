@@ -1,8 +1,11 @@
 <template>
-<router-link to="/" @click="clickCard" :class="[cardModule.card, oInsetModule.oInset]">
+<router-link :to="href" :class="[cardModule.card, oInsetModule.oInset]">
     <div v-if="imgSrc" :class="cardModule.imageWrapper">
-        <img :src="imgSrc"/>
+        <img :alt="title" :src="imgSrc"/>
     </div>
+    <span v-if="leftIcon" :class="cardModule.leftIcon" class="material-symbols-rounded">
+        {{ leftIcon }}
+    </span>
     <div :class="[cardModule.content, oStackModule.oStack, oStackModule.xxs]">
         <h3 :class="[txt.hero200, cardModule.title]">
             {{ title }}
@@ -10,7 +13,7 @@
         <p :class="txt.subtitle100">{{ description }}</p>
         <em :class="[txt.subtitle100, uTextAlignModule.right]">{{ actionText }}</em>
     </div>
-    <span v-if="rightArrow" class="material-symbols-rounded">
+    <span v-if="rightArrow" :class="cardModule.rightArrow" class="material-symbols-rounded">
         chevron_right
     </span>
 </router-link>
@@ -26,20 +29,14 @@ import uTextAlignModule from "@css/utilities/u-text-align.module.css"
 interface Props {
     imgSrc?: string
     title: string
-    cardId: number
+    href: string
     description?: string
     actionText?: string
     rightArrow?: boolean
+    leftIcon?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
     rightArrow: false
 })
-
-const emit = defineEmits(['click-card'])
-
-function clickCard() {
-    emit('click-card', props.cardId)
-}
-
 </script>

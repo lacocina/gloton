@@ -1,0 +1,13 @@
+.menu-item {
+  display: grid;
+  justify-content: space-between;
+  grid-auto-flow: column;
+}
+
+.price {
+  color: var(--color-brand-primary-500);
+}
+
+.description {
+  color: var(--color-gray-500);
+}

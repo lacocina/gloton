@@ -23,6 +23,10 @@
   flex: 1;
 }
 
-.title {
+.title, .right-arrow {
   color: var(--color-brand-primary-500);
+}
+
+.left-icon {
+  color: var(--color-brand-primary-300);
 }

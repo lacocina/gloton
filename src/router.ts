@@ -6,7 +6,7 @@ import CssDocs from "./pages/CssDocs.vue";
 
 const routes: RouteRecordRaw[] = [
     { path: '/', component: CategoriesList },
-    { path: '/detail', component: CategoryDetail },
+    { path: '/detail/:categoryId', component: CategoryDetail, props: true },
     { path: '/management', component: CategoriesManagement },
     { path: '/css', component: CssDocs }
 ]

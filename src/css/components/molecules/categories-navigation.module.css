@@ -1,0 +1,22 @@
+.categories-navigation {
+  display: flex;
+  gap: 1rem;
+  max-width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  color: var(--color-gray-500);
+}
+.categories-navigation::-webkit-scrollbar {
+  display: none;
+}
+
+.item:hover,
+.active {
+  color: var(--color-brand-primary-500);
+}
+
+/*# sourceMappingURL=categories-navigation.module.css.map */
