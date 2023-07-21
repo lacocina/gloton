@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
 import { Business } from "../types/Business";
 import { MenuCategory } from "../types/MenuCategory";
-// import { api } from "../services/api";
+import { api } from "../services/api";
+
 export const useBusinessStore = () => {
     const businessStore = defineStore('business', {
         state: () => ({
@@ -24,11 +25,8 @@ export const useBusinessStore = () => {
             async fetchBusiness() {
                 try {
                     await new Promise((resolve) => setTimeout(resolve, 2000))
-                    const businessResponse = await fetch('https://gloton-app-default-rtdb.europe-west1.firebasedatabase.app/businesses.json')
-                    const businessJson = await businessResponse.json()
-                    this.business = businessJson[0]
-                    // const axiosRes = await api.get('/businesses')
-                    // console.log(axiosRes)
+                    const { data } = await api.get<Business[]>('/businesses.json')
+                    this.business = data[0]
                 } catch (e) {
                     this.error = e
                 } finally {

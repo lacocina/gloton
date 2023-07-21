@@ -1,4 +1,4 @@
 import axios from "axios";
 export const api = axios.create({
-    baseURL: "http://localhost:3000"
+    baseURL: "https://gloton-app-default-rtdb.europe-west1.firebasedatabase.app/"
 })
