@@ -23,14 +23,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed } from "vue";
+import { computedAsync } from "@vueuse/core"
 import { useBusinessStore } from "@store/business"
+import type { MenuCategory } from "../types/MenuCategory";
+import { getUrlPhoto } from "../services/unsplash";
 import PageTemplate from "@components/layout/PageTemplate.vue"
 import BaseCard from "@components/ui/BaseCard.vue"
 import OStack from "@components/objects/OStack.vue"
 import txt from "@css/components/atoms/txt.module.css"
-import { getUrlPhoto } from "../services/unsplash";
-import { MenuCategory } from "../types/MenuCategory";
 
 const businessStore = useBusinessStore()
 
@@ -42,10 +43,5 @@ const menuCategories = computed(() : MenuCategory[] | undefined => {
     return businessStore.getMenuCategories
 })
 
-const imgSrc = ref<String>('')
-async function getImage() {
-    imgSrc.value = await getUrlPhoto('nzyzAUsbV0M');
-}
-
-getImage();
+const imgSrc = computedAsync(() => getUrlPhoto('nzyzAUsbV0M'))
 </script>

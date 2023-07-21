@@ -24,7 +24,7 @@ export const useBusinessStore = () => {
         actions:  {
             async fetchBusiness() {
                 try {
-                    await new Promise((resolve) => setTimeout(resolve, 2000))
+                    // await new Promise((resolve) => setTimeout(resolve, 2000))
                     const { data } = await api.get<Business[]>('/businesses.json')
                     this.business = data[0]
                 } catch (e) {

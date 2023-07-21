@@ -1,4 +1,4 @@
-import { MenuItem } from "./MenuItem";
+import type { MenuItem } from "./MenuItem.ts";
 
 export interface MenuCategory {
     id: number,

@@ -7,12 +7,12 @@
 </template>
 
 <script lang="ts" setup>
+import { getUrlPhoto } from "../../services/unsplash";
+import { computedAsync } from "@vueuse/core";
 import ContentPageModule from "@css/components/molecules/content-page.module.css"
 import TheFooter from "@components/layout/TheFooter.vue";
 import TheHero from "@components/layout/TheHero.vue";
 import OInset from "@components/objects/OInset.vue";
-import { ref } from "vue";
-import { getUrlPhoto } from "../../services/unsplash";
 
 interface Props {
     title: string,
@@ -20,9 +20,5 @@ interface Props {
 }
 defineProps<Props>()
 
-const imgSrc = ref<String>('')
-async function getImage() {
-    imgSrc.value = await getUrlPhoto('HlNcigvUi4Q');
-}
-getImage();
+const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))
 </script>
