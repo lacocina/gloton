@@ -4,7 +4,7 @@
       <img :src="imgSrc" :alt="title">
   </div>
   <div v-if="backButton" :class="heroModule.nav">
-    <router-link :to="'/admin'" :class="heroModule.backButton" class="material-symbols-rounded">
+    <router-link :to="backPath" :class="heroModule.backButton" class="material-symbols-rounded">
         arrow_back_ios_new
     </router-link>
   </div>
@@ -18,6 +18,9 @@
 <script lang="ts" setup>
 import heroModule from "@css/components/molecules/hero.module.css"
 import txt from "@css/components/atoms/txt.module.css"
+import { useRouter } from "vue-router";
+
+const router = useRouter()
 
 interface Props {
   title: string,
@@ -30,4 +33,5 @@ withDefaults(defineProps<Props>(), {
     backButton: false
 })
 
+const backPath = router.currentRoute.value.matched[0].path
 </script>
