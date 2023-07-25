@@ -1,5 +1,5 @@
 <template>
-    <the-hero :title="title" :subtitle="subtitle" :imgSrc="imgSrc"/>
+    <the-hero :title="title" :subtitle="subtitle" :imgSrc="imgSrc" :back-button="backButton"/>
     <o-inset :class="ContentPageModule.contentPage" size="xxl" modifier="stretch">
         <slot></slot>
     </o-inset>
@@ -17,8 +17,12 @@ import OInset from "@components/objects/OInset.vue";
 interface Props {
     title: string,
     subtitle?: string
+    backButton?: boolean
 }
-defineProps<Props>()
+
+withDefaults(defineProps<Props>(), {
+    backButton: false
+})
 
 const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))
 </script>

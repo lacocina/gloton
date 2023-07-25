@@ -3,8 +3,10 @@
   <div :class="heroModule.imgWrapper">
       <img :src="imgSrc" :alt="title">
   </div>
-  <div v-if="false" :class="heroModule.nav">
-    top
+  <div v-if="backButton" :class="heroModule.nav">
+    <router-link :to="'/admin'" :class="heroModule.backButton" class="material-symbols-rounded">
+        arrow_back_ios_new
+    </router-link>
   </div>
   <div :class="heroModule.main">
     <h1 :class="txt.hero400">{{ title }}</h1>
@@ -24,5 +26,8 @@ interface Props {
   backButton?: boolean
 }
 
-defineProps<Props>();
+withDefaults(defineProps<Props>(), {
+    backButton: false
+})
+
 </script>
