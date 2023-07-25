@@ -33,5 +33,6 @@ withDefaults(defineProps<Props>(), {
     backButton: false
 })
 
-const backPath = router.currentRoute.value.matched[0].path
+// const backPath = router.currentRoute.value.matched[0].path
+const backPath = '/admin/home'
 </script>
