@@ -15,5 +15,5 @@
 <script lang="ts" setup>
 import TheHeader from './components/header/TheHeader.vue'
 import OPageModule from "@css/objects/o-page.module.css"
-import OInset from "@components/objects/OInset.vue";
+import OInset from "@components/objects/OInset.vue"
 </script>
