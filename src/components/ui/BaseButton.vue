@@ -1,14 +1,13 @@
 <template>
 <button :type="buttonType" :class="[patata.common, patata[buttonStyle], margins.marginTop]">
-    {{ msg }}
+    <slot/>
 </button>
 </template>
 
 <script lang="ts" setup>
 import margins from "@css/margin.module.css";
 export interface Props {
-  msg: string
-  marginButton: 10 | 20
+  marginButton?: 10 | 20
   buttonType?: 'button' | 'submit'
   buttonStyle?: 'primary' | 'secondary'
   disabled?: boolean

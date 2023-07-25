@@ -29,8 +29,8 @@
   </div>
   <button type="submit">Dale!</button>
   <div>
-    <base-button msg="Hello 3" :margin-button="10"/>
-    <base-button msg="Hello 2" button-style="secondary" :margin-button="10"/>
+    <base-button :margin-button="10">Hello 3</base-button>
+    <base-button button-style="secondary" :margin-button="10">Hello 2</base-button>
   </div>
 </form>
 </template>
