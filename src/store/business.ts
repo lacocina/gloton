@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
-import { Business } from "../types/Business";
-import { MenuCategory } from "../types/MenuCategory";
 import { api } from "../services/api";
+import type { Business } from "../types/Business";
+import type { MenuCategory } from "../types/MenuCategory";
 
 export const useBusinessStore = () => {
     const businessStore = defineStore('business', {
