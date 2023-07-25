@@ -1,7 +1,10 @@
-<template lang="pug">
-footer(:class="theFooterModule.footer")
-  span(:class="theFooterModule.powered") Powered by Gloton.app
-  h1(:class="txt.hero400") Umai
+<template>
+<footer :class="theFooterModule.footer">
+  <span :class="theFooterModule.powered">
+    Powered by Gloton.app
+  </span>
+  <h1 :class="txt.hero400">Umai</h1>
+</footer>
 </template>
 
 <script setup>

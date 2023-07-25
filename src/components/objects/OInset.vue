@@ -1,6 +1,7 @@
-<template lang="pug">
-div(:class="[oInset.oInset, oInset[size], oInset[modifier]]")
-  slot
+<template>
+<div :class="[oInset.oInset, oInset[size], oInset[modifier]]">
+  <slot/>
+</div>
 </template>
 
 <script lang="ts" setup>

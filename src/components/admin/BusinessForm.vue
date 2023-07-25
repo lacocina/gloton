@@ -1,28 +1,38 @@
-<template lang="pug">
-form.business-form.grid.gap-4(@submit.prevent='submitForm')
-  div
-    span.material-symbols-rounded storefront
-    div
-      label Nombre del local*
-    input(type="text"
-      v-model.trim="name.val"
-      :class="inputErrorStyle(name.isValid)"
-      :placeholder="$t('business.form.name')"
-      @blur="validateItem('name')")
-    span(v-if="!name.isValid") Debes rellenar el nombre
-  div
-    label
-      | Numero de calle*
-    input(type="number"
-      v-model.trim="address.val"
-      :class="inputErrorStyle(address.isValid)"
-      :placeholder="$t('business.form.streetNumber')"
-      @blur="validateItem('address')")
-    span(v-if="!address.isValid") Debes poner el número de calle
-  button(type="submit") Dale!
-  div
-    base-button(msg="Hello 3", :margin-button="10")
-    base-button(msg="Hello 2", button-style="secondary", :margin-button="10")
+<template>
+<form @submit.prevent='submitForm' class="business-form grid gap-4">
+  <div>
+    <span class="material-symbols-rounded">
+      storefront
+    </span>
+    <div>
+      <label>Numero del local *</label>
+    </div>
+    <input type="text"
+           v-model.trim="name.val"
+           :class="inputErrorStyle(name.isValid)"
+           :placeholder="$t('business.form.name')"
+           @blur="validateItem('name')"/>
+    <span v-if="!name.isValid">
+      Debes rellenar el nombre
+    </span>
+  </div>
+  <div>
+    <label>Numero de calle *</label>
+    <input type="number"
+           v-model.trim="address.val"
+           :class="inputErrorStyle(address.isValid)"
+           :placeholder="$t('business.form.streetNumber')"
+           @blur="validateItem('address')"/>
+    <span v-if="!address.isValid">
+        Debes poner el número de calle
+    </span>
+  </div>
+  <button type="submit">Dale!</button>
+  <div>
+    <base-button msg="Hello 3" :margin-button="10"/>
+    <base-button msg="Hello 2" button-style="secondary" :margin-button="10"/>
+  </div>
+</form>
 </template>
 
 <script lang="ts" setup>

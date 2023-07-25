@@ -1,9 +1,9 @@
-<template lang="pug">
-router-link(
-  :to="href"
-  :class="TheHeaderModule.item"
-  :active-class="TheHeaderModule.active"
-  ) {{ text }}
+<template>
+<router-link :to="href"
+             :class="TheHeaderModule.item"
+             :active-class="TheHeaderModule.active">
+  {{ text }}
+</router-link>
 </template>
 
 <script lang="ts" setup>

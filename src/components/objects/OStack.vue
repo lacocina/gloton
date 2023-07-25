@@ -1,6 +1,7 @@
-<template lang="pug">
-div(:class="[oStack.oStack, oStack[size]]")
-  slot
+<template>
+<div :class="[oStack.oStack, oStack[size]]">
+  <slot/>
+</div>
 </template>
 
 <script lang="ts" setup>

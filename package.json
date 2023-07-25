@@ -32,7 +32,6 @@
     "postcss-import": "^15.1.0",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.2.0",
-    "pug": "^3.0.2",
     "sass": "^1.60.0",
     "sass-loader": "^13.2.2",
     "style-dictionary": "^3.7.2",

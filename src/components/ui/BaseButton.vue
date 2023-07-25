@@ -1,8 +1,7 @@
-<template lang="pug">
-button(
-  :type="buttonType"
-  :class="[patata.common, patata[buttonStyle], margins.marginTop]"
-) {{ msg }}
+<template>
+<button :type="buttonType" :class="[patata.common, patata[buttonStyle], margins.marginTop]">
+    {{ msg }}
+</button>
 </template>
 
 <script lang="ts" setup>

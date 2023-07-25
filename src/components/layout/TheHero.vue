@@ -1,12 +1,16 @@
-<template lang="pug">
-section(:class="heroModule.hero")
-  div(:class="heroModule.imgWrapper")
-    img(:src="imgSrc")
-  div(v-if="false", :class="heroModule.nav")
-    | top
-  div(:class="heroModule.main")
-    h1(:class="txt.hero400") {{ title }}
-    h2(:class="txt.subtitle200") {{ subtitle }}
+<template>
+<section :class="heroModule.hero">
+  <div :class="heroModule.imgWrapper">
+      <img :src="imgSrc" :alt="title">
+  </div>
+  <div v-if="false" :class="heroModule.nav">
+    top
+  </div>
+  <div :class="heroModule.main">
+    <h1 :class="txt.hero400">{{ title }}</h1>
+    <h2 :class="txt.subtitle200">{{ subtitle }}</h2>
+  </div>
+</section>
 </template>
 
 <script lang="ts" setup>

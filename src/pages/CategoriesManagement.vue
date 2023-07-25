@@ -1,18 +1,23 @@
-<template lang="pug">
-business-form
+<template>
+<business-form>
+<div>
+  <button @click="changeName">
+    Change name
+  </button>
+  <div>
+    {{ menuStore.getName }}
+  </div>
+</div>
+<div>
+  <button @click="menuStore.addItem()">
+      add item
+  </button>
+  <div v-for="item in menuStore.getMenu">
+    {{ item.name }}
+  </div>
+</div>
+</business-form>
 
-div
-  button(@click="changeName")
-    | Change name
-  div
-    | {{ menuStore.getName }}
-div
-  button(@click="menuStore.addItem()")
-    | add item
-  div(
-    v-for="item in menuStore.getMenu"
-  )
-    | {{ item.name }}
 </template>
 
 <script setup lang="ts">
