@@ -2,7 +2,7 @@
 <header :class="TheHeaderModule.theHeader">
   <nav :class="TheHeaderModule.nav">
     <the-header-item href="/" text="Front"/>
-    <the-header-item href="/management" text="Admin"/>
+    <the-header-item href="/admin" text="Admin"/>
     <the-header-item href="/css" text="CSS Docs"/>
   </nav>
   <light-dark-mode/>
