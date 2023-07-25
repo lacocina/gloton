@@ -10,8 +10,8 @@
         <h3 :class="[txt.hero200, cardModule.title]">
             {{ title }}
         </h3>
-        <p :class="txt.subtitle100">{{ description }}</p>
-        <em :class="[txt.subtitle100, uTextAlignModule.right]">{{ actionText }}</em>
+        <p v-if="description" :class="txt.subtitle100">{{ description }}</p>
+        <em v-if="actionText" :class="[txt.subtitle100, uTextAlignModule.right]">{{ actionText }}</em>
     </div>
     <span v-if="rightArrow" :class="cardModule.rightArrow" class="material-symbols-rounded">
         chevron_right
