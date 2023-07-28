@@ -21,17 +21,14 @@ export const useAdminStore = defineStore('admin', {
         async fetchUserData() {
             this.userLoading = true
             try {
-                this.user = {
-                    name: 'Antonio',
-                    lastname: 'De Jesús',
-                    email: 'adjesus@gmail.com',
-                    phoneNumber: 444444,
-                    businessList: [0]
-                }
+                // TODO Poner el userId en base al login
+                const userId: number = 1
+                const userResponse = await api.get<User>(`users/${userId}.json`)
+                this.user = userResponse.data
 
-                const businessId = this.user.businessList?.[0]
-                const { data } = await api.get<Business>(`businesses/${businessId}.json`)
-                this.business = data
+                const businessId = this.user?.businessList?.[0]
+                const businessResponse = await api.get<Business>(`businesses/${businessId}.json`)
+                this.business = businessResponse.data
 
             } catch (e) {
                 console.error(e)
