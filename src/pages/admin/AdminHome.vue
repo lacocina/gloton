@@ -24,8 +24,8 @@
 </template>
 
 <script lang="ts" setup>
-import OStack from "@components/objects/OStack.vue";
-import BaseCard from "@components/ui/BaseCard.vue";
+import OStack from "@components/objects/OStack.vue"
+import BaseCard from "@components/ui/BaseCard.vue"
 </script>
 
 <style scoped>

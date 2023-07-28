@@ -1,0 +1,15 @@
+.base-input {
+  display: grid;
+  row-gap: var(--spacing-rem-xs);
+}
+
+.input {
+  font-size: var(--font-size-200);
+  padding: var(--spacing-rem-md) var(--spacing-rem-sm);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--border-radius-xs);
+}
+
+.label {
+  font-size: var(--font-size-100);
+}
