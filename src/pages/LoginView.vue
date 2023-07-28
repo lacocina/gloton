@@ -1,6 +1,8 @@
 <template>
 <div>
-    <base-button @click="addUser">Añadir usuario</base-button>
+    <div v-if="adminStore.getUserLoading">Cargando...</div>
+    <base-button v-else @click="addUser">Añadir usuario</base-button>
+    <base-button @click="goToAdmin">ves a admin</base-button>
 </div>
 </template>
 
@@ -13,12 +15,16 @@ const adminStore = useAdminStore()
 const router = useRouter()
 async function addUser() {
     try {
-        await adminStore.fetchUserData()
-        await router.push({
-            name: 'admin-home'
+        await adminStore.fetchUserData().then(() => {
+            goToAdmin()
         })
     } catch (e) {
         console.error(e)
     }
 }
+
+function goToAdmin() {
+    router.push({ path: '/admin' });
+}
+
 </script>

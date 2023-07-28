@@ -9,7 +9,8 @@ export const useAdminStore = defineStore('admin', {
     }),
 
     getters: {
-        getUser: (state) => state.user
+        getUser: (state) => state.user,
+        getUserLoading: (state) => state.userLoading
     },
 
     actions: {
@@ -23,10 +24,7 @@ export const useAdminStore = defineStore('admin', {
                     phoneNumber: 444444,
                     businessList: [0]
                 }
-                setTimeout(() => {
-                    this.user = newUser
-                    console.log('Usuario cargado')
-                }, 3000)
+                this.user = newUser
             } catch (e) {
                 console.error(e)
             } finally {
