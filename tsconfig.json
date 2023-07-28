@@ -17,6 +17,7 @@
     "types": ["vitest/globals"],
     "paths": {
       "@components/*": ["./src/components/*"],
+      "@types/*": ["./src/types/*"],
       "@css/*": ["./src/css/*"],
       "@store/*": ["./src/store/*"],
     }

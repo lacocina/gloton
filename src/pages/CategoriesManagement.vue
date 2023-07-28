@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { useMenuStore } from "../store/menu";
+import { useMenuStore } from "@store/front/menu.ts";
 import BusinessForm from "../components/admin/BusinessForm.vue";
 
 const menuStore = useMenuStore()

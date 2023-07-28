@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { useRoute } from "vue-router"
-import { useBusinessStore } from "@store/business"
+import { useBusinessStore } from "@store/front/business.ts"
 import { computed } from "vue";
 import PageTemplate from "@components/layout/PageTemplate.vue";
 import MenuItem from "@components/menu/MenuItem.vue";

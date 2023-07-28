@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
-import { useAdminStore } from "@store/admin.ts";
+import { useAdminStore } from "@store/backoffice/admin.ts";
 
 // Admin
 import LoginView from "./pages/LoginView.vue"

@@ -11,8 +11,8 @@
 
 <script lang="ts" setup>
 import { computed, onMounted, onUpdated } from "vue"
-import { useBusinessStore } from "@store/business"
-import { MenuCategory } from "../../types/MenuCategory"
+import { useBusinessStore } from "@store/front/business.ts"
+import type { MenuCategory } from "@types/MenuCategory"
 import { useRoute } from "vue-router";
 import CategoriesNavigationModule from "@css/components/molecules/categories-navigation.module.css";
 

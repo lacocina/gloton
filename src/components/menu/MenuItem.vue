@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import txt from "@css/components/atoms/txt.module.css"
 import MenuItemModule from "@css/components/molecules/menu-item.module.css"
-import { MenuItem } from "../../types/MenuItem"
+import type { MenuItem } from "@types/MenuItem"
 
 interface Props {
     item: MenuItem

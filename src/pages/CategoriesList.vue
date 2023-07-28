@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { computedAsync } from "@vueuse/core"
-import { useBusinessStore } from "@store/business"
+import { useBusinessStore } from "@store/front/business.ts"
 import type { MenuCategory } from "../types/MenuCategory";
 import { getUrlPhoto } from "../services/unsplash";
 import PageTemplate from "@components/layout/PageTemplate.vue"

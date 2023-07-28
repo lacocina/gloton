@@ -1,11 +1,13 @@
 import { defineStore } from "pinia"
-import { api } from "../services/api"
-import type { User } from "../types/User.ts";
+import { api } from "../../services/api.ts"
+import type { User } from "@types/User.ts";
+import type { Business } from "@types/Business.ts";
 
 export const useAdminStore = defineStore('admin', {
     state: () => ({
         user: null as User | null,
-        userLoading: false as boolean
+        business: null as Business | null,
+        userLoading: false as boolean,
     }),
 
     getters: {
@@ -17,14 +19,18 @@ export const useAdminStore = defineStore('admin', {
         async fetchUserData() {
             this.userLoading = true
             try {
-                const newUser: User = {
+                this.user = {
                     name: 'Antonio',
                     lastname: 'De Jesús',
                     email: 'adjesus@gmail.com',
                     phoneNumber: 444444,
                     businessList: [0]
                 }
-                this.user = newUser
+
+                const businessId = this.user.businessList?.[0]
+                const { data } = await api.get<Business>(`businesses/${businessId}.json`)
+                this.business = data
+
             } catch (e) {
                 console.error(e)
             } finally {

@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
-import { api } from "../services/api";
-import type { Business } from "../types/Business";
-import type { MenuCategory } from "../types/MenuCategory";
+import { api } from "../../services/api.ts";
+import type { Business } from "@types/Business.ts";
+import type { MenuCategory } from "@types/MenuCategory.ts";
 
 export const useBusinessStore = () => {
     const businessStore = defineStore('business', {
@@ -24,7 +24,6 @@ export const useBusinessStore = () => {
         actions:  {
             async fetchBusiness() {
                 try {
-                    // await new Promise((resolve) => setTimeout(resolve, 2000))
                     const { data } = await api.get<Business[]>('/businesses.json')
                     this.business = data[0]
                 } catch (e) {
