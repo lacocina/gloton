@@ -1,6 +1,8 @@
 import { defineStore } from "pinia"
 import { api } from "../../services/api.ts"
+// @ts-ignore TODO
 import type { User } from "@types/User.ts";
+// @ts-ignore TODO
 import type { Business } from "@types/Business.ts";
 
 export const useAdminStore = defineStore('admin', {
