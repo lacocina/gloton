@@ -31,27 +31,42 @@ const routes: RouteRecordRaw[] = [
             {
                 path: '/admin/home',
                 name: 'admin-home',
-                component: AdminHome
+                component: AdminHome,
+                meta: {
+                    pageHeader: 'home'
+                }
             },
             {
                 path: '/admin/user',
                 name: 'admin-user',
-                component: AdminUser
+                component: AdminUser,
+                meta: {
+                    pageHeader: 'user'
+                }
             },
             {
                 path: '/admin/business',
                 name: 'admin-business',
-                component: AdminBusiness
+                component: AdminBusiness,
+                meta: {
+                    pageHeader: 'business'
+                }
             },
             {
                 path: '/admin/menu',
                 name: 'admin-menu',
-                component: AdminMenu
+                component: AdminMenu,
+                meta: {
+                    pageHeader: 'menu'
+                }
             },
             {
                 path: '/admin/general-settings',
                 name: 'admin-general-settings',
-                component: AdminGeneralSettings
+                component: AdminGeneralSettings,
+                meta: {
+                    pageHeader: 'settings'
+                }
             }
         ]
     },

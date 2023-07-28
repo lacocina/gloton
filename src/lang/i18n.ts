@@ -5,6 +5,7 @@ import { enUS } from './locales/en-US'
 type MessageSchema = typeof esES
 
 export const i18n = createI18n<[MessageSchema], 'es-ES' | 'en-US'>({
+    legacy: false,
     locale: 'es-ES',
     messages: {
         'es-ES': esES,

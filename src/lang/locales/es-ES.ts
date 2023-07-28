@@ -7,5 +7,14 @@ export const esES = {
             "name": "Nombre",
             "streetNumber": "Número de calle"
         }
+    },
+    "admin": {
+        "pageHeaders": {
+            "home" : "Admin",
+            "user" : "Usuario",
+            "business" : "Restaurante",
+            "menu" : "Menu",
+            "settings" : "Configuración",
+        }
     }
 }
