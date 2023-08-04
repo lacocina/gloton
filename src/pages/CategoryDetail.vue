@@ -13,19 +13,29 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from "vue-router"
+import { useRoute, useRouter } from "vue-router"
 import { useBusinessStore } from "@store/front/business.ts"
-import { computed } from "vue";
-import PageTemplate from "@components/layout/PageTemplate.vue";
-import MenuItem from "@components/menu/MenuItem.vue";
-import OStack from "@components/objects/OStack.vue";
-import CategoriesNavigation from "@components/menu/CategoriesNavigation.vue";
+import { computed, onBeforeMount } from "vue"
+import PageTemplate from "@components/layout/PageTemplate.vue"
+import MenuItem from "@components/menu/MenuItem.vue"
+import OStack from "@components/objects/OStack.vue"
+import CategoriesNavigation from "@components/menu/CategoriesNavigation.vue"
 
 const businessStore = useBusinessStore()
-
 const route = useRoute()
+const router = useRouter()
+
 const currentCategory = computed(() => {
   return businessStore.getCategoryById(Number(route.params.categoryId))
 })
 
+function handleOnEnter() {
+    const categories = businessStore.getMenuCategories
+    const categoryHasItems = categories?.some((category) => category.id === Number(route.params.categoryId))
+    if (!categoryHasItems) {
+        router.push({ path: '/' });
+    }
+}
+
+onBeforeMount(() => handleOnEnter())
 </script>
