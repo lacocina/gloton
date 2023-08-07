@@ -1,5 +1,6 @@
 <template>
-<div :class="MenuItemModule.menuItem">
+<!-- TODO - El v-if debería tenerlo el padre -->
+<div :class="MenuItemModule.menuItem" v-if="item.show">
     <div>
       <h2 :class="txt.title200">{{ item.name }}</h2>
       <p v-if="item.description" :class="[MenuItemModule.description, txt.subtitle100]">

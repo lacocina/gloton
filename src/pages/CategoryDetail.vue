@@ -6,7 +6,9 @@
         <page-template :title="currentCategory.name">
             <categories-navigation></categories-navigation>
             <o-stack>
-                <menu-item v-for="item in currentCategory.items" :item="item"/>
+                <menu-item v-for="item in currentCategory.items"
+                           :key="item.id"
+                           :item="item"/>
             </o-stack>
         </page-template>
     </div>
