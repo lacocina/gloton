@@ -1,10 +1,13 @@
 .o-flex {
   display: flex;
-
+  gap: var(--spacing-rem-xs);
 }
 
 .between-center {
   justify-content: space-between;
   align-items: center;
-  gap: var(--spacing-rem-xs);
+}
+
+.start-center {
+  align-items: center;
 }
