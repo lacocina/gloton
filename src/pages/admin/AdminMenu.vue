@@ -7,7 +7,7 @@
                  :img-src="imgSrc"
                  :title="category.name"
                  :items-length="category.items?.length || 0"
-                 :href="'/detail/' + category.id"
+                 :href="'/admin/menu/category/' + category.id"
                  :description="category.description"
                  action-text="Entra para editar"/>
     </template>

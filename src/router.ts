@@ -62,22 +62,19 @@ const routes: RouteRecordRaw[] = [
                 }
             },
             {
-                path: '/admin/menu/category/:id',
-                name: 'admin-category-detail',
-                component: AdminCategoryDetail,
-                props: true,
-                meta: {
-                    pageHeader: 'categoryDetail'
-                }
-            },
-            {
                 path: '/admin/general-settings',
                 name: 'admin-general-settings',
                 component: AdminGeneralSettings,
                 meta: {
                     pageHeader: 'settings'
                 }
-            }
+            },
+            {
+                path: '/admin/menu/category/:id',
+                name: 'admin-category-detail',
+                component: AdminCategoryDetail,
+                props: true
+            },
         ]
     },
     { path: '/management', component: CategoriesManagement },

@@ -18,7 +18,10 @@ export const useAdminStore = defineStore('admin', {
         getUser: (state) => state.user,
         getUserLoading: (state) => state.userLoading,
         getBusiness: (state) => state.business,
-        getMenuCategories: (state): MenuCategory[] | undefined => state.business?.menu.categories
+        getMenuCategories: (state): MenuCategory[] | undefined => state.business?.menu.categories,
+        getCategoryById: (state) => {
+            return (categoryId: number) => state.business?.menu.categories.find((category) => category.id === categoryId)
+        }
     },
 
     actions: {
