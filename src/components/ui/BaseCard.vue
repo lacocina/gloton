@@ -12,7 +12,7 @@
         </h3>
         <p v-if="description" :class="txt.subtitle100">{{ description }}</p>
         <div v-if="actionText || itemsLength !== null"
-             :class="[oFlexModule.oFlex, oFlexModule.oFlexBetweenCenter, uFlexDirectionModule.rowReverse]">
+             :class="[cardModule.claim, oFlexModule.oFlex, oFlexModule.oFlexBetweenCenter, uFlexDirectionModule.rowReverse]">
             <em v-if="actionText" :class="txt.subtitle100">{{ actionText }}</em>
             <b :class="txt.subtitle100" v-if="itemsLength !== null">
                 {{ $t('admin.cards.productsNumber', { number: itemsLength }) }}
