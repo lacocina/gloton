@@ -7,15 +7,21 @@ import AdminView from "./pages/AdminView.vue"
 import AdminHome from "./pages/admin/AdminHome.vue"
 import AdminUser from "./pages/admin/AdminUser.vue"
 import AdminBusiness from "./pages/admin/AdminBusiness.vue"
+
 import AdminMenu from "./pages/admin/AdminMenu.vue"
 import AdminCategoryDetail from "./pages/admin/AdminCategoryDetail.vue"
+import AdminNewCategory from "./pages/admin/AdminNewCategory.vue"
+import AdminNewCategoryItem from "./pages/admin/AdminNewCategoryItem.vue"
+
 import AdminGeneralSettings from "./pages/admin/AdminGeneralSettings.vue"
+
 // Front
-import CategoriesList from "./pages/CategoriesList.vue";
-import CategoryDetail from "./pages/CategoryDetail.vue";
+import CategoriesList from "./pages/CategoriesList.vue"
+import CategoryDetail from "./pages/CategoryDetail.vue"
+
 // Docs
-import CategoriesManagement from "./pages/CategoriesManagement.vue";
-import CssDocs from "./pages/CssDocs.vue";
+import CategoriesManagement from "./pages/CategoriesManagement.vue"
+import CssDocs from "./pages/CssDocs.vue"
 
 
 const routes: RouteRecordRaw[] = [
@@ -73,6 +79,18 @@ const routes: RouteRecordRaw[] = [
                 path: '/admin/menu/category/:id',
                 name: 'admin-category-detail',
                 component: AdminCategoryDetail,
+                props: true
+            },
+            {
+                path: '/admin/menu/new-category',
+                name: 'admin-new-category',
+                component: AdminNewCategory,
+                props: true
+            },
+            {
+                path: '/admin/menu/category/:id/new-category-item',
+                name: 'admin-new-category-item',
+                component: AdminNewCategoryItem,
                 props: true
             },
         ]

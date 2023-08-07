@@ -20,9 +20,10 @@
                            :key="item.id"
                            :item="item"/>
             </div>
-            <div>
-                Añadir otro item
-            </div>
+            <add-item route-name="admin-new-category-item"
+                      :category-id="Number($route.params.id)">
+                Añadir item
+            </add-item>
         </o-stack>
     </o-stack>
 </page-template>
@@ -39,6 +40,7 @@ import txt from "@css/components/atoms/txt.module.css"
 import BaseAlert from "@components/ui/BaseAlert.vue"
 import oFlexModule from "@css/objects/o-flex.module.css"
 import MenuItem from "@components/admin/MenuItem.vue"
+import AddItem from "@components/admin/AddItem.vue";
 
 const adminStore = useAdminStore()
 const route = useRoute()

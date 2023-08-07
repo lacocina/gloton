@@ -12,6 +12,9 @@
                  action-text="Entra para editar"/>
     </template>
     <span v-else>No hay ninguna categoría en la carta en estos momentos</span>
+    <add-item route-name="admin-new-category">
+        Añadir categoría
+    </add-item>
 </o-stack>
 </template>
 
@@ -24,6 +27,7 @@ import BaseCard from "@components/ui/BaseCard.vue"
 import OStack from "@components/objects/OStack.vue"
 import txt from "@css/components/atoms/txt.module.css"
 import type { MenuCategory } from "@types/MenuCategory.ts"
+import AddItem from "@components/admin/AddItem.vue";
 
 const adminStore = useAdminStore()
 const menuCategories = computed(() : MenuCategory[] | undefined => {
