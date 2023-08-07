@@ -1,17 +1,11 @@
 @use "../../tools/dark-selector" as *;
 
 .admin-menu-item {
-    --border-color: var(--color-brand-primary-200);
-
     padding: 20px 0;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--bd-color-brand-softest);
 
     &:last-child {
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    @include t-dark-mode {
-        --border-color: var(--color-gray-700);
+        border-bottom: 1px solid var(--bd-color-brand-softest);
     }
 }
 
