@@ -1,0 +1,5 @@
+@mixin t-dark-mode {
+  :global(html.dark) & {
+    @content;
+  }
+}
