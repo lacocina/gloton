@@ -1,0 +1,33 @@
+.admin-menu-item {
+  --border-color: var(--color-brand-primary-200);
+  padding: 20px 0;
+  border-top: 1px solid var(--border-color);
+}
+.admin-menu-item:last-child {
+  border-bottom: 1px solid var(--border-color);
+}
+:global(html.dark) .admin-menu-item {
+  --border-color: var(--color-gray-700);
+}
+
+.main {
+  display: grid;
+  gap: var(--spacing-rem-xxs);
+}
+.deactivated .main {
+  opacity: 0.5;
+}
+
+.deactivated-icon {
+  --current-color: var(--color-gray-200);
+  color: var(--current-color);
+}
+:global(html.dark) .deactivated-icon {
+  --current-color: var(--color-gray-600);
+}
+
+.price {
+  color: var(--global-accent-color);
+}
+
+/*# sourceMappingURL=admin-menu-item.module.css.map */

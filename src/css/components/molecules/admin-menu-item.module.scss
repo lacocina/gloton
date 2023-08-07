@@ -1,0 +1,38 @@
+@use "../../tools/dark-selector" as *;
+
+.admin-menu-item {
+    --border-color: var(--color-brand-primary-200);
+
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+
+    &:last-child {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    @include t-dark-mode {
+        --border-color: var(--color-gray-700);
+    }
+}
+
+.main {
+    display: grid;
+    gap: var(--spacing-rem-xxs);
+
+    .deactivated & {
+        opacity: .5;
+    }
+}
+
+.deactivated-icon {
+    --current-color: var(--color-gray-200);
+    color: var(--current-color);
+
+    @include t-dark-mode {
+        --current-color: var(--color-gray-600);
+    }
+}
+
+.price {
+    color: var(--global-accent-color);
+}
