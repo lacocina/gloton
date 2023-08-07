@@ -1,15 +1,15 @@
 <template>
     <the-hero :title="title" :subtitle="subtitle" :imgSrc="imgSrc" :back-button="backButton"/>
-    <o-inset :class="ContentPageModule.contentPage" size="xxl" modifier="stretch">
+    <section :class="contentPage.contentPage">
         <slot></slot>
-    </o-inset>
+    </section>
     <the-footer/>
 </template>
 
 <script lang="ts" setup>
 import { getUrlPhoto } from "../../services/unsplash";
 import { computedAsync } from "@vueuse/core";
-import ContentPageModule from "@css/components/molecules/content-page.module.css"
+import contentPage from "@css/components/molecules/content-page.module.css"
 import TheFooter from "@components/layout/TheFooter.vue";
 import TheHero from "@components/layout/TheHero.vue";
 import OInset from "@components/objects/OInset.vue";
