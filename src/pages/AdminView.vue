@@ -1,7 +1,8 @@
 <template>
-<page-template :title="pageTitle" :back-button="showBackButton">
+<page-template v-if="adminGenericView" :title="pageTitle" :back-button="showBackButton">
     <router-view/>
 </page-template>
+<router-view v-else/>
 </template>
 
 <script lang="ts" setup>
@@ -22,4 +23,10 @@ const pageTitle = computed(() : string => {
     const idPageTranslate: string = meta.pageHeader || 'home'
     return i18n.t(`admin.pageHeaders.${idPageTranslate}`)
 })
+
+const adminGenericView = computed(() : boolean => {
+    const { meta } = useRoute()
+    return meta.pageHeader || false
+})
+
 </script>
