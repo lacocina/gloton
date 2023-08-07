@@ -1,0 +1,15 @@
+@use "../../../settings/base/s-colors" as colors;
+
+@each $name in colors.$s-map-color-feedback-names {
+  $color-key: $name + '-400';
+  $bg-key: $name + '-100';
+
+  .color-#{$name} {
+    color: map-get(colors.$s-map-color-feedback-values, $color-key)
+  }
+
+  .bg-color-#{$name} {
+    color: map-get(colors.$s-map-color-feedback-values, $color-key);
+    background-color: map-get(colors.$s-map-color-feedback-values, $bg-key);
+  }
+}
