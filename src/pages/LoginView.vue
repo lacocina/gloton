@@ -19,7 +19,7 @@ import BaseButton from "@components/ui/BaseButton.vue";
 import oStack from '@css/objects/o-stack.module.css'
 import BaseInputModule from '@css/components/atoms/base-input.module.css'
 import { useAdminStore } from "@store/backoffice/admin.ts"
-import {reactive} from "vue";
+import { reactive } from "vue";
 
 const adminStore = useAdminStore()
 const router = useRouter()
@@ -29,6 +29,8 @@ async function addUser() {
     } catch (e) {
         console.error(e)
     } finally {
+        // TODO - Ir a la página privada que ha intentado entrar
+        // console.log(route.params?.toPath || 'No tiene')
         await router.push({ path: '/admin' });
     }
 }

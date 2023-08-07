@@ -8,6 +8,7 @@ import AdminHome from "./pages/admin/AdminHome.vue"
 import AdminUser from "./pages/admin/AdminUser.vue"
 import AdminBusiness from "./pages/admin/AdminBusiness.vue"
 import AdminMenu from "./pages/admin/AdminMenu.vue"
+import AdminCategoryDetail from "./pages/admin/AdminCategoryDetail.vue"
 import AdminGeneralSettings from "./pages/admin/AdminGeneralSettings.vue"
 // Front
 import CategoriesList from "./pages/CategoriesList.vue";
@@ -61,6 +62,15 @@ const routes: RouteRecordRaw[] = [
                 }
             },
             {
+                path: '/admin/menu/category/:id',
+                name: 'admin-category-detail',
+                component: AdminCategoryDetail,
+                props: true,
+                meta: {
+                    pageHeader: 'categoryDetail'
+                }
+            },
+            {
                 path: '/admin/general-settings',
                 name: 'admin-general-settings',
                 component: AdminGeneralSettings,
@@ -82,6 +92,9 @@ export const router = createRouter({
 router.beforeEach((to, from, next) => {
     const adminStore = useAdminStore()
     if (to.matched.some((record) => record.meta.private) && !adminStore.getUser) {
+        // TODO - Ir a la página privada que ha intentado entrar
+        // console.log(to)
+        // next({ name: "login", params: { toPath: to.fullPath } })
         next({ name: "login" })
     } else {
         next()
