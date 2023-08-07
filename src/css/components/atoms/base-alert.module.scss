@@ -1,0 +1,11 @@
+.base-alert {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-rem-sm);
+  border-radius: var(--border-radius-lg);
+}
+
+.small {
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-100);
+}
