@@ -12,6 +12,7 @@
   --proportion-lg:      #{spacing.$s-proportion-lg};
   --proportion-xl:      #{spacing.$s-proportion-xl};
   --proportion-xxl:     #{spacing.$s-proportion-xxl};
+  --proportion-xxxl:     #{spacing.$s-proportion-xxxl};
 
   --spacing-md:         calc(var(--dimension-core) * 1px);                      /* 16px */
   --spacing-xxs:        calc(var(--spacing-md)   *  var(--proportion-xxs));     /* 4px  */
@@ -19,7 +20,8 @@
   --spacing-sm:         calc(var(--spacing-md)   *  var(--proportion-sm));      /* 12px */
   --spacing-lg:         calc(var(--spacing-md)   *  var(--proportion-lg));      /* 24px */
   --spacing-xl:         calc(var(--spacing-md)   *  var(--proportion-xl));      /* 32px */
-  --spacing-xxl:        calc(var(--spacing-md)   *  var(--proportion-xxl));     /* 64px */
+  --spacing-xxl:        calc(var(--spacing-md)   *  var(--proportion-xxl));     /* 48px */
+  --spacing-xxxl:       calc(var(--spacing-md)   *  var(--proportion-xxxl));    /* 64px */
 
   --spacing-rem-xxs:    calc(var(--proportion-xxs) * 1rem);                     /* 0.25rem */
   --spacing-rem-xs:     calc(var(--proportion-xs) * 1rem);                      /* 0.5rem */
@@ -27,7 +29,8 @@
   --spacing-rem-md:     calc(var(--proportion-md) * 1rem);                      /* 1rem */
   --spacing-rem-lg:     calc(var(--proportion-lg) * 1rem);                      /* 1.5rem */
   --spacing-rem-xl:     calc(var(--proportion-xl) * 1rem);                      /* 2rem */
-  --spacing-rem-xxl:    calc(var(--proportion-xxl) * 1rem);                     /* 4rem */
+  --spacing-rem-xxl:    calc(var(--proportion-xxl) * 1rem);                     /* 3rem */
+  --spacing-rem-xxxl:   calc(var(--proportion-xxxl) * 1rem);                    /* 4rem */
 
   --border-radius-xs:   4px;
   --border-radius-md:   8px;

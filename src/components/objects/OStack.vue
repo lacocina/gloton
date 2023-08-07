@@ -8,7 +8,7 @@
 import oStack from '@css/objects/o-stack.module.css';
 
 interface Props {
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl',
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl',
 }
 
 defineProps<Props>();

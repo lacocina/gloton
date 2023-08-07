@@ -6,4 +6,12 @@
   border-radius: var(--content-page-overlap);
   position: relative;
   z-index: 1;
+
+  padding: var(--content-page-y-padding) var(--content-page-x-padding);
+}
+
+.reset-top {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 0;
 }

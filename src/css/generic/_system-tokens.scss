@@ -6,17 +6,21 @@
 
   --content-page-bgc-color:   white;
   --content-page-overlap:     var(--border-radius-xl);
+  --content-page-x-padding:   var(--spacing-rem-lg);
+  --content-page-y-padding:   var(--spacing-xxl);
 
   --font-weight-normal:       var(--font-weight-400);
   --font-weight-bold:         var(--font-weight-700);
 
   --motion-duration:          var(--transition-duration-500);
 
-  --bgc-color-softest:        var(--color-brand-primary-50)
+  --bgc-color-softest:        var(--color-brand-primary-50);
+  --bd-color-brand-softest:   var(--color-brand-primary-200);
 }
 
 .dark {
   --content-page-font-color:  var(--color-gray-100);
   --content-page-bgc-color:   var(--color-gray-900);
   --bgc-color-softest:        var(--color-gray-800);
+  --bd-color-brand-softest:   var(--color-gray-700);
 }

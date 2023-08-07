@@ -8,7 +8,7 @@
 import oInset from '@css/objects/o-inset.module.css';
 
 interface Props {
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl',
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl',
   modifier?: 'stretch' | 'squish' | 'section'
 }
 
