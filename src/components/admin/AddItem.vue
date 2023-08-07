@@ -1,6 +1,6 @@
 <template>
 <!-- TODO - ¿Cómo puedo hacer esto en una variable en el script? -->
-<router-link :to="{ name: routeName, params: { id: categoryId }}"
+<router-link :to="{ name: routeName, params }"
              :class="[
                  addItem.addItem,
                  oInsetModule.oInset,
@@ -25,7 +25,7 @@ import oFlexModule from '@css/objects/o-flex.module.css'
 
 interface Props {
     routeName: string,
-    categoryId?: number
+    params?: object
 }
 
 defineProps<Props>()
