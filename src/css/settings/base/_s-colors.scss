@@ -27,13 +27,15 @@ $s-map-color-brand-primary-values: (
 
 $s-color-feedback-prefix: 's-color-feedback-';
 
+$s-map-color-feedback-names: ('info', 'success', 'warn', 'error');
+
 $s-map-color-feedback-values: (
   'info-100':       #e5f3ff,
   'info-400':       #027ae9,
   'success-100':    #e9fbed,
   'success-400':    #43be5e,
   'warn-100':       #fff8dd,
-  'warn-600':       #d3a708,
+  'warn-400':       #d3a708,
   'error-100':      #ffece8,
   'error-400':      #e54b29,
 );
