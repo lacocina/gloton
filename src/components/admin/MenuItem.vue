@@ -2,8 +2,8 @@
 <router-link to="admin" :class="[
         adminMenuItemModule.adminMenuItem,
         oFlexModule.oFlex,
-        item.show ? '' : adminMenuItemModule.deactivated,
-        oFlexModule.betweenCenter
+        oFlexModule.betweenCenter,
+        item.show ? '' : adminMenuItemModule.deactivated
     ]">
     <div :class="adminMenuItemModule.main">
         <h3 :class="txt.title200">
