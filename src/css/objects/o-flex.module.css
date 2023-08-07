@@ -1,0 +1,9 @@
+.o-flex {
+  display: flex;
+}
+.o-flex--between-center {
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*# sourceMappingURL=o-flex.module.css.map */

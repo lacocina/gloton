@@ -1,0 +1,10 @@
+@use '../tools/bem-selectors' as bem;
+
+.o-flex {
+  display: flex;
+
+  @include bem.t-modifier('between-center') {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
