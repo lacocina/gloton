@@ -15,6 +15,9 @@ export const esES = {
             "business" : "Restaurante",
             "menu" : "Menu",
             "settings" : "Configuración",
+        },
+        "cards": {
+            "productsNumber": "{number} productos"
         }
     }
 }

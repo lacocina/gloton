@@ -15,6 +15,9 @@ export const enUS = {
             "business" : "Business",
             "menu" : "Menu",
             "settings" : "General settings",
+        },
+        "cards": {
+            "productsNumber": "{number} products"
         }
     }
 }

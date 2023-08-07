@@ -6,6 +6,7 @@
                  :key="category.id"
                  :img-src="imgSrc"
                  :title="category.name"
+                 :items-length="category.items?.length || 0"
                  :href="'/detail/' + category.id"
                  :description="category.description"
                  action-text="Entra para editar"/>
