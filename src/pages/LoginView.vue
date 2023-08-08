@@ -1,16 +1,18 @@
 <template>
-<div v-if="adminStore.getUserLoading">Cargando...</div>
-<form v-else class="base-form" :class="oStack.oStack">
-    <div :class="BaseInputModule.baseInput">
-        <label for="name" :class="BaseInputModule.label">email label</label>
-        <input v-model.lazy="formConfig.email" id="email" :class="BaseInputModule.input" type="text" placeholder="-"/>
-    </div>
-    <div :class="BaseInputModule.baseInput">
-        <label for="lastname" :class="BaseInputModule.label">pass label</label>
-        <input v-model.lazy="formConfig.pass" id="pass" :class="BaseInputModule.input" type="password"/>
-    </div>
-    <base-button @click="addUser">Añadir usuario</base-button>
-</form>
+<section>
+    <div v-if="adminStore.getUserLoading">Cargando...</div>
+    <form v-else class="base-form" :class="oStack.oStack">
+        <div :class="BaseInputModule.baseInput">
+            <label for="name" :class="BaseInputModule.label">email label</label>
+            <input v-model.lazy="formConfig.email" id="email" :class="BaseInputModule.input" type="text" placeholder="-"/>
+        </div>
+        <div :class="BaseInputModule.baseInput">
+            <label for="lastname" :class="BaseInputModule.label">pass label</label>
+            <input v-model.lazy="formConfig.pass" id="pass" :class="BaseInputModule.input" type="password"/>
+        </div>
+        <base-button @click="addUser">Añadir usuario</base-button>
+    </form>
+</section>
 </template>
 
 <script lang="ts" setup>
@@ -41,3 +43,11 @@ const formConfig = reactive({
 })
 
 </script>
+
+<style scoped>
+section {
+    background-color: var(--content-page-bgc-color);
+    color: var(--content-page-font-color);
+    padding: 2rem;
+}
+</style>
