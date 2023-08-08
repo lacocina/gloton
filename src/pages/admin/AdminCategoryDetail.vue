@@ -21,7 +21,7 @@
                            :item="item"/>
             </div>
             <add-item route-name="admin-new-category-item"
-                      :params="{ id: Number($route.params.id)}">
+                      :params="{ categoryId: Number($route.params.id)}">
                 Añadir item
             </add-item>
         </o-stack>
@@ -46,7 +46,7 @@ const adminStore = useAdminStore()
 const route = useRoute()
 
 const currentCategory = computed(() : MenuCategory | undefined => {
-    return adminStore.getCategoryById(Number(route.params.id))
+    return adminStore.getCategoryById(Number(route.params.categoryId))
 })
 
 </script>

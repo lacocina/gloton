@@ -76,7 +76,7 @@ const routes: RouteRecordRaw[] = [
                 }
             },
             {
-                path: '/admin/menu/category/:id',
+                path: '/admin/menu/category/:categoryId',
                 name: 'admin-category-detail',
                 component: AdminCategoryDetail,
                 props: true
@@ -88,7 +88,7 @@ const routes: RouteRecordRaw[] = [
                 props: true
             },
             {
-                path: '/admin/menu/category/:id/new-category-item',
+                path: '/admin/menu/category/:categoryId/new-category-item',
                 name: 'admin-new-category-item',
                 component: AdminNewCategoryItem,
                 props: true

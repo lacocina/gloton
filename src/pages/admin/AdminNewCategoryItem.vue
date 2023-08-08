@@ -9,7 +9,7 @@ import CategoryItemForm from "@components/admin/CategoryItemForm.vue"
 
 const categoryId = computed(() => {
   const route = useRoute()
-  return route.params?.id
+  return route.params?.categoryId
 })
 
 </script>
