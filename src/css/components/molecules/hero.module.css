@@ -2,6 +2,7 @@
   position: relative;
   min-height: 300px;
   color: white;
+  background-color: var(--global-accent-color);
   padding: var(--spacing-xl);
   padding-bottom: calc(var(--content-page-overlap) + var(--spacing-md));
   display: grid;
