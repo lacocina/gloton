@@ -21,6 +21,11 @@ export const useAdminStore = defineStore('admin', {
         getMenuCategories: (state): MenuCategory[] | undefined => state.business?.menu.categories,
         getCategoryById: (state) => {
             return (categoryId: number) => state.business?.menu.categories.find((category) => category.id === categoryId)
+        },
+        // TODO - Falta sacar el item en concreto
+        getCategoryItemById: (state) => {
+            return (categoryId: number, itemId: number) => state.business?.menu.categories.find((category) => category.id === categoryId)
+            // return (categoryId: number, itemId: number) => state.business?.menu.categories.find((category) => category.id === categoryId).items.find((item) => item.id === itemId)
         }
     },
 
