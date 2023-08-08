@@ -1,14 +1,9 @@
 <template>
-    <template v-if="imgSrc">
-        <the-hero :title="title" :subtitle="subtitle" :imgSrc="imgSrc" :back-button="backButton"/>
-        <section :class="contentPage.contentPage">
-            <slot></slot>
-        </section>
-        <the-footer/>
-    </template>
-    <div v-else>
-        Loading...
-    </div>
+<the-hero :title="title" :subtitle="subtitle" :imgSrc="imgSrc" :back-button="backButton"/>
+<section :class="contentPage.contentPage">
+    <slot></slot>
+</section>
+<the-footer/>
 </template>
 
 <script lang="ts" setup>
