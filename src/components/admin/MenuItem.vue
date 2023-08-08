@@ -1,10 +1,11 @@
 <template>
-<router-link to="admin" :class="[
-        adminMenuItemModule.adminMenuItem,
-        oFlexModule.oFlex,
-        oFlexModule.betweenCenter,
-        item.show ? '' : adminMenuItemModule.deactivated
-    ]">
+<router-link :to="{ name: 'admin-edit-category-item', params: { categoryId, itemId: item.id } }"
+             :class="[
+                adminMenuItemModule.adminMenuItem,
+                oFlexModule.oFlex,
+                oFlexModule.betweenCenter,
+                item.show ? '' : adminMenuItemModule.deactivated
+            ]">
     <div :class="adminMenuItemModule.main">
         <h3 :class="txt.title200">
             {{ item.name }}
@@ -33,7 +34,8 @@ import adminMenuItemModule from "@css/components/molecules/admin-menu-item.modul
 import txt from "@css/components/atoms/txt.module.css"
 
 interface Props {
-    item: MenuItem
+    item: MenuItem,
+    categoryId: number
 }
 
 defineProps<Props>()

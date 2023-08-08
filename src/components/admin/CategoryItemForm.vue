@@ -2,9 +2,7 @@
 <section :class="[contentPage.contentPage, contentPage.resetTop]">
     <header :class="categoryItemForm.header">
       <div :class="[oFlex.oFlex, oFlex.startCenter, uGap.lg]">
-          <span class="material-symbols-rounded">
-              arrow_back_ios_new
-          </span>
+          <base-back-button/>
           <div>
               <div :class="oFlex.startCenter">
                   <span>Nombre categoría</span>
@@ -27,6 +25,7 @@ import oFlex from "@css/objects/o-flex.module.css"
 import contentPage from "@css/components/molecules/content-page.module.css"
 import uGap from "@css/utilities/u-gap.module.css"
 import TheFooter from "@components/layout/TheFooter.vue"
+import BaseBackButton from "@components/ui/BaseBackButton.vue";
 </script>
 
 <style module="categoryItemForm">

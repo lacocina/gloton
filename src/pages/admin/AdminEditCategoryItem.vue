@@ -1,5 +1,5 @@
 <template>
-<category-item-form></category-item-form>
+<category-item-form/>
 </template>
 
 <script lang="ts" setup>

@@ -12,22 +12,6 @@
   align-content: space-between;
 }
 
-.back-button {
-  padding-right: 0.25rem;
-  transition-duration: var(--transition-duration-500);
-  background-color: rgba(0, 0, 0, 0.3764705882);
-  width: 3rem;
-  height: 3rem;
-  border-radius: 3rem;
-  display: flex;
-  align-items: center;
-  justify-items: center;
-  justify-content: center;
-}
-.back-button:hover {
-  background-color: rgba(0, 0, 0, 0.4392156863);
-}
-
 .img-wrapper {
   position: absolute;
   z-index: 0;

@@ -18,10 +18,11 @@
             <div v-if="currentCategory.items">
                 <menu-item v-for="item in currentCategory.items"
                            :key="item.id"
+                           :category-id="Number($route.params.categoryId)"
                            :item="item"/>
             </div>
             <add-item route-name="admin-new-category-item"
-                      :params="{ categoryId: Number($route.params.id)}">
+                      :params="{ categoryId: Number($route.params.categoryId)}">
                 Añadir item
             </add-item>
         </o-stack>

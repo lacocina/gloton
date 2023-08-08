@@ -4,9 +4,7 @@
       <img :src="imgSrc" :alt="title">
   </div>
   <div v-if="backButton" :class="hero.nav">
-    <router-link :to="backPath" :class="hero.backButton" class="material-symbols-rounded">
-        arrow_back_ios_new
-    </router-link>
+    <base-back-button/>
   </div>
   <div :class="hero.main">
     <h1 :class="txt.hero400">{{ title }}</h1>
@@ -19,7 +17,7 @@
 import hero from "@css/components/molecules/hero.module.css"
 import txt from "@css/components/atoms/txt.module.css"
 import { useRouter } from "vue-router";
-
+import BaseBackButton from "@components/ui/BaseBackButton.vue";
 const router = useRouter()
 
 interface Props {
@@ -32,7 +30,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
     backButton: false
 })
-
-// const backPath = router.currentRoute.value.matched[0].path
-const backPath = '/admin/home'
+function goBack() {
+    router.back()
+}
 </script>

@@ -22,6 +22,7 @@ import CategoryDetail from "./pages/CategoryDetail.vue"
 // Docs
 import CategoriesManagement from "./pages/CategoriesManagement.vue"
 import CssDocs from "./pages/CssDocs.vue"
+import AdminEditCategoryItem from "./pages/admin/AdminEditCategoryItem.vue";
 
 
 const routes: RouteRecordRaw[] = [
@@ -91,6 +92,12 @@ const routes: RouteRecordRaw[] = [
                 path: '/admin/menu/category/:categoryId/new-category-item',
                 name: 'admin-new-category-item',
                 component: AdminNewCategoryItem,
+                props: true
+            },
+            {
+                path: '/admin/menu/category/:categoryId/edit-category-item/:itemId',
+                name: 'admin-edit-category-item',
+                component: AdminEditCategoryItem,
                 props: true
             },
         ]
