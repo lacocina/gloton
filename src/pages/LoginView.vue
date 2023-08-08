@@ -8,7 +8,7 @@
         </div>
         <div :class="BaseInputModule.baseInput">
             <label for="lastname" :class="BaseInputModule.label">pass label</label>
-            <input v-model.lazy="formConfig.pass" id="pass" :class="BaseInputModule.input" type="password"/>
+            <input v-model.lazy="formConfig.pass" id="pass" :class="BaseInputModule.input" type="password" autocomplete/>
         </div>
         <base-button @click="addUser">Añadir usuario</base-button>
     </form>
