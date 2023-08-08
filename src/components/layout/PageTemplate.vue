@@ -1,9 +1,14 @@
 <template>
-    <the-hero :title="title" :subtitle="subtitle" :imgSrc="imgSrc" :back-button="backButton"/>
-    <section :class="contentPage.contentPage">
-        <slot></slot>
-    </section>
-    <the-footer/>
+    <template v-if="imgSrc">
+        <the-hero :title="title" :subtitle="subtitle" :imgSrc="imgSrc" :back-button="backButton"/>
+        <section :class="contentPage.contentPage">
+            <slot></slot>
+        </section>
+        <the-footer/>
+    </template>
+    <div v-else>
+        Loading...
+    </div>
 </template>
 
 <script lang="ts" setup>
@@ -12,7 +17,6 @@ import { computedAsync } from "@vueuse/core";
 import contentPage from "@css/components/molecules/content-page.module.css"
 import TheFooter from "@components/layout/TheFooter.vue";
 import TheHero from "@components/layout/TheHero.vue";
-import OInset from "@components/objects/OInset.vue";
 
 interface Props {
     title: string,
