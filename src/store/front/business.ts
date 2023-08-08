@@ -19,7 +19,7 @@ export const useBusinessStore = () => {
             },
             getMenuCategories(state): MenuCategory[] | undefined {
                 return state.business?.menu.categories.filter((category) => {
-                    return category.show && category.items
+                    return category.show && category.items?.some((item) => item.show)
                 })
             }
         },
