@@ -6,6 +6,7 @@
 </template>
 
 <script lang="ts" setup>
+// TODO - Repetir componente en cada página del Admin
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";

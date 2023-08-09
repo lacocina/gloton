@@ -115,7 +115,6 @@ router.beforeEach((to, from, next) => {
     const adminStore = useAdminStore()
     if (to.matched.some((record) => record.meta.private) && !adminStore.getUser) {
         // TODO - Ir a la página privada que ha intentado entrar
-        // console.log(to)
         // next({ name: "login", params: { toPath: to.fullPath } })
         next({ name: "login" })
     } else {

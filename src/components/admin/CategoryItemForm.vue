@@ -44,12 +44,13 @@ import TheFooter from "@components/layout/TheFooter.vue"
 import BaseBackButton from "@components/ui/BaseBackButton.vue"
 import { onMounted, reactive } from "vue"
 import type { MenuItem } from "@types/MenuItem.ts"
+import type { CategoryItemForm } from "@types/CategoryItemForm.ts"
 import baseInput from "@css/components/atoms/base-input.module.css"
 import oStack from "@css/objects/o-stack.module.css"
 
-const formConfig = reactive({
+const formConfig = reactive<CategoryItemForm>({
     name: '',
-    price: 0,
+    price: undefined as number | undefined,
     description: '',
     show: true
 })
@@ -65,7 +66,7 @@ onMounted(() => {
     if (props.itemData) {
         formConfig.name = props.itemData.name
         formConfig.price = props.itemData.price
-        formConfig.description = props.itemData.description || ''
+        formConfig.description = props.itemData.description
         formConfig.show = props.itemData.show
     }
 })
