@@ -16,6 +16,7 @@
     "noEmit": true,
     "types": ["vitest/globals"],
     "paths": {
+      "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
       "@types/*": ["./src/types/*"],
       "@css/*": ["./src/css/*"],
