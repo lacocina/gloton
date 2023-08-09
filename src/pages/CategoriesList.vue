@@ -3,6 +3,7 @@
       Loading
   </template>
   <template v-else>
+    <vue3-lottie :animationLink="loadingJSON" :height="200" :width="200" />
     <page-template :title="businessName">
         <o-stack size="xs">
             <h3 :class="txt.title200">Nuestra carta</h3>
@@ -32,6 +33,10 @@ import PageTemplate from "@components/layout/PageTemplate.vue"
 import BaseCard from "@components/ui/BaseCard.vue"
 import OStack from "@components/objects/OStack.vue"
 import txt from "@css/components/atoms/txt.module.css"
+
+// TODO - Lottie
+import Vue3Lottie from "vue3-lottie";
+import loadingJSON from "@assets/lottie-animations/loading.json"
 
 const businessStore = useBusinessStore()
 
