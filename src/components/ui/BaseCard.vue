@@ -1,6 +1,6 @@
 <template>
 <router-link :to="href" :class="[cardModule.card, oInsetModule.oInset]">
-    <div v-if="imgSrc" :class="cardModule.imageWrapper">
+    <div v-if="showImg" :class="cardModule.imageWrapper">
         <img :alt="title" :src="imgSrc"/>
     </div>
     <span v-if="leftIcon && !imgSrc" :class="cardModule.leftIcon" class="material-symbols-rounded">
@@ -34,6 +34,7 @@ import txt from "@css/components/atoms/txt.module.css"
 import uFlexDirectionModule from "@css/utilities/u-flex-direction.module.css"
 
 interface Props {
+    showImg?: boolean
     imgSrc?: string
     title: string
     href: string
@@ -45,6 +46,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
+    showImg: true,
     itemsLength: null,
     rightArrow: false
 })
