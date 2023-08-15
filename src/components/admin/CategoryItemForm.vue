@@ -17,7 +17,12 @@
     <div :class="oStack.oStack">
         <div :class="baseInput.baseInput">
             <label for="name" :class="baseInput.label">name label</label>
-            <input v-model.lazy="formConfig.name" id="name" :class="baseInput.input" type="text" placeholder="-"/>
+            <input v-model.lazy="formConfig.name"
+                   v-autofocus
+                   id="name"
+                   :class="baseInput.input"
+                   type="text"
+                   placeholder="-"/>
         </div>
         <div :class="baseInput.baseInput">
             <label for="name" :class="baseInput.label">price label</label>
@@ -72,6 +77,14 @@ onMounted(() => {
 })
 
 const subtitle: string = props.itemData ? 'Editar item' : 'Añadir item'
+
+const vAutofocus = {
+  mounted: (el) => {
+    if (!props.itemData) {
+      el.focus()
+    }
+  }
+}
 
 </script>
 
