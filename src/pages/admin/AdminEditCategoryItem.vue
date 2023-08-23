@@ -1,13 +1,21 @@
 <template>
-    <div v-if="currentItem">
-        <category-item-form :item-data="currentItem" :category-name="categoryName"/>
-    </div>
+<section v-if="currentItem" :class="[contentPage.contentPage, contentPage.resetTop]">
+    <product-header/>
+    <category-item-form :item-data="currentItem" :category-name="categoryName"/>
+</section>
+<the-footer/>
 </template>
 
 <script lang="ts" setup>
-import CategoryItemForm from "@components/admin/CategoryItemForm.vue"
 import { useRoute } from "vue-router"
 import { computed } from "vue"
+
+import contentPage from "@css/components/molecules/content-page.module.css"
+
+import ProductHeader from "@components/admin/ProductHeader.vue"
+import CategoryItemForm from "@components/admin/CategoryItemForm.vue"
+import TheFooter from "@components/layout/TheFooter.vue"
+
 import { useAdminStore } from "@store/backoffice/admin.ts"
 import type { MenuItem } from "@types/MenuItem.ts"
 

@@ -1,11 +1,21 @@
 <template>
-<category-item-form :category-name="categoryName"/>
+<section :class="[contentPage.contentPage, contentPage.resetTop]">
+  <product-header/>
+  <category-item-form :category-name="categoryName"/>
+</section>
+<the-footer/>
 </template>
 
 <script lang="ts" setup>
+import { computed } from "vue"
+import { useRoute } from "vue-router"
+
+import contentPage from "@css/components/molecules/content-page.module.css"
+
+import ProductHeader from "@components/admin/ProductHeader.vue"
 import CategoryItemForm from "@components/admin/CategoryItemForm.vue"
-import { computed } from "vue";
-import { useRoute } from "vue-router";
+import TheFooter from "@components/layout/TheFooter.vue"
+
 import { useAdminStore } from "@store/backoffice/admin.ts"
 
 const adminStore = useAdminStore()
