@@ -3,7 +3,7 @@
         loading
     </div>
     <div v-else-if="currentCategory">
-        <page-template :title="currentCategory.name">
+        <page-template :title="currentCategory.name" :img-src="imgSrc">
             <categories-navigation></categories-navigation>
             <o-stack>
                 <menu-item v-for="item in currentCategory.items"
@@ -22,6 +22,8 @@ import PageTemplate from "@components/layout/PageTemplate.vue"
 import MenuItem from "@components/menu/MenuItem.vue"
 import OStack from "@components/objects/OStack.vue"
 import CategoriesNavigation from "@components/menu/CategoriesNavigation.vue"
+import { computedAsync } from "@vueuse/core"
+import { getUrlPhoto } from "../services/unsplash.ts"
 
 const businessStore = useBusinessStore()
 const route = useRoute()
@@ -40,4 +42,6 @@ function handleOnEnter() {
 }
 
 onBeforeMount(() => handleOnEnter())
+
+const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))
 </script>

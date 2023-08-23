@@ -4,14 +4,14 @@
   </template>
   <template v-else>
 <!--    <vue3-lottie :animationLink="loadingJSON" :height="200" :width="200" />-->
-    <page-template :title="businessName">
+    <page-template :title="businessName" :img-src="imgSrc">
         <o-stack size="xs">
             <h3 :class="txt.title200">Nuestra carta</h3>
             <template v-if="menuCategories">
               <base-card v-for="category in menuCategories"
                          :key="category.id"
                          :href="'/detail/'+ category.id"
-                         :img-src="imgSrc"
+                         :img-src="categoryImgSrc"
                          :title="category.name"
                          :description="category.description"
                          action-text="Ver todas las opciones"
@@ -48,5 +48,7 @@ const menuCategories = computed(() : MenuCategory[] | undefined => {
     return businessStore.getMenuCategories
 })
 
-const imgSrc = computedAsync(() => getUrlPhoto('nzyzAUsbV0M'))
+const categoryImgSrc = computedAsync(() => getUrlPhoto('nzyzAUsbV0M'))
+const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))
+
 </script>

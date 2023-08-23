@@ -1,5 +1,5 @@
 <template>
-<page-template v-if="currentCategory" :title="currentCategory.name" back-button>
+<page-template v-if="currentCategory" :title="currentCategory.name" back-button :img-src="imgSrc">
     <o-stack size="xl">
         <base-alert v-if="!currentCategory.items?.length" small>
             Esta categoría no aparecerá en la página porque aún no tiene ningún elemento
@@ -41,7 +41,9 @@ import txt from "@css/components/atoms/txt.module.css"
 import BaseAlert from "@components/ui/BaseAlert.vue"
 import oFlexModule from "@css/objects/o-flex.module.css"
 import MenuItem from "@components/admin/MenuItem.vue"
-import AddItem from "@components/admin/AddItem.vue";
+import AddItem from "@components/admin/AddItem.vue"
+import { computedAsync } from "@vueuse/core"
+import { getUrlPhoto } from "../../services/unsplash.ts"
 
 const adminStore = useAdminStore()
 const route = useRoute()
@@ -55,4 +57,5 @@ defineOptions({
     inheritAttrs: false
 })
 
+const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))
 </script>

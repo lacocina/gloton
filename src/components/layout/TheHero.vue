@@ -30,7 +30,5 @@ interface Props {
 withDefaults(defineProps<Props>(), {
     backButton: false
 })
-function goBack() {
-    router.back()
-}
+
 </script>

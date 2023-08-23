@@ -1,5 +1,5 @@
 <template>
-<page-template v-if="adminGenericView" :title="pageTitle" :back-button="showBackButton">
+<page-template v-if="adminGenericView" :title="pageTitle" :back-button="showBackButton" :img-src="imgSrc">
     <router-view/>
 </page-template>
 <router-view v-else/>
@@ -7,10 +7,12 @@
 
 <script lang="ts" setup>
 // TODO - Repetir componente en cada página del Admin
-import { computed } from "vue";
-import { useRoute } from "vue-router";
-import { useI18n } from "vue-i18n";
-import PageTemplate from "@components/layout/PageTemplate.vue";
+import { computed } from "vue"
+import { useRoute } from "vue-router"
+import { useI18n } from "vue-i18n"
+import PageTemplate from "@components/layout/PageTemplate.vue"
+import { computedAsync } from "@vueuse/core"
+import { getUrlPhoto } from "../services/unsplash.ts"
 
 const i18n = useI18n()
 
@@ -30,4 +32,5 @@ const adminGenericView = computed(() : boolean => {
     return meta.pageHeader || false
 })
 
+const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))
 </script>
