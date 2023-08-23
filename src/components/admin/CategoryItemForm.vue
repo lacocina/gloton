@@ -14,15 +14,11 @@
           </div>
       </div>
     </header>
-    <div :class="oStack.oStack">
+    <form :class="oStack.oStack">
+        <h3 :class="txt.title200">Datos del producto</h3>
         <div :class="baseInput.baseInput">
             <label for="name" :class="baseInput.label">name label</label>
-            <input v-model.lazy="formConfig.name"
-                   v-autofocus
-                   id="name"
-                   :class="baseInput.input"
-                   type="text"
-                   placeholder="-"/>
+            <input v-model.lazy="formConfig.name" v-autofocus id="name" :class="baseInput.input" type="text" placeholder="-"/>
         </div>
         <div :class="baseInput.baseInput">
             <label for="name" :class="baseInput.label">price label</label>
@@ -32,10 +28,17 @@
             <label for="name" :class="baseInput.label">description label</label>
             <input v-model.lazy="formConfig.description" id="description" :class="baseInput.input" type="text" placeholder="-"/>
         </div>
-        <div>
-            <input v-model.lazy="formConfig.show" type="checkbox" :checked="formConfig.show">
+        <div :class="[oFlex.oFlex, oFlex.endCenter, uGap.lg]">
+            <label for="showProduct">Mostrar en la web</label>
+            <input v-model.lazy="formConfig.show" type="checkbox" :checked="formConfig.show" id="showProduct">
         </div>
-    </div>
+        <div :class="[oFlex.oFlex, oFlex.endCenter, uGap.md]">
+            <base-button button-style="secondary"
+                         disabled
+                         @click="buttonClick">Cancelar</base-button>
+            <base-button>Guardar</base-button>
+        </div>
+    </form>
 </section>
 <the-footer/>
 </template>
@@ -43,15 +46,19 @@
 <script lang="ts" setup>
 import txt from "@css/components/atoms/txt.module.css"
 import oFlex from "@css/objects/o-flex.module.css"
+import oStack from "@css/objects/o-stack.module.css"
 import contentPage from "@css/components/molecules/content-page.module.css"
 import uGap from "@css/utilities/u-gap.module.css"
+import baseInput from "@css/components/atoms/base-input.module.css"
+
+import type { MenuItem } from "@types/MenuItem.ts"
+import type { CategoryItemForm } from "@types/CategoryItemForm.ts"
+
 import TheFooter from "@components/layout/TheFooter.vue"
 import BaseBackButton from "@components/ui/BaseBackButton.vue"
 import { onMounted, reactive } from "vue"
-import type { MenuItem } from "@types/MenuItem.ts"
-import type { CategoryItemForm } from "@types/CategoryItemForm.ts"
-import baseInput from "@css/components/atoms/base-input.module.css"
-import oStack from "@css/objects/o-stack.module.css"
+import BaseButton from "@components/ui/BaseButton.vue";
+
 
 const formConfig = reactive<CategoryItemForm>({
     name: '',
@@ -75,6 +82,10 @@ onMounted(() => {
         formConfig.show = props.itemData.show
     }
 })
+
+function buttonClick() {
+  console.log('hello')
+}
 
 const subtitle: string = props.itemData ? 'Editar item' : 'Añadir item'
 

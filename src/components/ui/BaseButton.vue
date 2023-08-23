@@ -1,11 +1,15 @@
 <template>
-<button :type="buttonType" :class="[patata.common, patata[buttonStyle], margins.marginTop]">
+<button :type="buttonType"
+        :class="[
+            baseButton.common,
+            baseButton[buttonStyle],
+            disabled ? 'disabled' : ''
+        ]">
     <slot/>
 </button>
 </template>
 
 <script lang="ts" setup>
-import margins from "@css/margin.module.css";
 export interface Props {
   marginButton?: 10 | 20
   buttonType?: 'button' | 'submit'
@@ -21,30 +25,42 @@ withDefaults(defineProps<Props>(), {
 
 </script>
 
-<style lang="postcss" module="patata">
+<style lang="scss" module="baseButton">
+@use "../../css/tools/dark-selector" as *;
+
 .common {
-  margin-top: 2rem;
+  transition: var(--transition-duration-500);
+  border-radius: var(--border-radius-xs);
+  padding: var(--spacing-rem-xs) var(--spacing-md);
+  font-size: var(--font-size-200);
+  border-color: transparent;
+  font-weight: bold;
 }
 
 .primary {
-  font-weight: bold;
+  background-color: var(--global-accent-color);
+  color: white;
 
   &:hover {
-    background-color: orange;
+    background-color: var(--color-brand-primary-600);
   }
 }
 
-.redButton {
-  content: 'https://vitejs.dev/config/shared-options.html#css-modules';
-  text-decoration: underline !important;
-}
-
 .secondary {
-  border: 1px solid orange;
+  background-color: transparent;
+  border: 1px solid var(--color-gray-200);
+  color: var(--global-accent-color);
 
   &:hover {
-    background-color: orange;
-    --tw-bg-opacity: 10%;
+    background-color: var(--color-brand-primary-50);
+  }
+
+  @include t-dark-mode {
+    border-color: var(--color-gray-700);
+
+    &:hover {
+      background-color: var(--color-gray-800);
+    }
   }
 }
 
