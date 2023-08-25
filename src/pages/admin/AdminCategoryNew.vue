@@ -7,5 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-import PageTemplate from "@components/layout/PageTemplate.vue";
+import PageTemplate from "@components/layout/PageTemplate.vue"
 </script>

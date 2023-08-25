@@ -21,7 +21,7 @@
                            :category-id="Number($route.params.categoryId)"
                            :item="item"/>
             </div>
-            <add-item route-name="admin-new-category-item"
+            <add-item route-name="admin-product-new"
                       :params="{ categoryId: Number($route.params.categoryId)}">
                 Añadir item
             </add-item>

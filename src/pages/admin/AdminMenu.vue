@@ -12,7 +12,7 @@
                  action-text="Entra para editar"/>
     </template>
     <span v-else>No hay ninguna categoría en la carta en estos momentos</span>
-    <add-item route-name="admin-new-category">
+    <add-item route-name="admin-category-new">
         Añadir categoría
     </add-item>
 </o-stack>

@@ -10,8 +10,9 @@ import AdminBusiness from "./pages/admin/AdminBusiness.vue"
 
 import AdminMenu from "./pages/admin/AdminMenu.vue"
 import AdminCategoryDetail from "./pages/admin/AdminCategoryDetail.vue"
-import AdminNewCategory from "./pages/admin/AdminNewCategory.vue"
-import AdminNewCategoryItem from "./pages/admin/AdminNewCategoryItem.vue"
+import AdminCategoryNew from "./pages/admin/AdminCategoryNew.vue"
+import AdminProductNew from "./pages/admin/AdminProductNew.vue"
+import AdminProductEdit from "./pages/admin/AdminProductEdit.vue"
 
 import AdminGeneralSettings from "./pages/admin/AdminGeneralSettings.vue"
 
@@ -22,7 +23,6 @@ import CategoryDetail from "./pages/CategoryDetail.vue"
 // Docs
 import CategoriesManagement from "./pages/CategoriesManagement.vue"
 import CssDocs from "./pages/CssDocs.vue"
-import AdminEditCategoryItem from "./pages/admin/AdminEditCategoryItem.vue";
 
 
 const routes: RouteRecordRaw[] = [
@@ -84,20 +84,20 @@ const routes: RouteRecordRaw[] = [
             },
             {
                 path: '/admin/menu/new-category',
-                name: 'admin-new-category',
-                component: AdminNewCategory,
+                name: 'admin-category-new',
+                component: AdminCategoryNew,
                 props: true
             },
             {
                 path: '/admin/menu/category/:categoryId/new-category-item',
-                name: 'admin-new-category-item',
-                component: AdminNewCategoryItem,
+                name: 'admin-product-new',
+                component: AdminProductNew,
                 props: true
             },
             {
                 path: '/admin/menu/category/:categoryId/edit-category-item/:itemId',
-                name: 'admin-edit-category-item',
-                component: AdminEditCategoryItem,
+                name: 'admin-product-edit',
+                component: AdminProductEdit,
                 props: true
             },
         ]

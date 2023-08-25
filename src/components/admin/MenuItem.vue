@@ -1,5 +1,5 @@
 <template>
-<router-link :to="{ name: 'admin-edit-category-item', params: { categoryId, itemId: item.id } }"
+<router-link :to="{ name: 'admin-product-edit', params: { categoryId, itemId: item.id } }"
              :class="[
                 adminMenuItemModule.adminMenuItem,
                 oFlexModule.oFlex,
