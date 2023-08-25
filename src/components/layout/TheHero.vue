@@ -3,8 +3,13 @@
   <div v-if="imgSrc" :class="hero.imgWrapper">
       <img :src="imgSrc" :alt="title">
   </div>
-  <div v-if="backButton" :class="hero.nav">
-    <base-back-button/>
+  <div :class="hero.nav">
+    <div>
+      <base-back-button v-if="backButton"/>
+    </div>
+    <div>
+      <base-button v-if="false">Editar</base-button>
+    </div>
   </div>
   <div :class="hero.main">
     <h1 :class="txt.hero400">{{ title }}</h1>
@@ -14,10 +19,10 @@
 </template>
 
 <script lang="ts" setup>
-import hero from "@css/components/molecules/hero.module.css"
 import txt from "@css/components/atoms/txt.module.css"
-import { useRouter } from "vue-router";
-import BaseBackButton from "@components/ui/BaseBackButton.vue";
+import { useRouter } from "vue-router"
+import BaseBackButton from "@components/ui/BaseBackButton.vue"
+import BaseButton from "@components/ui/BaseButton.vue"
 const router = useRouter()
 
 interface Props {
@@ -32,3 +37,66 @@ withDefaults(defineProps<Props>(), {
 })
 
 </script>
+
+<style lang="scss" module="hero">
+.hero {
+  position: relative;
+  min-height: 300px;
+  color: white;
+  background-color: var(--global-accent-color);
+  padding: var(--spacing-xl);
+  padding-bottom: calc(var(--content-page-overlap) + var(--spacing-md));
+  display: grid;
+  grid-auto-flow: row;
+  grid-template:
+      "top"
+      "bottom"
+;
+  row-gap: var(--spacing-xl);
+  align-content: space-between;
+}
+
+.img-wrapper {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+
+  &::before {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    content: ' ';
+    background:
+        linear-gradient(
+                180deg,
+                rgba(black, 0) 0%,
+                rgba(black, 0.5) 80%
+        );
+  }
+
+  img {
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
+.nav,
+.main {
+  position: relative;
+  z-index: 1;
+}
+
+.nav{
+  grid-area: top;
+  composes: o-flex between-center from '@css/objects/o-flex.module.css';
+}
+
+.main{
+  grid-area: bottom;
+}
+
+</style>
