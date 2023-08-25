@@ -1,5 +1,9 @@
 <template>
-<page-template v-if="currentCategory" :title="currentCategory.name" back-button :img-src="imgSrc">
+<page-template v-if="currentCategory"
+               :title="currentCategory.name"
+               :img-src="imgSrc"
+               :hero-button="heroButton"
+               back-button>
     <o-stack size="xl">
         <base-alert v-if="!currentCategory.items?.length" small>
             Esta categoría no aparecerá en la página porque aún no tiene ningún elemento
@@ -33,7 +37,7 @@
 <script lang="ts" setup>
 import { computed } from "vue"
 import { useAdminStore } from "@store/backoffice/admin.ts"
-import { useRoute } from "vue-router"
+import { useRoute, useRouter } from "vue-router"
 import type { MenuCategory } from "@types/MenuCategory.ts"
 import PageTemplate from "@components/layout/PageTemplate.vue"
 import OStack from "@components/objects/OStack.vue"
@@ -47,6 +51,7 @@ import { getUrlPhoto } from "../../services/unsplash.ts"
 
 const adminStore = useAdminStore()
 const route = useRoute()
+const router = useRouter()
 
 const currentCategory = computed(() : MenuCategory | undefined => {
     return adminStore.getCategoryById(Number(route.params.categoryId))
@@ -58,4 +63,17 @@ defineOptions({
 })
 
 const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))
+
+const heroButton = {
+  text: 'Editar',
+  onClick: () => {
+    console.log('Editar categoría')
+    router.push({
+      name: 'admin-category-edit',
+      params: {
+        categoryId: route.params.categoryId
+      }
+    })
+  }
+}
 </script>
