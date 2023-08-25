@@ -12,7 +12,7 @@ import { useRouter } from "vue-router"
 const router = useRouter()
 
 function saveFunction() {
-  console.log('Guardar')
+  console.log('Categoría creada')
   router.back()
 }
 

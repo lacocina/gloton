@@ -3,7 +3,7 @@
     <h3 :class="txt.title200">Datos del producto</h3>
     <div :class="baseInput.baseInput">
         <label for="name" :class="baseInput.label">name label</label>
-        <input v-model.lazy="formConfig.name" v-autofocus id="name" :class="baseInput.input" type="text" placeholder="-"/>
+        <input v-model.lazy="formConfig.name" v-autofocus @blur="nameChange" id="name" :class="baseInput.input" type="text" placeholder="-"/>
     </div>
     <div :class="baseInput.baseInput">
         <label for="name" :class="baseInput.label">price label</label>
@@ -20,8 +20,8 @@
     <div :class="[oFlex.oFlex, oFlex.endCenter, uGap.md]">
         <base-button button-style="secondary"
                      disabled
-                     @click="cancel()">Cancelar</base-button>
-        <base-button>Guardar</base-button>
+                     @click="cancel">Cancelar</base-button>
+        <base-button @click="saveForm">Guardar</base-button>
     </div>
 </form>
 </template>
@@ -42,6 +42,8 @@ import BaseButton from "@components/ui/BaseButton.vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter()
+
+const emit = defineEmits(['name-change', 'save-form'])
 
 const formConfig = reactive<ProductForm>({
     name: '',
@@ -69,7 +71,13 @@ function cancel() {
   router.back()
 }
 
-const subtitle: string = props.productData ? 'Editar item' : 'Añadir item'
+function saveForm() {
+  emit('save-form')
+}
+
+function nameChange() {
+  emit('name-change', formConfig.name)
+}
 
 const vAutofocus = {
   mounted: (el) => {
@@ -78,5 +86,7 @@ const vAutofocus = {
     }
   }
 }
+
+onMounted(() => nameChange())
 
 </script>

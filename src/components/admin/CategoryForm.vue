@@ -15,8 +15,8 @@
     <div :class="[oFlex.oFlex, oFlex.endCenter, uGap.md]">
         <base-button button-style="secondary"
                      disabled
-                     @click="cancel()">Cancelar</base-button>
-        <base-button @click="saveForm()">Guardar</base-button>
+                     @click="cancel">Cancelar</base-button>
+        <base-button @click="saveForm">Guardar</base-button>
     </div>
 </form>
 </template>

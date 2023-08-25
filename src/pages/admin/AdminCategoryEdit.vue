@@ -28,7 +28,7 @@ const currentCategory = computed(() : MenuCategory | undefined  => {
 })
 
 function saveFunction() {
-  console.log('Guardar')
+  console.log('Categoría editada')
   router.back()
 }
 

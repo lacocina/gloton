@@ -8,7 +8,7 @@
           <span> / {{ subtitle }}</span>
         </div>
         <h2 v-if="productName" :class="[productHeader.title, txt.title300]">
-          {{ 'formConfig.name' }}
+          {{ productName }}
         </h2>
       </div>
     </div>
@@ -27,9 +27,7 @@ interface Props {
   productName?: string
 }
 
-const props = defineProps<Props>()
-
-
+defineProps<Props>()
 </script>
 
 <style module="productHeader">

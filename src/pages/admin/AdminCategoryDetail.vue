@@ -67,7 +67,6 @@ const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))
 const heroButton = {
   text: 'Editar',
   onClick: () => {
-    console.log('Editar categoría')
     router.push({
       name: 'admin-category-edit',
       params: {
