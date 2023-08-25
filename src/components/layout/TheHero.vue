@@ -1,21 +1,23 @@
 <template>
-<section :class="hero.hero">
+<header :class="hero.hero">
   <div v-if="imgSrc" :class="hero.imgWrapper">
       <img :src="imgSrc" :alt="title">
   </div>
-  <div :class="hero.nav">
-    <div>
-      <base-back-button v-if="backButton"/>
-    </div>
-    <div>
-      <base-button v-if="false">Editar</base-button>
-    </div>
-  </div>
+
+  <base-back-button v-if="backButton"
+                    :class="hero.backButton"/>
+
+  <base-button v-if="button"
+               :class="hero.optionButton" @click="button.onClick">
+    {{ button.text }}
+  </base-button>
+
   <div :class="hero.main">
     <h1 :class="txt.hero400">{{ title }}</h1>
     <h2 :class="txt.subtitle200">{{ subtitle }}</h2>
   </div>
-</section>
+
+</header>
 </template>
 
 <script lang="ts" setup>
@@ -26,9 +28,10 @@ import BaseButton from "@components/ui/BaseButton.vue"
 const router = useRouter()
 
 interface Props {
-  title: string,
-  subtitle?: string,
-  imgSrc?: string | undefined,
+  title: string
+  subtitle?: string
+  imgSrc?: string | undefined
+  button?: object | undefined
   backButton?: boolean
 }
 
@@ -49,11 +52,13 @@ withDefaults(defineProps<Props>(), {
   display: grid;
   grid-auto-flow: row;
   grid-template:
-      "top"
-      "bottom"
+      "backbutton optionbutton"
+      "bottom bottom"
 ;
   row-gap: var(--spacing-xl);
   align-content: space-between;
+  align-items: start;
+  justify-content: space-between;
 }
 
 .img-wrapper {
@@ -84,15 +89,20 @@ withDefaults(defineProps<Props>(), {
   }
 }
 
-.nav,
+.back-button,
+.option-button,
 .main {
   position: relative;
   z-index: 1;
 }
 
-.nav{
-  grid-area: top;
-  composes: o-flex between-center from '@css/objects/o-flex.module.css';
+.back-button {
+  grid-area: backbutton;
+}
+
+.option-button {
+  grid-area: optionbutton;
+  justify-self: end;
 }
 
 .main{
