@@ -34,7 +34,7 @@ import uGap from "@css/utilities/u-gap.module.css"
 import baseInput from "@css/components/atoms/base-input.module.css"
 
 import type { MenuItem } from "@types/MenuItem.ts"
-import type { CategoryItemForm } from "@types/CategoryItemForm.ts"
+import type { ProductForm } from "@types/ProductForm.ts"
 
 import { onMounted, reactive } from "vue"
 import BaseButton from "@components/ui/BaseButton.vue";
@@ -43,7 +43,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter()
 
-const formConfig = reactive<CategoryItemForm>({
+const formConfig = reactive<ProductForm>({
     name: '',
     price: undefined as number | undefined,
     description: '',
@@ -51,17 +51,17 @@ const formConfig = reactive<CategoryItemForm>({
 })
 
 interface Props {
-    itemData?: MenuItem
+    productData?: MenuItem
 }
 
 const props = defineProps<Props>()
 
 onMounted(() => {
-    if (props.itemData) {
-        formConfig.name = props.itemData.name
-        formConfig.price = props.itemData.price
-        formConfig.description = props.itemData.description
-        formConfig.show = props.itemData.show
+    if (props.productData) {
+        formConfig.name = props.productData.name
+        formConfig.price = props.productData.price
+        formConfig.description = props.productData.description
+        formConfig.show = props.productData.show
     }
 })
 
@@ -69,11 +69,11 @@ function cancel() {
   router.back()
 }
 
-const subtitle: string = props.itemData ? 'Editar item' : 'Añadir item'
+const subtitle: string = props.productData ? 'Editar item' : 'Añadir item'
 
 const vAutofocus = {
   mounted: (el) => {
-    if (!props.itemData) {
+    if (!props.productData) {
       el.focus()
     }
   }

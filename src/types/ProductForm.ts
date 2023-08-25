@@ -1,4 +1,4 @@
-export interface CategoryItemForm {
+export interface ProductForm {
     name: string,
     price: number | undefined,
     description: string,
