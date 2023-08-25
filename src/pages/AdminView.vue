@@ -1,13 +1,14 @@
 <template>
-<page-template v-if="adminGenericView" :title="pageTitle" :back-button="showBackButton" :img-src="imgSrc">
+<page-template v-if="adminGenericView && !isLoading" :title="pageTitle" :back-button="showBackButton" :img-src="imgSrc">
     <router-view/>
 </page-template>
+<span v-else-if="isLoading">Loading</span>
 <router-view v-else/>
 </template>
 
 <script lang="ts" setup>
 // TODO - Repetir componente en cada página del Admin
-import { computed } from "vue"
+import { computed, ref } from "vue"
 import { useRoute } from "vue-router"
 import { useI18n } from "vue-i18n"
 import PageTemplate from "@components/layout/PageTemplate.vue"
@@ -32,5 +33,10 @@ const adminGenericView = computed(() : boolean => {
     return meta.pageHeader || false
 })
 
-const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))
+const isLoading = ref(true)
+
+const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q').finally(() => {
+  isLoading.value = false
+}))
+
 </script>
