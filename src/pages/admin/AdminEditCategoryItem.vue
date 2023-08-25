@@ -1,7 +1,7 @@
 <template>
 <section v-if="currentItem" :class="[contentPage.contentPage, contentPage.resetTop]">
-    <product-header/>
-    <category-item-form :item-data="currentItem" :category-name="categoryName"/>
+  <product-header :category-name="categoryName" subtitle="Editar item"/>
+  <category-item-form :item-data="currentItem"/>
 </section>
 <the-footer/>
 </template>

@@ -20,7 +20,7 @@
     <div :class="[oFlex.oFlex, oFlex.endCenter, uGap.md]">
         <base-button button-style="secondary"
                      disabled
-                     @click="buttonClick">Cancelar</base-button>
+                     @click="cancel()">Cancelar</base-button>
         <base-button>Guardar</base-button>
     </div>
 </form>
@@ -39,6 +39,9 @@ import type { CategoryItemForm } from "@types/CategoryItemForm.ts"
 import { onMounted, reactive } from "vue"
 import BaseButton from "@components/ui/BaseButton.vue";
 
+import { useRouter } from "vue-router";
+
+const router = useRouter()
 
 const formConfig = reactive<CategoryItemForm>({
     name: '',
@@ -48,7 +51,6 @@ const formConfig = reactive<CategoryItemForm>({
 })
 
 interface Props {
-    categoryName: string
     itemData?: MenuItem
 }
 
@@ -63,8 +65,8 @@ onMounted(() => {
     }
 })
 
-function buttonClick() {
-  console.log('hello')
+function cancel() {
+  router.back()
 }
 
 const subtitle: string = props.itemData ? 'Editar item' : 'Añadir item'

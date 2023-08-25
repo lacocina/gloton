@@ -4,10 +4,10 @@
       <base-back-button/>
       <div>
         <div :class="oFlex.startCenter">
-          <span>{{ 'categoryName' }}</span>
-          <span> / {{ 'subtitle' }}</span>
+          <span>{{ categoryName }}</span>
+          <span> / {{ subtitle }}</span>
         </div>
-        <h2 :class="[productHeader.title, txt.title300]">
+        <h2 v-if="productName" :class="[productHeader.title, txt.title300]">
           {{ 'formConfig.name' }}
         </h2>
       </div>
@@ -20,6 +20,16 @@ import oFlex from "@css/objects/o-flex.module.css"
 import uGap from "@css/utilities/u-gap.module.css"
 import txt from "@css/components/atoms/txt.module.css"
 import BaseBackButton from "@components/ui/BaseBackButton.vue"
+
+interface Props {
+  categoryName: string
+  subtitle: string
+  productName?: string
+}
+
+const props = defineProps<Props>()
+
+
 </script>
 
 <style module="productHeader">

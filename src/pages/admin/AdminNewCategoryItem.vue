@@ -1,7 +1,7 @@
 <template>
 <section :class="[contentPage.contentPage, contentPage.resetTop]">
-  <product-header/>
-  <category-item-form :category-name="categoryName"/>
+  <product-header :category-name="categoryName" subtitle="Nuevo item"/>
+  <category-item-form/>
 </section>
 <the-footer/>
 </template>
