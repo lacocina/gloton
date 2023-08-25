@@ -35,6 +35,7 @@ withDefaults(defineProps<Props>(), {
   font-size: var(--font-size-200);
   border-color: transparent;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .primary {
