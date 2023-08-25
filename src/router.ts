@@ -11,6 +11,7 @@ import AdminBusiness from "./pages/admin/AdminBusiness.vue"
 import AdminMenu from "./pages/admin/AdminMenu.vue"
 import AdminCategoryDetail from "./pages/admin/AdminCategoryDetail.vue"
 import AdminCategoryNew from "./pages/admin/AdminCategoryNew.vue"
+import AdminCategoryEdit from "./pages/admin/AdminCategoryEdit.vue"
 import AdminProductNew from "./pages/admin/AdminProductNew.vue"
 import AdminProductEdit from "./pages/admin/AdminProductEdit.vue"
 
@@ -86,6 +87,12 @@ const routes: RouteRecordRaw[] = [
                 path: '/admin/menu/new-category',
                 name: 'admin-category-new',
                 component: AdminCategoryNew,
+                props: true
+            },
+            {
+                path: '/admin/menu/category/:categoryId/edit',
+                name: 'admin-category-edit',
+                component: AdminCategoryEdit,
                 props: true
             },
             {
