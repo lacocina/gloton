@@ -4,7 +4,8 @@
     </div>
     <div v-else-if="currentCategory">
         <page-template :title="currentCategory.name" :img-src="imgSrc">
-            <categories-navigation route-name="category-detail"/>
+            <categories-navigation :menu-categories="menuCategories"
+                                   route-name="category-detail"/>
             <o-stack>
                 <menu-item v-for="item in currentCategory.items"
                            :key="item.id"
@@ -24,6 +25,7 @@ import OStack from "@components/objects/OStack.vue"
 import CategoriesNavigation from "@components/menu/CategoriesNavigation.vue"
 import { computedAsync } from "@vueuse/core"
 import { getUrlPhoto } from "../services/unsplash.ts"
+import type { MenuCategory } from "@types/MenuCategory.ts";
 
 const businessStore = useBusinessStore()
 const route = useRoute()
@@ -31,6 +33,10 @@ const router = useRouter()
 
 const currentCategory = computed(() => {
   return businessStore.getCategoryById(Number(route.params.categoryId))
+})
+
+const menuCategories = computed(() : MenuCategory[] | undefined => {
+  return businessStore.getMenuCategories
 })
 
 function handleOnEnter() {

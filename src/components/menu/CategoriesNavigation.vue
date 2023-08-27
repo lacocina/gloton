@@ -11,16 +11,15 @@
 
 <script lang="ts" setup>
 import { computed, onMounted, onUpdated } from "vue"
-import { useBusinessStore } from "@store/front/business.ts"
 import type { MenuCategory } from "@types/MenuCategory"
 import { useRoute } from "vue-router"
 import CategoriesNavigationModule from "@css/components/molecules/categories-navigation.module.css"
 
 const route = useRoute()
-const businessStore = useBusinessStore()
 
 interface Props {
   routeName: string
+  menuCategories: MenuCategory[]
 }
 
 const props = defineProps<Props>()
@@ -39,9 +38,4 @@ const scrollToActive = () => {
 }
 onMounted(() => scrollToActive())
 onUpdated(() => scrollToActive())
-
-const menuCategories = computed(() : MenuCategory[] | undefined => {
-    return businessStore.getMenuCategories
-})
-
 </script>
