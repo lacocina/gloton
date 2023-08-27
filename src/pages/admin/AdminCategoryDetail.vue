@@ -4,6 +4,7 @@
                :img-src="imgSrc"
                :hero-button="heroButton"
                back-button>
+    <categories-navigation route-name="admin-category-detail" :menu-categories="menuCategories"/>
     <o-stack size="xl">
         <base-alert v-if="!currentCategory.items?.length" small>
             Esta categoría no aparecerá en la página porque aún no tiene ningún elemento
@@ -48,6 +49,7 @@ import MenuItem from "@components/admin/MenuItem.vue"
 import AddItem from "@components/admin/AddItem.vue"
 import { computedAsync } from "@vueuse/core"
 import { getUrlPhoto } from "../../services/unsplash.ts"
+import CategoriesNavigation from "@components/menu/CategoriesNavigation.vue";
 
 const adminStore = useAdminStore()
 const route = useRoute()
@@ -60,6 +62,10 @@ const currentCategory = computed(() : MenuCategory | undefined => {
 // TODO - Que estic fent amb això? Perque fora això me dona error?
 defineOptions({
     inheritAttrs: false
+})
+
+const menuCategories = computed((): MenuCategory | undefined => {
+  return adminStore.getMenuCategories
 })
 
 const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))
