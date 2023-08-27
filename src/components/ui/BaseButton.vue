@@ -3,6 +3,7 @@
         :class="[
             baseButton.common,
             baseButton[buttonStyle],
+            baseButton[buttonSize],
             disabled ? 'disabled' : ''
         ]">
     <slot/>
@@ -13,6 +14,7 @@
 export interface Props {
   marginButton?: 10 | 20
   buttonType?: 'button' | 'submit'
+  buttonSize?: 'sm' | 'md'
   buttonStyle?: 'primary' | 'secondary'
   disabled?: boolean
 }
@@ -20,6 +22,7 @@ export interface Props {
 withDefaults(defineProps<Props>(), {
   buttonType: 'button',
   buttonStyle: 'primary',
+  buttonSize: 'md',
   disabled: false
 })
 
@@ -30,12 +33,20 @@ withDefaults(defineProps<Props>(), {
 
 .common {
   transition: var(--transition-duration-500);
-  border-radius: var(--border-radius-xs);
-  padding: var(--spacing-rem-xs) var(--spacing-md);
-  font-size: var(--font-size-200);
   border-color: transparent;
   font-weight: bold;
   cursor: pointer;
+  border-radius: var(--border-radius-xs);
+}
+
+.sm {
+  padding: var(--spacing-rem-xs) var(--spacing-md);
+  font-size: var(--font-size-100);
+}
+
+.md {
+  padding: var(--spacing-rem-xs) var(--spacing-md);
+  font-size: var(--font-size-200);
 }
 
 .primary {
