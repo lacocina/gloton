@@ -28,7 +28,7 @@ import CssDocs from "./pages/CssDocs.vue"
 
 const routes: RouteRecordRaw[] = [
     { path: '/', component: CategoriesList },
-    { path: '/detail/:categoryId', component: CategoryDetail, props: true },
+    { path: '/detail/:categoryId', component: CategoryDetail, name: 'category-detail', props: true },
     { path: '/login', name: 'login', component: LoginView },
     {
         path: '/admin',

@@ -4,7 +4,7 @@
     </div>
     <div v-else-if="currentCategory">
         <page-template :title="currentCategory.name" :img-src="imgSrc">
-            <categories-navigation></categories-navigation>
+            <categories-navigation route-name="category-detail"/>
             <o-stack>
                 <menu-item v-for="item in currentCategory.items"
                            :key="item.id"
