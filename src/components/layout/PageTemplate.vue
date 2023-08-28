@@ -4,9 +4,9 @@
           :imgSrc="imgSrc"
           :back-button="backButton"
           :button="heroButton"/>
-  <section :class="contentPage.contentPage">
-      <slot></slot>
-  </section>
+<section :class="contentPage.contentPage">
+    <slot></slot>
+</section>
 <the-footer/>
 </template>
 
