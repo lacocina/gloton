@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import {api, apiLocal} from "../../services/api.ts"
+import { api } from "../../services/api.ts"
 import type { User } from "@types/User.ts"
 import type { Business } from "@types/Business.ts"
 import type { MenuCategory } from "@types/MenuCategory.ts"
@@ -22,25 +22,14 @@ export const useAdminStore = defineStore('admin', {
         // TODO - Falta sacar el item en concreto
         getCategoryItemById: (state) => {
             return (categoryId: number, itemId: number) => state.business?.menu.categories.find((category) => category.id === categoryId)
-            // return (categoryId: number, itemId: number) => state.business?.menu.categories.find((category) => category.id === categoryId).items.find((item) => item.id === itemId)
         }
     },
 
     actions: {
-
-        async createUser() {
-            apiLocal.post('users', {
-                "email": "eeee@gmail.com",
-                "lastname": "Picornell Marimon",
-                "name": "Caterina",
-                "phoneNumber": "637000999"
-            })
-        },
-
-        async login(email) {
+        async login(payload) {
             this.userLoading = true
             try {
-                const { data } = await apiLocal.get(`users/login/${email}`)
+                const { data } = await api.post(`users/login`,payload)
                 this.user = data.user
                 this.business = data.business
             } catch (e) {
@@ -49,23 +38,17 @@ export const useAdminStore = defineStore('admin', {
                 this.userLoading = false
             }
         },
-
-        async fetchUserData() {
-            this.userLoading = true
+        async addCategory(categoryData) {
+            const payload = {
+                category: {
+                    ...categoryData,
+                    businessId: this.business.id,
+                }
+            }
             try {
-                // TODO Poner el userId en base al login
-                const userId: number = 1
-                const userResponse = await api.get<User>(`users/${userId}.json`)
-                this.user = userResponse.data
-
-                const businessId = this.user?.businessList?.[0]
-                const businessResponse = await api.get<Business>(`businesses/${businessId}.json`)
-                this.business = businessResponse.data
-
+                await api.post('businesses/category', payload)
             } catch (e) {
                 console.error(e)
-            } finally {
-                this.userLoading = false
             }
         }
     }

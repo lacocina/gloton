@@ -1,7 +1,7 @@
 <template>
 <page-template title="Login" :img-src="imgSrc">
     <div v-if="adminStore.getUserLoading">Cargando...</div>
-    <form v-else class="base-form" :class="oStack.oStack">
+    <form @submit.prevent="login" v-else class="base-form" :class="oStack.oStack">
         <div :class="BaseInputModule.baseInput">
             <label for="name" :class="BaseInputModule.label">email label*</label>
             <input v-model.lazy="formConfig.email.value"
@@ -30,7 +30,7 @@
               *Este campo no puede estar vacío
             </p>
         </div>
-        <base-button @click="login">Login</base-button>
+        <base-button button-type="submit">Login</base-button>
     </form>
 </page-template>
 </template>
@@ -63,12 +63,13 @@ const formConfig = reactive({
 async function login() {
   if (validateForm()) {
     try {
-      await adminStore.login(formConfig.email.value)
+      await adminStore.login({
+        email: formConfig.email.value,
+        pass: formConfig.pass.value
+      })
+      await router.push({ path: '/admin' });
     } catch (e) {
       console.error(e)
-    } finally {
-      // Llevar a la página de admin
-      await router.push({ path: '/admin' });
     }
   }
 }
@@ -80,10 +81,6 @@ function validateForm() {
   if (!formConfig.pass.value) formConfig.pass.error = true
 
   return false
-}
-
-async function newUser() {
-  await adminStore.createUser()
 }
 
 const imgSrc = computedAsync(() => getUrlPhoto('1pJLkDYasfY'))

@@ -7,18 +7,24 @@
 <script lang="ts" setup>
 import PageTemplate from "@components/layout/PageTemplate.vue"
 import CategoryForm from "@components/admin/CategoryForm.vue"
+import { useAdminStore } from "@store/backoffice/admin.ts";
 import { useRouter } from "vue-router"
 
 const router = useRouter()
+const adminStore = useAdminStore()
 
-function saveFunction() {
-  console.log('Categoría creada')
-  router.back()
+async function saveFunction(categoryData) {
+  try {
+    await adminStore.addCategory(categoryData)
+    router.back()
+  } catch (e) {
+    console.error('Ha habido un error', e)
+  }
 }
 
 const saveButton = {
   text: 'Guardar',
-  onClick: () => saveFunction()
+  onClick: async () => await saveFunction()
 }
 
 // TODO - Que estic fent amb això? Perque fora això me dona error?

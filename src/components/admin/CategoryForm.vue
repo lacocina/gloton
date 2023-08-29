@@ -9,6 +9,10 @@
         <label for="name" :class="baseInput.label">description label</label>
         <input v-model.lazy="formConfig.description" id="description" :class="baseInput.input" type="text" placeholder="-"/>
     </div>
+    <div :class="[oFlex.oFlex, oFlex.endCenter, uGap.lg]">
+      <label for="showProduct">Mostrar en la web</label>
+      <input v-model.lazy="formConfig.show" type="checkbox" :checked="formConfig.show" id="showProduct">
+    </div>
     <base-alert small>
       Próximamente se podrán añadir imágenes
     </base-alert>
@@ -42,6 +46,7 @@ const router = useRouter()
 const formConfig = reactive<CategoryForm>({
     name: '',
     description: '',
+    show: true
 })
 
 interface Props {
@@ -54,6 +59,7 @@ onMounted(() => {
     if (props.categoryData) {
         formConfig.name = props.categoryData.name
         formConfig.description = props.categoryData.description
+        formConfig.show = props.categoryData.show
     }
 })
 
@@ -72,7 +78,7 @@ const vAutofocus = {
 const emit = defineEmits(['save-form'])
 
 function saveForm() {
-  emit('save-form')
+  emit('save-form', formConfig)
 }
 
 </script>
