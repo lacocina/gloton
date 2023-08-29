@@ -3,7 +3,17 @@
     <h3 :class="txt.title200">Datos sobre la categoría</h3>
     <div :class="baseInput.baseInput">
         <label for="name" :class="baseInput.label">name label</label>
-        <input v-model.lazy="formConfig.name" v-autofocus id="name" :class="baseInput.input" type="text" placeholder="-"/>
+        <input v-model.lazy="formConfig.name"
+               v-autofocus id="name"
+               :class="[
+                       BaseInputModule.input,
+                       nameError ? BaseInputModule.error : ''
+                   ]"
+               type="text"
+               placeholder="-"/>
+        <p v-if="nameError" :class="BaseInputModule.errorMessage">
+          *Este campo no puede estar vacío
+        </p>
     </div>
     <div :class="baseInput.baseInput">
         <label for="name" :class="baseInput.label">description label</label>
@@ -35,11 +45,12 @@ import baseInput from "@css/components/atoms/base-input.module.css"
 import type { CategoryForm } from "@types/CategoryForm.ts"
 import type { MenuCategory } from "@types/MenuCategory.ts"
 
-import { onMounted, reactive } from "vue"
+import { onMounted, reactive, ref } from "vue"
 import BaseButton from "@components/ui/BaseButton.vue"
 
 import { useRouter } from "vue-router"
 import BaseAlert from "@components/ui/BaseAlert.vue"
+import BaseInputModule from "@css/components/atoms/base-input.module.css";
 
 const router = useRouter()
 
@@ -48,6 +59,8 @@ const formConfig = reactive<CategoryForm>({
     description: '',
     show: true
 })
+
+const nameError = ref(false)
 
 interface Props {
     categoryData?: MenuCategory
@@ -77,8 +90,20 @@ const vAutofocus = {
 
 const emit = defineEmits(['save-form'])
 
+function validateForm() {
+  if (formConfig.name) {
+    return true
+  } else {
+    nameError.value = true
+  }
+
+  return false
+}
+
 function saveForm() {
-  emit('save-form', formConfig)
+  if (validateForm()) {
+    emit('save-form', formConfig)
+  }
 }
 
 </script>
