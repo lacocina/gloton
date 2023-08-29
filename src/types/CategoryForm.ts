@@ -1,4 +1,5 @@
 export interface CategoryForm {
     name: string,
-    description: string
+    description: string,
+    show: boolean
 }
