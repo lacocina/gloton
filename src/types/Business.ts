@@ -1,8 +1,9 @@
 import type { Menu } from "./Menu";
 
 export interface Business {
-    name: string,
-    email: string,
-    phoneNumber: number,
+    id: number
+    name: string
+    email: string
+    phoneNumber: number
     menu: Menu
 }
