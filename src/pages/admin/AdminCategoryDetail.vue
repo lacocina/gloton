@@ -18,7 +18,7 @@
                 <h3 :class="txt.title200">
                     {{ $t('admin.cards.productsNumber', { number: currentCategory.items?.length || 0 }) }}
                 </h3>
-                <div v-if="currentCategory.items">Ordenar</div>
+                <div v-if="currentCategory.items?.length > 1">Ordenar</div>
             </div>
             <div v-if="currentCategory.items">
                 <menu-item v-for="item in currentCategory.items"
