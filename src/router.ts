@@ -22,7 +22,6 @@ import CategoriesList from "./pages/CategoriesList.vue"
 import CategoryDetail from "./pages/CategoryDetail.vue"
 
 // Docs
-import CategoriesManagement from "./pages/CategoriesManagement.vue"
 import CssDocs from "./pages/CssDocs.vue"
 
 
@@ -109,7 +108,6 @@ const routes: RouteRecordRaw[] = [
             },
         ]
     },
-    { path: '/management', component: CategoriesManagement },
     { path: '/css', component: CssDocs }
 ]
 
