@@ -4,14 +4,15 @@
     <div :class="baseInput.baseInput">
         <label for="name" :class="baseInput.label">name label</label>
         <input v-model.lazy="formConfig.name"
-               v-autofocus id="name"
+               v-autofocus
+               id="name"
                :class="[
-                       BaseInputModule.input,
-                       nameError ? BaseInputModule.error : ''
+                       baseInput.input,
+                       nameError ? baseInput.error : ''
                    ]"
                type="text"
                placeholder="-"/>
-        <p v-if="nameError" :class="BaseInputModule.errorMessage">
+        <p v-if="nameError" :class="baseInput.errorMessage">
           *Este campo no puede estar vacío
         </p>
     </div>
@@ -50,7 +51,6 @@ import BaseButton from "@components/ui/BaseButton.vue"
 
 import { useRouter } from "vue-router"
 import BaseAlert from "@components/ui/BaseAlert.vue"
-import BaseInputModule from "@css/components/atoms/base-input.module.css";
 
 const router = useRouter()
 
