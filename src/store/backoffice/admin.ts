@@ -40,13 +40,22 @@ export const useAdminStore = defineStore('admin', {
         },
         async addCategory(categoryData) {
             const payload = {
-                category: {
-                    ...categoryData,
-                    businessId: this.business.id,
-                }
+                ...categoryData,
+                businessId: this.business.id,
             }
             try {
                 await api.post('businesses/category', payload)
+            } catch (e) {
+                console.error(e)
+            }
+        },
+        async updateCategory(categoryData) {
+            const payload = {
+                ...categoryData,
+                businessId: this.business.id,
+            }
+            try {
+                await api.patch('businesses/category', payload)
             } catch (e) {
                 console.error(e)
             }

@@ -90,20 +90,17 @@ const vAutofocus = {
 
 const emit = defineEmits(['save-form'])
 
-function validateForm() {
+function saveForm() {
   if (formConfig.name) {
-    return true
+    emit('save-form', formConfig)
   } else {
     nameError.value = true
   }
-
-  return false
 }
 
-function saveForm() {
-  if (validateForm()) {
-    emit('save-form', formConfig)
-  }
-}
+defineExpose({
+  saveForm
+})
+
 
 </script>
