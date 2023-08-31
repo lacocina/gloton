@@ -7,16 +7,22 @@
 <script lang="ts" setup>
 import { ref } from "vue"
 import { useRouter } from "vue-router"
+import { useAdminStore } from "@store/backoffice/admin.ts"
+import { useNotification } from '@kyvg/vue3-notification'
 import PageTemplate from "@components/layout/PageTemplate.vue"
 import CategoryForm from "@components/admin/CategoryForm.vue"
-import { useAdminStore } from "@store/backoffice/admin.ts"
 
+const { notify } = useNotification()
 const router = useRouter()
 const adminStore = useAdminStore()
 
 async function saveFunction(categoryData) {
   try {
     await adminStore.addCategory(categoryData)
+    notify({
+      type: 'success',
+      title: 'Categoría añadida con éxito'
+    })
     router.back()
   } catch (e) {
     console.error('Ha habido un error', e)

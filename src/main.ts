@@ -7,10 +7,12 @@ import VueAxios from "vue-axios"
 import { router } from "./router"
 import { i18n } from "./lang/i18n"
 import Vue3Lottie from 'vue3-lottie'
+import Notifications from '@kyvg/vue3-notification'
 
 createApp(App)
     .use(router)
     .use(i18n)
+    .use(Notifications)
     .use(Vue3Lottie, { name: "Vue3Lottie" })
     .use(createPinia())
     .use(VueAxios, axios)

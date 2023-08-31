@@ -1,4 +1,5 @@
 <template>
+<notifications/>
 <div :class="OPageModule.oPage">
   <o-inset size="xs" modifier="section">
     <the-header></the-header>
