@@ -3,6 +3,7 @@ import { api } from "../../services/api.ts"
 import type { User } from "@types/User.ts"
 import type { Business } from "@types/Business.ts"
 import type { MenuCategory } from "@types/MenuCategory.ts"
+import { notify } from "@kyvg/vue3-notification"
 
 export const useAdminStore = defineStore('admin', {
     state: () => ({
@@ -32,8 +33,17 @@ export const useAdminStore = defineStore('admin', {
                 const { data } = await api.post(`users/login`,payload)
                 this.user = data.user
                 this.business = data.business
-            } catch (e) {
-                console.error(e)
+
+                notify({
+                    title: 'Login correcto',
+                    text: `Bienvenido ${this.user.name}!`
+                })
+
+            } catch {
+                notify({
+                    type: 'error',
+                    title: 'Email o contraseña incorrecta'
+                })
             } finally {
                 this.userLoading = false
             }

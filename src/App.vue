@@ -1,5 +1,5 @@
 <template>
-<notifications/>
+<notifications classes="custom-notification vue-notification"/>
 <div :class="OPageModule.oPage">
   <o-inset size="xs" modifier="section">
     <the-header></the-header>
