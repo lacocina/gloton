@@ -1,14 +1,10 @@
-.vue-notification-group {
-  padding: 1rem;
-}
-
 .vue-notification-wrapper {
   overflow: visible !important;
 }
 
 .custom-notification.vue-notification {
   border-radius: var(--border-radius-xs);
-  margin: 0 0 .5rem;
+  margin: .5rem .5rem 0 0;
   box-shadow: 0 0 5px #00000050;
 
   background: var(--color-feedback-info-100);
