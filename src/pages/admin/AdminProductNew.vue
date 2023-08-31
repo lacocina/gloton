@@ -21,6 +21,7 @@ import TheFooter from "@components/layout/TheFooter.vue"
 
 import { useAdminStore } from "@store/backoffice/admin.ts"
 
+const route = useRoute()
 const router = useRouter()
 const adminStore = useAdminStore()
 
@@ -32,7 +33,6 @@ defineOptions({
 const productName = ref('')
 
 const categoryName = computed(() : string => {
-    const route = useRoute()
     return adminStore.getCategoryById(Number(route.params.categoryId))?.name
 })
 
@@ -40,9 +40,16 @@ function nameChange(newName) {
   productName.value = newName
 }
 
-function saveFunction() {
-  console.log('Producto creado')
-  router.back()
+function saveFunction(productData) {
+  try {
+    adminStore.addProduct({
+      ...productData,
+      categoryId: Number(route.params.categoryId)
+    })
+    router.back()
+  } catch (e) {
+    console.error(e)
+  }
 }
 
 </script>

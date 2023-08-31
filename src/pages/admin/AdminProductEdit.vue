@@ -1,6 +1,6 @@
 <template>
 <section v-if="currentItem" :class="[contentPage.contentPage, contentPage.resetTop]">
-  <product-header :category-name="categoryName" :product-name="productName" subtitle="Editar item"/>
+  <product-header :category-name="categoryName" :product-name="productName" subtitle="Editar producto"/>
   <category-item-form :product-data="currentItem"
                       @save-form="saveFunction"
                       @name-change="nameChange"/>

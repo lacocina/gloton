@@ -59,6 +59,17 @@ export const useAdminStore = defineStore('admin', {
             } catch (e) {
                 console.error(e)
             }
-        }
+        },
+        async addProduct(productData) {
+            const payload = {
+                ...productData,
+                businessId: this.business.id,
+            }
+            try {
+                await api.post('businesses/product', payload)
+            } catch (e) {
+                console.error(e)
+            }
+        },
     }
 })
