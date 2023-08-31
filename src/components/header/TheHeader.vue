@@ -5,6 +5,16 @@
     <the-header-item href="/admin" text="Admin"/>
     <the-header-item href="/css" text="CSS Docs"/>
   </nav>
+
+  <select v-model="$i18n.locale">
+    <option value="es-ES">
+      es
+    </option>
+    <option value="en-US">
+      en
+    </option>
+  </select>
+
   <light-dark-mode/>
 </header>
 </template>
