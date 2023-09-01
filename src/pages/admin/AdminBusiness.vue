@@ -23,5 +23,5 @@ import BaseInputModule from '@css/components/atoms/base-input.module.css'
 import type { Business } from "@types/Business.ts"
 
 const adminStore = useAdminStore()
-const formConfig: Business = reactive(adminStore.getBusiness)
+const formConfig: Business = reactive(adminStore.business)
 </script>

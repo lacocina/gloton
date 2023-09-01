@@ -118,7 +118,7 @@ export const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     const adminStore = useAdminStore()
-    if (to.matched.some((record) => record.meta.private) && !adminStore.getUser) {
+    if (to.matched.some((record) => record.meta.private) && !adminStore.user) {
         // TODO - Ir a la página privada que ha intentado entrar
         // next({ name: "login", params: { toPath: to.fullPath } })
         next({ name: "login" })

@@ -27,5 +27,5 @@ import baseInput from '@css/components/atoms/base-input.module.css'
 import type { User } from "@types/User.ts"
 
 const adminStore = useAdminStore()
-const formConfig: User = reactive(adminStore.getUser)
+const formConfig: User = reactive(adminStore.user)
 </script>

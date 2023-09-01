@@ -65,7 +65,7 @@ defineOptions({
 })
 
 const menuCategories = computed((): MenuCategory | undefined => {
-  return adminStore.getMenuCategories
+  return adminStore.menuCategories
 })
 
 const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))

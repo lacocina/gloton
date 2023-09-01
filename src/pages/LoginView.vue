@@ -1,6 +1,6 @@
 <template>
 <page-template title="Login" :img-src="imgSrc">
-    <div v-if="adminStore.getUserLoading">Cargando...</div>
+    <div v-if="adminStore.userLoading">Cargando...</div>
     <form @submit.prevent="login" v-else class="base-form" :class="oStack.oStack">
         <div :class="BaseInputModule.baseInput">
             <label for="name" :class="BaseInputModule.label">email label*</label>

@@ -33,7 +33,7 @@ import AddItem from "@components/admin/AddItem.vue";
 const adminStore = useAdminStore()
 
 const menuCategories = computed(() : MenuCategory[] | undefined => {
-    return adminStore.getMenuCategories
+    return adminStore.menuCategories
 })
 
 const isLoading = ref(true)
