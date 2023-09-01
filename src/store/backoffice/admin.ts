@@ -28,10 +28,6 @@ export const useAdminStore = defineStore('admin', {
 
     getters: {
         menuCategories: (state): MenuCategory[] | undefined => state.business?.menu.categories,
-        // TODO - Falta sacar el item en concreto
-        getCategoryItemById: (state) => {
-            return (categoryId: number, itemId: number) => state.business?.menu.categories.find((category) => category.id === categoryId)
-        }
     },
 
     actions: {
@@ -44,6 +40,12 @@ export const useAdminStore = defineStore('admin', {
         getCategoryById(categoryId: number) : MenuCategory {
             return this.business?.menu.categories
                 .find((category) => category.id === categoryId)
+        },
+
+        getProductById(categoryId: number, productId: number) : MenuItem {
+            return this.business?.menu.categories
+                .find((category) => category.id === categoryId).items
+                .find((item) => item.id === productId)
         },
 
         async login(payload) {

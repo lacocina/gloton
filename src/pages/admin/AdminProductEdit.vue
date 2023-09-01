@@ -1,7 +1,7 @@
 <template>
-<section v-if="currentItem" :class="[contentPage.contentPage, contentPage.resetTop]">
+<section v-if="currentProduct" :class="[contentPage.contentPage, contentPage.resetTop]">
   <product-header :category-name="categoryName" :product-name="productName" subtitle="Editar producto"/>
-  <category-item-form :product-data="currentItem"
+  <category-item-form :product-data="currentProduct"
                       @save-form="saveFunction"
                       @name-change="nameChange"/>
 </section>
@@ -32,14 +32,10 @@ defineOptions({
 
 const categoryName = adminStore.getCategoryName(Number(route.params.categoryId))
 
-const currentItem = computed(() : MenuItem | undefined  => {
-    const route = useRoute()
-    const category = adminStore.getCategoryItemById(Number(route.params.categoryId), Number(route.params.itemId))
-
-    return category.items?.find((item) => item.id === Number(route.params.itemId))
-})
+const currentProduct : MenuItem = adminStore.getProductById(Number(route.params.categoryId), Number(route.params.itemId))
 
 const productName = ref('')
+
 function nameChange(newName) {
   productName.value = newName
 }
