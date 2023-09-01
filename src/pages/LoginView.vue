@@ -3,7 +3,7 @@
     <div v-if="adminStore.userLoading">Cargando...</div>
     <form @submit.prevent="login" v-else class="base-form" :class="oStack.oStack">
         <div :class="BaseInputModule.baseInput">
-            <label for="name" :class="BaseInputModule.label">email label*</label>
+            <label for="email" :class="BaseInputModule.label">email label*</label>
             <input v-model.lazy="formConfig.email.value"
                    id="email"
                    :class="[
@@ -11,13 +11,14 @@
                        formConfig.email.error ? BaseInputModule.error : ''
                    ]"
                    type="text"
-                   placeholder="-"/>
+                   placeholder="-"
+                   autocomplete="username"/>
             <p v-if="formConfig.email.error" :class="BaseInputModule.errorMessage">
               *Este campo no puede estar vacío
             </p>
         </div>
         <div :class="BaseInputModule.baseInput">
-            <label for="lastname" :class="BaseInputModule.label">pass label*</label>
+            <label for="pass" :class="BaseInputModule.label">pass label*</label>
             <input v-model.lazy="formConfig.pass.value"
                    id="pass"
                    :class="[
@@ -25,7 +26,7 @@
                        formConfig.pass.error ? BaseInputModule.error : ''
                    ]"
                    type="password"
-                   autocomplete/>
+                   autocomplete="current-password"/>
             <p v-if="formConfig.pass.error" :class="BaseInputModule.errorMessage">
               *Este campo no puede estar vacío
             </p>
