@@ -34,7 +34,7 @@ const activeClass = (currentCategory: number) => {
 
 const scrollToActive = () => {
     const element = document.querySelector('.' + CategoriesNavigationModule.active)
-    element?.scrollIntoView({ behavior: "smooth" })
+    element?.scrollIntoView({ behavior: "smooth", block: 'nearest' })
 }
 onMounted(() => scrollToActive())
 onUpdated(() => scrollToActive())
