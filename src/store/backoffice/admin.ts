@@ -4,6 +4,20 @@ import type { User } from "@types/User.ts"
 import type { Business } from "@types/Business.ts"
 import type { MenuCategory } from "@types/MenuCategory.ts"
 import { notify } from "@kyvg/vue3-notification"
+import {AxiosError, HttpStatusCode} from "axios";
+
+export class UnauthorizedError extends Error {
+    constructor() {
+        super("Unauthorized");
+    }
+}
+
+export class InternalServerError extends Error {
+    constructor() {
+        super("Internal Server Error");
+    }
+
+}
 
 export const useAdminStore = defineStore('admin', {
     state: () => ({
@@ -29,6 +43,7 @@ export const useAdminStore = defineStore('admin', {
     actions: {
         async login(payload) {
             this.userLoading = true
+            // TODO pasar las llamadas a los services
             try {
                 const { data } = await api.post(`users/login`,payload)
                 this.user = data.user
@@ -39,11 +54,20 @@ export const useAdminStore = defineStore('admin', {
                     text: `Bienvenido ${this.user.name}!`
                 })
 
-            } catch {
+            } catch (e) {
+                if (e instanceof AxiosError) {
+                    if (e.response.status === HttpStatusCode.InternalServerError) {
+                        throw new InternalServerError()
+                    }
+                    if (e.response.status === HttpStatusCode.Unauthorized) {
+                        throw new UnauthorizedError()
+                    }
+                }
                 notify({
                     type: 'error',
                     title: 'Email o contraseña incorrecta'
                 })
+                throw e
             } finally {
                 this.userLoading = false
             }

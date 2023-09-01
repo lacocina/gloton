@@ -40,7 +40,7 @@ import { useRouter } from "vue-router"
 import BaseButton from "@components/ui/BaseButton.vue"
 import oStack from '@css/objects/o-stack.module.css'
 import BaseInputModule from '@css/components/atoms/base-input.module.css'
-import { useAdminStore } from "@store/backoffice/admin.ts"
+import {InternalServerError, useAdminStore} from "@store/backoffice/admin.ts"
 import { reactive } from "vue";
 import PageTemplate from "@components/layout/PageTemplate.vue";
 import {computedAsync} from "@vueuse/core";
@@ -67,9 +67,11 @@ async function login() {
         email: formConfig.email.value,
         pass: formConfig.pass.value
       })
-      await router.push({ path: '/admin' });
+      await router.push({ path: '/admin' })
     } catch (e) {
-      console.error(e)
+      if (e instanceof InternalServerError) {
+        console.log('InternalServerError')
+      }
     }
   }
 }
