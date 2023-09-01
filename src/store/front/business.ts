@@ -12,9 +12,6 @@ export const useBusinessStore = () => {
         }),
         getters: {
             getName: (state) => state.business?.name,
-            getCategoryById: (state) => {
-                return (categoryId: number) => state.business?.menu.categories.find((category) => category.id === categoryId)
-            },
             getMenuCategories(state): MenuCategory[] | undefined {
                 return state.business?.menu.categories.filter((category) => {
                     return category.show && category.items?.some((item) => item.show)
@@ -31,6 +28,11 @@ export const useBusinessStore = () => {
                 } finally {
                     this.loading = false
                 }
+            },
+
+            getCategoryById(categoryId: number) : MenuCategory {
+                return this.business?.menu.categories
+                    .find((category) => category.id === categoryId)
             },
         }
     })

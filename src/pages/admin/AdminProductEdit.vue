@@ -21,6 +21,7 @@ import TheFooter from "@components/layout/TheFooter.vue"
 import { useAdminStore } from "@store/backoffice/admin.ts"
 import type { MenuItem } from "@types/MenuItem.ts"
 
+const route = useRoute()
 const router = useRouter()
 const adminStore = useAdminStore()
 
@@ -29,10 +30,7 @@ defineOptions({
     inheritAttrs: false
 })
 
-const categoryName = computed(() : string => {
-    const route = useRoute()
-    return adminStore.getCategoryById(Number(route.params.categoryId))?.name
-})
+const categoryName = adminStore.getCategoryName(Number(route.params.categoryId))
 
 const currentItem = computed(() : MenuItem | undefined  => {
     const route = useRoute()

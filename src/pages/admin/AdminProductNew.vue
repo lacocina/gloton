@@ -32,9 +32,7 @@ defineOptions({
 
 const productName = ref('')
 
-const categoryName = computed(() : string => {
-    return adminStore.getCategoryById(Number(route.params.categoryId))?.name
-})
+const categoryName = adminStore.getCategoryName(Number(route.params.categoryId))
 
 function nameChange(newName) {
   productName.value = newName

@@ -31,9 +31,7 @@ const businessStore = useBusinessStore()
 const route = useRoute()
 const router = useRouter()
 
-const currentCategory = computed(() => {
-  return businessStore.getCategoryById(Number(route.params.categoryId))
-})
+const currentCategory : MenuCategory = businessStore.getCategoryById(Number(route.params.categoryId))
 
 const menuCategories = computed(() : MenuCategory[] | undefined => {
   return businessStore.getMenuCategories

@@ -55,9 +55,7 @@ const adminStore = useAdminStore()
 const route = useRoute()
 const router = useRouter()
 
-const currentCategory = computed(() : MenuCategory | undefined => {
-    return adminStore.getCategoryById(Number(route.params.categoryId))
-})
+const currentCategory : MenuCategory = adminStore.getCategoryById(Number(route.params.categoryId))
 
 // TODO - Que estic fent amb això? Perque fora això me dona error?
 defineOptions({

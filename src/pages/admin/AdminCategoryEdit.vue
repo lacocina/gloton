@@ -25,9 +25,7 @@ const route = useRoute()
 const router = useRouter()
 const adminStore = useAdminStore()
 
-const currentCategory = computed(() : MenuCategory | undefined  => {
-  return adminStore.getCategoryById(Number(route.params.categoryId))
-})
+const currentCategory : MenuCategory = adminStore.getCategoryById(Number(route.params.categoryId))
 
 async function saveFunction(categoryData) {
   try {
