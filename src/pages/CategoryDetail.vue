@@ -18,7 +18,7 @@
 <script lang="ts" setup>
 import { useRoute, useRouter } from "vue-router"
 import { useBusinessStore } from "@store/front/business.ts"
-import { computed, onBeforeMount } from "vue"
+import {computed, onBeforeMount, reactive, watch} from "vue"
 import PageTemplate from "@components/layout/PageTemplate.vue"
 import MenuItem from "@components/menu/MenuItem.vue"
 import OStack from "@components/objects/OStack.vue"
@@ -31,10 +31,16 @@ const businessStore = useBusinessStore()
 const route = useRoute()
 const router = useRouter()
 
-const currentCategory : MenuCategory = businessStore.getCategoryById(Number(route.params.categoryId))
+const currentCategory : MenuCategory = computed(() => {
+  return businessStore.getCategoryById(Number(route.params.categoryId))
+})
 
 const menuCategories = computed(() : MenuCategory[] | undefined => {
   return businessStore.getMenuCategories
+})
+
+watch( () => route.params.categoryId, () => {
+  // Object.assign(currentCategory, businessStore.getCategoryById(Number(route.params.categoryId)))
 })
 
 function handleOnEnter() {

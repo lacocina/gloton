@@ -51,11 +51,13 @@ import { computedAsync } from "@vueuse/core"
 import { getUrlPhoto } from "../../services/unsplash.ts"
 import CategoriesNavigation from "@components/menu/CategoriesNavigation.vue";
 
-const adminStore = useAdminStore()
 const route = useRoute()
 const router = useRouter()
+const adminStore = useAdminStore()
 
-const currentCategory : MenuCategory = adminStore.getCategoryById(Number(route.params.categoryId))
+const currentCategory : MenuCategory = computed(() => {
+  return adminStore.getCategoryById(Number(route.params.categoryId))
+})
 
 // TODO - Que estic fent amb això? Perque fora això me dona error?
 defineOptions({
