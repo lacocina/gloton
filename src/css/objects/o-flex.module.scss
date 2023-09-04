@@ -13,6 +13,7 @@
 }
 
 .end-center {
+  composes: o-flex;
   justify-content: flex-end;
   align-items: center;
 }

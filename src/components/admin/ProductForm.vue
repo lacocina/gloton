@@ -35,11 +35,11 @@
         <label for="name" :class="baseInput.label">description label</label>
         <input v-model.lazy="formConfig.description" id="description" :class="baseInput.input" type="text" placeholder="-"/>
     </div>
-    <div :class="[oFlex.oFlex, oFlex.endCenter, uGap.lg]">
+    <div :class="[oFlex.endCenter, uGap.lg]">
         <label for="showProduct">Mostrar en la web</label>
         <input v-model.lazy="formConfig.show" type="checkbox" :checked="formConfig.show" id="showProduct">
     </div>
-    <div :class="[oFlex.oFlex, oFlex.endCenter, uGap.md]">
+    <div :class="[oFlex.endCenter, uGap.md]">
         <base-button button-style="secondary"
                      disabled
                      @click="deleteProduct">Eliminar</base-button>

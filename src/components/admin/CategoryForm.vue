@@ -1,5 +1,5 @@
 <template>
-<form :class="oStack.oStack">
+<form @submit.prevent="saveForm" :class="oStack.oStack">
     <h3 :class="txt.title200">Datos sobre la categoría</h3>
     <div :class="baseInput.baseInput">
         <label for="name" :class="baseInput.label">name label</label>
@@ -20,18 +20,21 @@
         <label for="name" :class="baseInput.label">description label</label>
         <input v-model.lazy="formConfig.description" id="description" :class="baseInput.input" type="text" placeholder="-"/>
     </div>
-    <div :class="[oFlex.oFlex, oFlex.endCenter, uGap.lg]">
+    <div :class="[oFlex.endCenter, uGap.lg]">
       <label for="showProduct">Mostrar en la web</label>
       <input v-model.lazy="formConfig.show" type="checkbox" :checked="formConfig.show" id="showProduct">
     </div>
     <base-alert small>
       Próximamente se podrán añadir imágenes
     </base-alert>
-    <div :class="[oFlex.oFlex, oFlex.endCenter, uGap.md]">
+    <div :class="[oFlex.endCenter, uGap.md]">
+        <base-button button-style="secondary"
+                     disabled
+                     @click="deleteCategory">Eliminar</base-button>
         <base-button button-style="secondary"
                      disabled
                      @click="cancel">Cancelar</base-button>
-        <base-button @click="saveForm">Guardar</base-button>
+        <base-button button-type="submit">Guardar</base-button>
     </div>
 </form>
 </template>
@@ -76,10 +79,6 @@ onMounted(() => {
     }
 })
 
-function cancel() {
-  router.back()
-}
-
 const vAutofocus = {
   mounted: (el) => {
     if (!props.categoryData) {
@@ -88,7 +87,7 @@ const vAutofocus = {
   }
 }
 
-const emit = defineEmits(['save-form'])
+const emit = defineEmits(['save-form', 'delete-category'])
 
 function saveForm() {
   if (formConfig.name) {
@@ -96,6 +95,14 @@ function saveForm() {
   } else {
     nameError.value = true
   }
+}
+
+function deleteCategory() {
+  emit('delete-category')
+}
+
+function cancel() {
+  router.back()
 }
 
 defineExpose({

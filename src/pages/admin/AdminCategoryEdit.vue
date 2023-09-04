@@ -6,7 +6,8 @@
                  back-button>
     <category-form ref="categoryFormRef"
                    :category-data="currentCategory"
-                   @save-form="saveFunction"/>
+                   @save-form="saveFunction"
+                   @delete-category="deleteCategory"/>
   </page-template>
 </template>
 
@@ -55,6 +56,10 @@ const categoryFormRef = ref(null)
 const saveButton = {
   text: 'Guardar',
   onClick: () => categoryFormRef.value.saveForm()
+}
+
+function deleteCategory() {
+  console.log('deleteCategory')
 }
 
 // TODO - Que estic fent amb això? Perque fora això me dona error?
