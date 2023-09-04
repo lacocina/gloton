@@ -82,8 +82,8 @@ export const useAdminStore = defineStore('admin', {
                 businessId: this.business.id,
             }
             try {
-                await api.post('businesses/category', payload)
-                await this.updateCategories()
+                const { data } = await api.post('businesses/category', payload)
+                this.business.menu.categories = data
             } catch (e) {
                 throw e
             }
