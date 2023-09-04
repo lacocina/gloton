@@ -67,6 +67,15 @@ export const useAdminStore = defineStore('admin', {
                 this.userLoading = false
             }
         },
+        async updateCategories() {
+            try {
+                const { data } = await api.get(`businesses/${this.business.id}/categories`)
+                this.business.menu.categories = data
+            } catch (e) {
+                console.log('Error al actualizar las categorías')
+                throw e
+            }
+        },
         async addCategory(categoryData) {
             const payload = {
                 ...categoryData,
@@ -74,6 +83,7 @@ export const useAdminStore = defineStore('admin', {
             }
             try {
                 await api.post('businesses/category', payload)
+                await this.updateCategories()
             } catch (e) {
                 throw e
             }
@@ -85,6 +95,7 @@ export const useAdminStore = defineStore('admin', {
             }
             try {
                 await api.patch('businesses/category', payload)
+                await this.updateCategories()
             } catch (e) {
                 throw e
             }
@@ -96,6 +107,7 @@ export const useAdminStore = defineStore('admin', {
             }
             try {
                 await api.post('businesses/product', payload)
+                await this.updateCategories()
             } catch (e) {
                 throw e
             }
