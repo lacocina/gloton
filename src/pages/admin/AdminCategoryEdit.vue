@@ -20,10 +20,12 @@ import CategoryForm from "@components/admin/CategoryForm.vue"
 import { useAdminStore } from "@store/backoffice/admin.ts"
 import type { MenuCategory } from "@types/MenuCategory.ts"
 import { getUrlPhoto } from "../../services/unsplash.ts"
+import { useNotification } from "@kyvg/vue3-notification"
 
 const route = useRoute()
 const router = useRouter()
 const adminStore = useAdminStore()
+const { notify } = useNotification()
 
 const currentCategory : MenuCategory = adminStore.getCategoryById(Number(route.params.categoryId))
 
@@ -33,9 +35,18 @@ async function saveFunction(categoryData) {
       ...categoryData,
       id: Number(route.params.categoryId)
     })
+    notify({
+      type: 'success',
+      title: 'Categoría editada con éxito'
+    })
     router.back()
   } catch (e) {
-    console.error('Ha habido un error', e)
+    console.error('updateCategory error: ', e)
+    notify({
+      type: 'error',
+      title: 'Ha habido algún error',
+      text: 'Por favor, vuelve a intentarlo más tarde'
+    })
   }
 }
 

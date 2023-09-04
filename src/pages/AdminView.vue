@@ -1,8 +1,7 @@
 <template>
-<page-template v-if="adminGenericView && !isLoading" :title="pageTitle" :back-button="showBackButton" :img-src="imgSrc">
+<page-template v-if="adminGenericView" :title="pageTitle" :back-button="showBackButton" :img-src="imgSrc">
     <router-view/>
 </page-template>
-<span v-else-if="isLoading">Loading</span>
 <router-view v-else/>
 </template>
 
@@ -33,10 +32,5 @@ const adminGenericView = computed(() : boolean => {
     return meta.pageHeader || false
 })
 
-const isLoading = ref(true)
-
-const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q').finally(() => {
-  isLoading.value = false
-}))
-
+const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))
 </script>

@@ -43,12 +43,14 @@ import oStack from '@css/objects/o-stack.module.css'
 import BaseInputModule from '@css/components/atoms/base-input.module.css'
 import {InternalServerError, useAdminStore} from "@store/backoffice/admin.ts"
 import { reactive } from "vue";
-import PageTemplate from "@components/layout/PageTemplate.vue";
+import PageTemplate from "@components/layout/PageTemplate.vue"
 import {computedAsync} from "@vueuse/core";
-import {getUrlPhoto} from "../services/unsplash.ts";
+import { getUrlPhoto } from "../services/unsplash.ts"
+import { useNotification } from "@kyvg/vue3-notification"
 
 const adminStore = useAdminStore()
 const router = useRouter()
+const { notify } = useNotification()
 
 const formConfig = reactive({
   email: {
@@ -68,11 +70,23 @@ async function login() {
         email: formConfig.email.value,
         pass: formConfig.pass.value
       })
+
+      notify({
+        title: 'Login correcto',
+        text: `Bienvenido ${adminStore.userName}!`
+      })
+
       await router.push({ path: '/admin' })
     } catch (e) {
+
       if (e instanceof InternalServerError) {
         console.log('InternalServerError')
       }
+
+      notify({
+        type: 'error',
+        title: 'Email o contraseña incorrecta'
+      })
     }
   }
 }

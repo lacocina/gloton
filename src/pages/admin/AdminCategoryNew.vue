@@ -25,7 +25,12 @@ async function saveFunction(categoryData) {
     })
     router.back()
   } catch (e) {
-    console.error('Ha habido un error', e)
+    console.error('addCategory error: ', e)
+    notify({
+      type: 'error',
+      title: 'Ha habido algún error',
+      text: 'Por favor, vuelve a intentarlo más tarde'
+    })
   }
 }
 

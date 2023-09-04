@@ -95,13 +95,13 @@ const routes: RouteRecordRaw[] = [
                 props: true
             },
             {
-                path: '/admin/menu/category/:categoryId/new-category-item',
+                path: '/admin/menu/category/:categoryId/new-product',
                 name: 'admin-product-new',
                 component: AdminProductNew,
                 props: true
             },
             {
-                path: '/admin/menu/category/:categoryId/edit-category-item/:itemId',
+                path: '/admin/menu/category/:categoryId/edit-product/:itemId',
                 name: 'admin-product-edit',
                 component: AdminProductEdit,
                 props: true

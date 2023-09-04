@@ -1,8 +1,6 @@
 <template>
 <section :class="[contentPage.contentPage, contentPage.resetTop]">
-  <product-header :category-name="categoryName"
-                  :product-name="productName"
-                  subtitle="Nuevo item"/>
+  <product-header :category-name="categoryName" :product-name="productName" subtitle="Nuevo item"/>
   <category-item-form @name-change="nameChange"
                       @save-form="saveFunction"/>
 </section>
@@ -10,8 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, onMounted, ref} from "vue"
-import {useRoute, useRouter} from "vue-router"
+import { ref } from "vue"
+import { useRoute, useRouter } from "vue-router"
 
 import contentPage from "@css/components/molecules/content-page.module.css"
 
@@ -20,10 +18,12 @@ import CategoryItemForm from "@components/admin/ProductForm.vue"
 import TheFooter from "@components/layout/TheFooter.vue"
 
 import { useAdminStore } from "@store/backoffice/admin.ts"
+import { useNotification } from "@kyvg/vue3-notification"
 
 const route = useRoute()
 const router = useRouter()
 const adminStore = useAdminStore()
+const { notify } = useNotification()
 
 // TODO - Que estic fent amb això? Perque fora això me dona error?
 defineOptions({
@@ -38,15 +38,25 @@ function nameChange(newName) {
   productName.value = newName
 }
 
-function saveFunction(productData) {
+async function saveFunction(productData) {
+  console.log('save')
   try {
-    adminStore.addProduct({
+    await adminStore.addProduct({
       ...productData,
       categoryId: Number(route.params.categoryId)
     })
+    notify({
+      type: 'success',
+      title: 'Producto añadido con éxito'
+    })
     router.back()
   } catch (e) {
-    console.error(e)
+    console.error('addProduct error: ', e)
+    notify({
+      type: 'error',
+      title: 'Ha habido algún error',
+      text: 'Por favor, vuelve a intentarlo más tarde'
+    })
   }
 }
 

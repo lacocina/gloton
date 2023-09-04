@@ -3,8 +3,7 @@ import { api } from "../../services/api.ts"
 import type { User } from "@types/User.ts"
 import type { Business } from "@types/Business.ts"
 import type { MenuCategory } from "@types/MenuCategory.ts"
-import { notify } from "@kyvg/vue3-notification"
-import {AxiosError, HttpStatusCode} from "axios";
+import { AxiosError, HttpStatusCode } from "axios"
 
 export class UnauthorizedError extends Error {
     constructor() {
@@ -27,6 +26,7 @@ export const useAdminStore = defineStore('admin', {
     }),
 
     getters: {
+        userName: (state): string => state.user?.name,
         menuCategories: (state): MenuCategory[] | undefined => state.business?.menu.categories,
     },
 
@@ -36,31 +36,23 @@ export const useAdminStore = defineStore('admin', {
                 .find((category) => category.id === categoryId)
                 .name
         },
-
         getCategoryById(categoryId: number) : MenuCategory {
             return this.business?.menu.categories
                 .find((category) => category.id === categoryId)
         },
-
         getProductById(categoryId: number, productId: number) : MenuItem {
             return this.business?.menu.categories
                 .find((category) => category.id === categoryId).items
                 .find((item) => item.id === productId)
         },
 
+        // TODO pasar las llamadas a los services
         async login(payload) {
             this.userLoading = true
-            // TODO pasar las llamadas a los services
             try {
                 const { data } = await api.post(`users/login`,payload)
                 this.user = data.user
                 this.business = data.business
-
-                notify({
-                    title: 'Login correcto',
-                    text: `Bienvenido ${this.user.name}!`
-                })
-
             } catch (e) {
                 if (e instanceof AxiosError) {
                     if (e.response.status === HttpStatusCode.InternalServerError) {
@@ -70,10 +62,6 @@ export const useAdminStore = defineStore('admin', {
                         throw new UnauthorizedError()
                     }
                 }
-                notify({
-                    type: 'error',
-                    title: 'Email o contraseña incorrecta'
-                })
                 throw e
             } finally {
                 this.userLoading = false
@@ -87,7 +75,7 @@ export const useAdminStore = defineStore('admin', {
             try {
                 await api.post('businesses/category', payload)
             } catch (e) {
-                console.error(e)
+                throw e
             }
         },
         async updateCategory(categoryData) {
@@ -98,7 +86,7 @@ export const useAdminStore = defineStore('admin', {
             try {
                 await api.patch('businesses/category', payload)
             } catch (e) {
-                console.error(e)
+                throw e
             }
         },
         async addProduct(productData) {
@@ -109,7 +97,7 @@ export const useAdminStore = defineStore('admin', {
             try {
                 await api.post('businesses/product', payload)
             } catch (e) {
-                console.error(e)
+                throw e
             }
         },
     }
