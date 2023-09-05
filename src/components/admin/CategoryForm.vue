@@ -1,5 +1,6 @@
 <template>
-<form @submit.prevent="saveForm" :class="oStack.oStack">
+<base-dialog @confirm="saveForm" ref="confirmDialog"/>
+<form @submit.prevent="$refs.confirmDialog.open()" :class="oStack.oStack">
     <h3 :class="txt.title200">Datos sobre la categoría</h3>
     <div :class="baseInput.baseInput">
         <label for="name" :class="baseInput.label">name label</label>
@@ -49,11 +50,13 @@ import baseInput from "@css/components/atoms/base-input.module.css"
 import type { CategoryForm } from "@types/CategoryForm.ts"
 import type { MenuCategory } from "@types/MenuCategory.ts"
 
-import { onMounted, reactive, ref } from "vue"
-import BaseButton from "@components/ui/BaseButton.vue"
-
 import { useRouter } from "vue-router"
+import { onMounted, reactive, ref } from "vue"
+
+import BaseButton from "@components/ui/BaseButton.vue"
 import BaseAlert from "@components/ui/BaseAlert.vue"
+import BaseDialog from "@components/ui/BaseDialog.vue"
+
 
 const router = useRouter()
 
@@ -98,7 +101,10 @@ function saveForm() {
 }
 
 function deleteCategory() {
-  emit('delete-category')
+
+  if (true) {
+    emit('delete-category')
+  }
 }
 
 function cancel() {

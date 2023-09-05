@@ -1,6 +1,6 @@
 <template>
 <teleport to="body">
-  <div :class="baseDialog.wrapper">
+  <div v-if="openDialog" :class="baseDialog.wrapper">
     <div :class="baseDialog.baseDialog">
       <o-stack size="xl">
         <o-stack size="xs">
@@ -8,8 +8,8 @@
           <p>Estás seguro explicación</p>
         </o-stack>
         <div :class="oFlex.endCenter">
-          <base-button button-style="secondary">Cancelar</base-button>
-          <base-button>Confirmar</base-button>
+          <base-button button-style="secondary" @click="cancel">Cancelar</base-button>
+          <base-button @click="confirm">Confirmar</base-button>
         </div>
       </o-stack>
     </div>
@@ -22,6 +22,34 @@ import txt from "@css/components/atoms/txt.module.css"
 import OStack from "@components/objects/OStack.vue"
 import oFlex from "@css/objects/o-flex.module.css"
 import BaseButton from "@components/ui/BaseButton.vue"
+import { ref } from "vue"
+
+interface Emits {
+  (e: 'confirm') : void
+}
+
+const emit = defineEmits<Emits>()
+
+const openDialog = ref(false)
+function open() {
+  openDialog.value = true
+}
+
+function cancel() {
+  openDialog.value = false
+}
+
+function confirm() {
+  emit("confirm")
+  openDialog.value = false
+}
+
+
+
+defineExpose({
+  open
+})
+
 </script>
 
 <style lang="scss" module="baseDialog">
