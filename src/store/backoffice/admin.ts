@@ -22,6 +22,7 @@ export const useAdminStore = defineStore('admin', {
     state: () => ({
         user: null as User | null,
         business: null as Business | null,
+        categories: null as MenuCategory[] | null,
         userLoading: false as boolean,
     }),
 
@@ -53,6 +54,7 @@ export const useAdminStore = defineStore('admin', {
                 const { data } = await api.post(`users/login`,payload)
                 this.user = data.user
                 this.business = data.business
+                this.categories = this.business.menu.categories
             } catch (e) {
                 if (e instanceof AxiosError) {
                     if (e.response.status === HttpStatusCode.InternalServerError) {
@@ -82,6 +84,7 @@ export const useAdminStore = defineStore('admin', {
                 businessId: this.business.id,
             }
             try {
+                // TODO que devuelva solo la info de la categoría editada
                 const { data } = await api.post('businesses/category', payload)
                 this.business.menu.categories = data
             } catch (e) {
