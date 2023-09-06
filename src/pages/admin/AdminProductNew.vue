@@ -39,10 +39,7 @@ function nameChange(newName) {
 async function saveFunction(productData) {
   console.log('save')
   try {
-    await adminStore.addProduct({
-      ...productData,
-      categoryId: Number(route.params.categoryId)
-    })
+    await adminStore.addProduct(productData, Number(route.params.categoryId))
     notify({
       type: 'success',
       title: 'Producto añadido con éxito'

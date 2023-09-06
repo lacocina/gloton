@@ -107,13 +107,10 @@ export const useAdminStore = defineStore('admin', {
                 throw e
             }
         },
-        async addProduct(productData) {
-            const payload = {
-                ...productData,
-                businessId: this.business.id,
-            }
+        async addProduct(productData, categoryId) {
             try {
-                await api.post('businesses/product', payload)
+                const { data } = await api.post(`businesses/${this.business.id}/categories/${categoryId}/products`, productData)
+                console.log('Nuevo producto: ', data)
                 await this.updateCategories()
             } catch (e) {
                 throw e

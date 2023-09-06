@@ -11,7 +11,7 @@
             {{ item.name }}
         </h3>
         <div :class="txt.subtitle100">
-            <b :class="adminMenuItemModule.price">{{ item.price }}€</b><em> - {{ item.description }}</em>
+            <b :class="adminMenuItemModule.price">{{ item.price }}€</b><em v-if="item.description"> - {{ item.description }}</em>
         </div>
     </div>
     <div :class="[oFlexModule.oFlex, oFlexModule.betweenCenter]">
