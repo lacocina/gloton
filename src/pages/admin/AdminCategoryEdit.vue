@@ -32,10 +32,7 @@ const currentCategory : MenuCategory = adminStore.getCategoryById(Number(route.p
 
 async function saveFunction(categoryData) {
   try {
-    await adminStore.updateCategory({
-      ...categoryData,
-      id: Number(route.params.categoryId)
-    })
+    await adminStore.updateCategory(categoryData, Number(route.params.categoryId))
     notify({
       type: 'success',
       title: 'Categoría editada con éxito'

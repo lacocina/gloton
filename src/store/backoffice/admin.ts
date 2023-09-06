@@ -79,25 +79,20 @@ export const useAdminStore = defineStore('admin', {
             }
         },
         async addCategory(categoryData) {
-            const payload = {
-                ...categoryData,
-                businessId: this.business.id,
-            }
             try {
-                const { data } = await api.post('businesses/category', payload)
-                this.business.menu.categories.push(data)
+                const { data } = await api.post(`businesses/${this.business.id}/categories`, categoryData)
+                this.business?.menu.categories.push(data)
                 return { data }
             } catch (e) {
                 throw e
             }
         },
-        async updateCategory(categoryData) {
-            const payload = {
-                ...categoryData,
-                businessId: this.business.id,
-            }
+        async updateCategory(categoryData, categoryId) {
             try {
-                await api.patch('businesses/category', payload)
+                await api.patch(
+                    `businesses/${this.business.id}/categories/${categoryId}`,
+                    categoryData
+                )
                 await this.updateCategories()
             } catch (e) {
                 throw e
