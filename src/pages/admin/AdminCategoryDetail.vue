@@ -23,6 +23,7 @@
             <div v-if="currentCategory.items">
                 <menu-item v-for="item in currentCategory.items"
                            :key="item.id"
+                           :animate="animatedItem(item.id)"
                            :category-id="Number($route.params.categoryId)"
                            :item="item"/>
             </div>
@@ -81,4 +82,9 @@ const heroButton = {
     })
   }
 }
+
+function animatedItem(itemId) : boolean {
+  return Number(route.query.newProductId) === itemId
+}
+
 </script>

@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["admin-menu-item.module.scss","../../tools/dark-selector.scss"],"names":[],"mappings":"AAEA;EACI;EACA;;AAEA;EACI;;;AAIR;EACI;EACA;;AAEA;EACI;;;AAIR;EACI;EACA;;ACrBF;EDwBM;;;AAIR;EACI","file":"admin-menu-item.module.css"}
+{"version":3,"sourceRoot":"","sources":["admin-menu-item.module.scss","../../tools/dark-selector.scss"],"names":[],"mappings":"AAEA;EACI;EACA;;AAEA;EACI;;;AAKR;EACI;EACA;;;AAEJ;EACI;IACI;;EAEJ;IACI;;EAEJ;IACI;;;AAIR;EACI;EACA;;AAEA;EACI;;;AAIR;EACI;EACA;;ACtCF;EDyCM;;;AAIR;EACI","file":"admin-menu-item.module.css"}

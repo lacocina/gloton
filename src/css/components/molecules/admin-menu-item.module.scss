@@ -7,6 +7,23 @@
     &:last-child {
         border-bottom: 1px solid var(--bd-color-brand-softest);
     }
+
+}
+
+.animated {
+    animation: flash 3s;
+    animation-delay: .5s;
+}
+@keyframes flash {
+    0% {
+        background-color: transparent;
+    }
+    20% {
+        background-color: rgba(white, .11);
+    }
+    100% {
+        background-color: transparent;
+    }
 }
 
 .main {

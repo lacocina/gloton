@@ -4,7 +4,8 @@
                 adminMenuItemModule.adminMenuItem,
                 oFlexModule.oFlex,
                 oFlexModule.betweenCenter,
-                item.show ? '' : adminMenuItemModule.deactivated
+                item.show ? '' : adminMenuItemModule.deactivated,
+                animate ? adminMenuItemModule.animated : ''
             ]">
     <div :class="adminMenuItemModule.main">
         <h3 :class="txt.title200">
@@ -32,11 +33,20 @@ import type { MenuItem } from "@types/MenuItem.ts"
 import oFlexModule from "@css/objects/o-flex.module.css"
 import adminMenuItemModule from "@css/components/molecules/admin-menu-item.module.scss"
 import txt from "@css/components/atoms/txt.module.css"
+import { onMounted, onUpdated } from "vue"
 
 interface Props {
     item: MenuItem,
-    categoryId: number
+    categoryId: number,
+    animate?: boolean
 }
 
 defineProps<Props>()
+
+const scrollToActive = () => {
+  const element = document.querySelector('.' + adminMenuItemModule.animated)
+  element?.scrollIntoView({ behavior: "smooth" })
+}
+onMounted(() => scrollToActive())
+onUpdated(() => scrollToActive())
 </script>
