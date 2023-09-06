@@ -2,14 +2,14 @@
 <section v-if="currentProduct" :class="[contentPage.contentPage, contentPage.resetTop]">
   <product-header :category-name="categoryName" :product-name="productName" subtitle="Editar producto"/>
   <category-item-form :product-data="currentProduct"
-                      @save-form="saveFunction"
+                      @save-form="saveProduct"
                       @name-change="nameChange"/>
 </section>
 </template>
 
 <script lang="ts" setup>
 import { useRoute, useRouter } from "vue-router"
-import {computed, ref} from "vue"
+import { ref } from "vue"
 
 import contentPage from "@css/components/molecules/content-page.module.css"
 
@@ -18,12 +18,13 @@ import CategoryItemForm from "@components/admin/ProductForm.vue"
 
 import { useAdminStore } from "@store/backoffice/admin.ts"
 import type { MenuItem } from "@types/MenuItem.ts"
+import { useNotification } from "@kyvg/vue3-notification";
 
 const route = useRoute()
 const router = useRouter()
 const adminStore = useAdminStore()
+const { notify } = useNotification()
 
-// TODO - Que estic fent amb això? Perque fora això me dona error?
 defineOptions({
     inheritAttrs: false
 })
@@ -38,9 +39,26 @@ function nameChange(newName) {
   productName.value = newName
 }
 
-function saveFunction() {
-  console.log('Producto editado')
-  router.back()
+async function saveProduct(productData) {
+  try {
+    await adminStore.updateProduct(
+        productData,
+        Number(route.params.itemId),
+        Number(route.params.categoryId)
+    )
+    notify({
+      type: 'success',
+      title: 'Producto editado con éxito'
+    })
+    router.back()
+  } catch (e) {
+    console.error('updateProduct error: ', e)
+    notify({
+      type: 'error',
+      title: 'Ha habido algún error',
+      text: 'Por favor, vuelve a intentarlo más tarde'
+    })
+  }
 }
 
 </script>

@@ -116,5 +116,16 @@ export const useAdminStore = defineStore('admin', {
                 throw e
             }
         },
+        async updateProduct(productData, productId, categoryId) {
+            try {
+                await api.patch(
+                    `businesses/${this.business.id}/categories/${categoryId}/products/${productId}`,
+                    productData
+                )
+                await this.updateCategories()
+            } catch (e) {
+                throw e
+            }
+        },
     }
 })
