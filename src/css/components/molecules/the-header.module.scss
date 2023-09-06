@@ -1,6 +1,7 @@
 .the-header {
   color: var(--color-gray-400);
   font-size: var(--font-size-100);
+  margin-bottom: var(--spacing-rem-xs);
   display: grid;
   grid-auto-flow: column;
   justify-content: space-between;
