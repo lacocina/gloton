@@ -9,6 +9,7 @@
         <label for="name" :class="baseInput.label">name label</label>
         <input v-model.lazy="formConfig.name"
                v-autofocus
+               @blur="nameChange"
                id="name"
                :class="[
                        baseInput.input,
@@ -95,7 +96,8 @@ const vAutofocus = {
 
 const emit = defineEmits([
     'save-form',
-    'delete-category'
+    'delete-category',
+    'name-change'
 ])
 
 function saveForm() {
@@ -112,6 +114,11 @@ function deleteCategory() {
 
 function cancel() {
   router.back()
+}
+
+
+function nameChange() {
+  emit('name-change', formConfig.name)
 }
 
 defineExpose({

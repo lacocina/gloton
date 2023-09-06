@@ -1,11 +1,13 @@
 <template>
-  <page-template title="Nueva categoría" back-button :hero-button="saveButton">
-    <category-form ref="categoryFormRef" @save-form="saveFunction"/>
+  <page-template :title="pageTitle" back-button :hero-button="saveButton">
+    <category-form ref="categoryFormRef"
+                   @save-form="saveFunction"
+                   @name-change="nameChange"/>
   </page-template>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue"
+import {computed, ref} from "vue"
 import { useRouter } from "vue-router"
 import { useAdminStore } from "@store/backoffice/admin.ts"
 import { useNotification } from '@kyvg/vue3-notification'
@@ -46,7 +48,15 @@ const saveButton = {
   onClick: () => categoryFormRef.value.saveForm()
 }
 
-// TODO - Que estic fent amb això? Perque fora això me dona error?
+const productName = ref('')
+function nameChange(newName) {
+  productName.value = newName
+}
+
+const pageTitle = computed(() => {
+  return productName.value || 'Nueva categoría'
+})
+
 defineOptions({
   inheritAttrs: false
 })

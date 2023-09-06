@@ -1,12 +1,13 @@
 <template>
   <page-template v-if="currentCategory"
-                 :title="currentCategory.name"
+                 :title="pageTitle"
                  :hero-button="saveButton"
                  :img-src="imgSrc"
                  back-button>
     <category-form ref="categoryFormRef"
                    :category-data="currentCategory"
                    @save-form="saveFunction"
+                   @name-change="nameChange"
                    @delete-category="deleteCategory"/>
   </page-template>
 </template>
@@ -14,7 +15,7 @@
 <script lang="ts" setup>
 import { useRoute, useRouter } from "vue-router"
 import { computedAsync } from "@vueuse/core"
-import { ref } from "vue"
+import { computed, onMounted, ref } from "vue"
 
 import PageTemplate from "@components/layout/PageTemplate.vue"
 import CategoryForm from "@components/admin/CategoryForm.vue"
@@ -75,10 +76,21 @@ async function deleteCategory() {
   }
 }
 
-// TODO - Que estic fent amb això? Perque fora això me dona error?
 defineOptions({
   inheritAttrs: false
 })
+
+
+const productName = ref('')
+function nameChange(newName) {
+  productName.value = newName
+}
+
+const pageTitle = computed(() => {
+  return productName.value || currentCategory.name
+})
+
+onMounted(() => productName.value = currentCategory.name)
 
 const imgSrc = computedAsync(() => getUrlPhoto('HlNcigvUi4Q'))
 
