@@ -1,4 +1,5 @@
 .content-page {
+  min-width: 0;
   color: var(--content-page-font-color);
   background-color: var(--content-page-bgc-color);
   transition: var(--motion-duration);

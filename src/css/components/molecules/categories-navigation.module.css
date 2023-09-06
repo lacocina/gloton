@@ -1,7 +1,6 @@
 .categories-navigation {
   display: flex;
   gap: 1rem;
-  max-width: 100%;
   overflow-x: scroll;
   white-space: nowrap;
   margin-bottom: 1rem;
