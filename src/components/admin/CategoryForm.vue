@@ -1,5 +1,8 @@
 <template>
-<base-dialog @confirm="deleteCategory" ref="confirmDialog"/>
+<base-dialog @confirm="deleteCategory"
+             :title="`Eliminar categoría: ${formConfig.name}`"
+             text="Ten en cuenta que si eliminas esta categoría también se borrarán todos sus productos"
+             ref="confirmDeleteDialog"/>
 <form @submit.prevent="saveForm" :class="oStack.oStack">
     <h3 :class="txt.title200">Datos sobre la categoría</h3>
     <div :class="baseInput.baseInput">
@@ -29,9 +32,10 @@
       Próximamente se podrán añadir imágenes
     </base-alert>
     <div :class="[oFlex.endCenter, uGap.md]">
-        <base-button button-style="secondary"
+        <base-button v-if="props.categoryData"
+                     button-style="secondary"
                      disabled
-                     @click="$refs.confirmDialog.open()">Eliminar</base-button>
+                     @click="$refs.confirmDeleteDialog.open()">Eliminar</base-button>
         <base-button button-style="secondary"
                      disabled
                      @click="cancel">Cancelar</base-button>
@@ -56,7 +60,6 @@ import { onMounted, reactive, ref } from "vue"
 import BaseButton from "@components/ui/BaseButton.vue"
 import BaseAlert from "@components/ui/BaseAlert.vue"
 import BaseDialog from "@components/ui/BaseDialog.vue"
-
 
 const router = useRouter()
 

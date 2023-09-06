@@ -103,6 +103,15 @@ export const useAdminStore = defineStore('admin', {
                 throw e
             }
         },
+        async deleteCategory(categoryId) {
+            try {
+                const { data } = await api.delete(`businesses/${this.business.id}/categories/${categoryId}`)
+                console.log(data)
+                await this.updateCategories()
+            } catch (e) {
+                throw e
+            }
+        },
         async addProduct(productData) {
             const payload = {
                 ...productData,

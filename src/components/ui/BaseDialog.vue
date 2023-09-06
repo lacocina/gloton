@@ -2,14 +2,14 @@
 <teleport to="body">
   <div v-if="openDialog" :class="baseDialog.wrapper">
     <div :class="baseDialog.baseDialog">
-      <o-stack size="xl">
+      <o-stack size="xxl">
         <o-stack size="xs">
-          <h3 :class="[txt.title200]">Título</h3>
-          <p>Estás seguro explicación</p>
+          <h3 :class="[txt.title200]">{{ title }}</h3>
+          <p v-if="text">{{ text }}</p>
         </o-stack>
         <div :class="oFlex.endCenter">
           <base-button button-style="secondary" @click="cancel">Cancelar</base-button>
-          <base-button @click="confirm">Confirmar</base-button>
+          <base-button @click="confirm">{{ confirmText }}</base-button>
         </div>
       </o-stack>
     </div>
@@ -27,6 +27,16 @@ import { ref } from "vue"
 interface Emits {
   (e: 'confirm') : void
 }
+
+interface Props {
+  title: string,
+  text?: string,
+  confirmText?: string
+}
+
+withDefaults(defineProps<Props>(), {
+  confirmText: 'Confirmar'
+})
 
 const emit = defineEmits<Emits>()
 
@@ -75,7 +85,7 @@ defineExpose({
   background-color: var(--content-page-bgc-color);
   border-radius: var(--border-radius-md);
   box-shadow: 0 0 10px rgba(black, .3);
-  padding: var(--spacing-rem-lg);
+  padding: var(--spacing-rem-xl) var(--spacing-rem-lg) var(--spacing-rem-lg);
   margin-bottom: var(--spacing-rem-xl);
 }
 </style>

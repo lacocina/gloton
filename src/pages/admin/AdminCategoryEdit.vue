@@ -14,7 +14,7 @@
 <script lang="ts" setup>
 import { useRoute, useRouter } from "vue-router"
 import { computedAsync } from "@vueuse/core"
-import { computed, ref } from "vue"
+import { ref } from "vue"
 
 import PageTemplate from "@components/layout/PageTemplate.vue"
 import CategoryForm from "@components/admin/CategoryForm.vue"
@@ -58,8 +58,24 @@ const saveButton = {
   onClick: () => categoryFormRef.value.saveForm()
 }
 
-function deleteCategory() {
-  console.log('deleteCategory')
+async function deleteCategory() {
+  try {
+    await adminStore.deleteCategory(Number(route.params.categoryId))
+    notify({
+      type: 'success',
+      title: 'Categoría eliminada con éxito'
+    })
+    await router.push({
+      name: 'admin-menu'
+    })
+  } catch (e) {
+    console.error('deleteCategory error: ', e)
+    notify({
+      type: 'error',
+      title: 'Ha habido algún error',
+      text: 'Por favor, vuelve a intentarlo más tarde'
+    })
+  }
 }
 
 // TODO - Que estic fent amb això? Perque fora això me dona error?
