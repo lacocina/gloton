@@ -7,12 +7,10 @@
 <section :class="contentPage.contentPage">
     <slot></slot>
 </section>
-<the-footer/>
 </template>
 
 <script lang="ts" setup>
 import contentPage from "@css/components/molecules/content-page.module.css"
-import TheFooter from "@components/layout/TheFooter.vue";
 import TheHero from "@components/layout/TheHero.vue";
 
 interface Props {

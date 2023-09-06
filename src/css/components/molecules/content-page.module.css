@@ -6,6 +6,7 @@
   border-radius: var(--content-page-overlap);
   position: relative;
   z-index: 1;
+  grid-row: span 2;
   padding: var(--content-page-y-padding) var(--content-page-x-padding);
 }
 

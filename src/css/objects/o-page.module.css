@@ -1,9 +1,20 @@
 .o-page {
-  max-width: 390px;
-  margin: 0 auto;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  grid-auto-rows: auto 1fr auto;
+  grid-auto-columns: 1fr;
+}
+@media screen and (min-width: 390px) {
+  .o-page {
+    grid-auto-columns: var(--page-max-width);
+    padding: var(--spacing-rem-md) 0 var(--spacing-rem-xl);
+  }
 }
 
 .content {
+  display: grid;
+  grid-template-rows: var(--page-hero-height) 1fr;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 

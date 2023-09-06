@@ -2,17 +2,15 @@
     <div v-if="businessStore.loading">
         loading
     </div>
-    <div v-else-if="currentCategory">
-        <page-template :title="currentCategory.name" :img-src="imgSrc">
-            <categories-navigation :menu-categories="menuCategories"
-                                   route-name="category-detail"/>
-            <o-stack>
-                <menu-item v-for="item in currentCategory.items"
-                           :key="item.id"
-                           :item="item"/>
-            </o-stack>
-        </page-template>
-    </div>
+    <page-template v-else-if="currentCategory" :title="currentCategory.name" :img-src="imgSrc">
+        <categories-navigation :menu-categories="menuCategories"
+                               route-name="category-detail"/>
+        <o-stack>
+            <menu-item v-for="item in currentCategory.items"
+                       :key="item.id"
+                       :item="item"/>
+        </o-stack>
+    </page-template>
 </template>
 
 <script lang="ts" setup>

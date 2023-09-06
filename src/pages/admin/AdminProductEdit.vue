@@ -5,7 +5,6 @@
                       @save-form="saveFunction"
                       @name-change="nameChange"/>
 </section>
-<the-footer/>
 </template>
 
 <script lang="ts" setup>
@@ -16,7 +15,6 @@ import contentPage from "@css/components/molecules/content-page.module.css"
 
 import ProductHeader from "@components/admin/ProductHeader.vue"
 import CategoryItemForm from "@components/admin/ProductForm.vue"
-import TheFooter from "@components/layout/TheFooter.vue"
 
 import { useAdminStore } from "@store/backoffice/admin.ts"
 import type { MenuItem } from "@types/MenuItem.ts"

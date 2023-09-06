@@ -44,7 +44,6 @@ withDefaults(defineProps<Props>(), {
 <style lang="scss" module="hero">
 .hero {
   position: relative;
-  min-height: 300px;
   color: white;
   background-color: var(--global-accent-color);
   padding: var(--spacing-xl);
@@ -53,8 +52,7 @@ withDefaults(defineProps<Props>(), {
   grid-auto-flow: row;
   grid-template:
       "backbutton optionbutton"
-      "bottom bottom"
-;
+      "bottom bottom";
   row-gap: var(--spacing-xl);
   align-content: space-between;
   align-items: start;
