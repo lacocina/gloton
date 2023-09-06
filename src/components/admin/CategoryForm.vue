@@ -1,6 +1,6 @@
 <template>
-<base-dialog @confirm="saveForm" ref="confirmDialog"/>
-<form @submit.prevent="$refs.confirmDialog.open()" :class="oStack.oStack">
+<base-dialog @confirm="deleteCategory" ref="confirmDialog"/>
+<form @submit.prevent="saveForm" :class="oStack.oStack">
     <h3 :class="txt.title200">Datos sobre la categoría</h3>
     <div :class="baseInput.baseInput">
         <label for="name" :class="baseInput.label">name label</label>
@@ -31,7 +31,7 @@
     <div :class="[oFlex.endCenter, uGap.md]">
         <base-button button-style="secondary"
                      disabled
-                     @click="deleteCategory">Eliminar</base-button>
+                     @click="$refs.confirmDialog.open()">Eliminar</base-button>
         <base-button button-style="secondary"
                      disabled
                      @click="cancel">Cancelar</base-button>
@@ -90,7 +90,10 @@ const vAutofocus = {
   }
 }
 
-const emit = defineEmits(['save-form', 'delete-category'])
+const emit = defineEmits([
+    'save-form',
+    'delete-category'
+])
 
 function saveForm() {
   if (formConfig.name) {
@@ -101,10 +104,7 @@ function saveForm() {
 }
 
 function deleteCategory() {
-
-  if (true) {
-    emit('delete-category')
-  }
+  emit('delete-category')
 }
 
 function cancel() {
