@@ -84,9 +84,9 @@ export const useAdminStore = defineStore('admin', {
                 businessId: this.business.id,
             }
             try {
-                // TODO que devuelva solo la info de la categoría editada
                 const { data } = await api.post('businesses/category', payload)
-                this.business.menu.categories = data
+                this.business.menu.categories.push(data)
+                return { data }
             } catch (e) {
                 throw e
             }

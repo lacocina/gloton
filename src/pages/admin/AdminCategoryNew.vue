@@ -18,12 +18,17 @@ const adminStore = useAdminStore()
 
 async function saveFunction(categoryData) {
   try {
-    await adminStore.addCategory(categoryData)
+    const { data } = await adminStore.addCategory(categoryData)
     notify({
       type: 'success',
       title: 'Categoría añadida con éxito'
     })
-    router.back()
+    await router.push({
+      name: 'admin-category-detail',
+      params: {
+        categoryId: data.id
+      }
+    })
   } catch (e) {
     console.error('addCategory error: ', e)
     notify({
