@@ -3,7 +3,6 @@
   <nav :class="TheHeaderModule.nav">
     <the-header-item href="/" text="Front"/>
     <the-header-item href="/admin" text="Admin"/>
-    <the-header-item href="/css" text="CSS Docs"/>
   </nav>
   <light-dark-mode/>
 </header>
