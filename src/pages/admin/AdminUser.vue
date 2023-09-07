@@ -61,7 +61,6 @@ const adminStore = useAdminStore()
 const { notify } = useNotification()
 const router = useRouter()
 
-// const formConfig: User = reactive(adminStore.user)
 const formConfig = reactive<UserForm>({
   name: '',
   lastname: '',
