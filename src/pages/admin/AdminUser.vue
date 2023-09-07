@@ -1,5 +1,5 @@
 <template>
-<form class="base-form" :class="oStack.oStack">
+<form @submit.prevent="updateData" class="base-form" :class="oStack.oStack">
   <div :class="baseInput.baseInput">
       <label for="name" :class="baseInput.label">name label</label>
       <input v-model.lazy="formConfig.name" id="name" :class="baseInput.input" type="text" placeholder="-"/>
@@ -10,22 +10,68 @@
   </div>
   <div :class="baseInput.baseInput">
       <label for="email" :class="baseInput.label">email label</label>
-      <input v-model.lazy="formConfig.email" id="email" :class="baseInput.input" type="text" placeholder="-"/>
+      <input v-model.lazy="formConfig.email" id="email" :class="baseInput.input" type="text" placeholder="-" disabled/>
   </div>
   <div :class="baseInput.baseInput">
       <label for="phoneNumber" :class="baseInput.label">phoneNumber label</label>
       <input v-model.lazy="formConfig.phoneNumber" id="phoneNumber" :class="baseInput.input" type="text" placeholder="-"/>
   </div>
+  <div :class="[oFlex.endCenter, uGap.md]">
+    <base-button button-style="secondary" @click="cancel">Cancelar</base-button>
+    <base-button button-type="submit">Guardar</base-button>
+  </div>
 </form>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from "vue"
+import { onMounted, reactive } from "vue"
 import { useAdminStore } from "@store/backoffice/admin.ts"
 import oStack from '@css/objects/o-stack.module.css'
 import baseInput from '@css/components/atoms/base-input.module.css'
-import type { User } from "@types/User.ts"
+import oFlex from "@css/objects/o-flex.module.css"
+import uGap from "@css/utilities/u-gap.module.css"
+import BaseButton from "@components/ui/BaseButton.vue"
+import { useNotification } from "@kyvg/vue3-notification"
+import { useRouter } from "vue-router"
+import type { UserForm } from "@types/UserForm.ts"
 
 const adminStore = useAdminStore()
-const formConfig: User = reactive(adminStore.user)
+const { notify } = useNotification()
+const router = useRouter()
+
+// const formConfig: User = reactive(adminStore.user)
+const formConfig = reactive<UserForm>({
+  name: '',
+  lastname: '',
+  email: '',
+  phoneNumber: null
+})
+
+onMounted(() => {
+  formConfig.name = adminStore.user.name
+  formConfig.lastname = adminStore.user.lastname
+  formConfig.email = adminStore.user.email
+  formConfig.phoneNumber = adminStore.user.phoneNumber
+})
+
+async function updateData() {
+  try {
+    await adminStore.updateUser(formConfig)
+    notify({
+      type: 'success',
+      title: 'Cambio realizado con éxito'
+    })
+    router.back()
+  } catch (e) {
+    notify({
+      type: 'error',
+      title: 'Ha habido algún error',
+      text: 'Por favor, vuelve a intentarlo más tarde'
+    })
+  }
+}
+
+function cancel() {
+  router.back()
+}
 </script>

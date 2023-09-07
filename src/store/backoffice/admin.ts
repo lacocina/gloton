@@ -47,6 +47,18 @@ export const useAdminStore = defineStore('admin', {
                 .find((item) => item.id === productId)
         },
 
+        async updateUser(userData) {
+            try {
+                const { data} = await api.patch(
+                    `users/${this.user.id}`,
+                    userData
+                )
+                this.user = data
+            } catch (e) {
+                throw e
+            }
+        },
+
         // TODO pasar las llamadas a los services
         async login(payload) {
             this.userLoading = true
