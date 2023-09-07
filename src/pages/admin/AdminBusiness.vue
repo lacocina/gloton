@@ -3,7 +3,7 @@
                  ref="changeNameDialog"
                  title="Cambio de datos"
                  text="Estás a punto de cambiar los datos públicos de tu negocio ¿Estás seguro?"/>
-    <form @submit.prevent="$refs.changeNameDialog.open()" class="base-form" :class="oStack.oStack">
+    <form @submit.prevent="validateForm" class="base-form" :class="oStack.oStack">
         <div :class="baseInput.baseInput">
           <label for="name" :class="baseInput.label">name label</label>
           <input v-model.lazy="formConfig.name"
@@ -101,27 +101,15 @@ function validatePhoneNumber() {
   phoneNumberError.value = !(!!formConfig.phoneNumber)
 }
 
-async function updateData() {
-  // TODO - Hacer que primero compruebe esto y luego abra el modal
+const changeNameDialog = ref(null)
+
+function validateForm() {
   if (
       !nameError.value
       && !emailError.value
       && !phoneNumberError.value
   ) {
-    try {
-      await adminStore.updateBusiness(formConfig)
-      notify({
-        type: 'success',
-        title: 'Cambio realizado con éxito'
-      })
-      router.back()
-    } catch {
-      notify({
-        type: 'error',
-        title: 'Ha habido algún error',
-        text: 'Por favor, vuelve a intentarlo más tarde'
-      })
-    }
+    changeNameDialog.value.open()
   } else {
     notify({
       type: 'error',
@@ -131,7 +119,28 @@ async function updateData() {
   }
 }
 
+async function updateData() {
+  try {
+    await adminStore.updateBusiness(formConfig)
+    notify({
+      type: 'success',
+      title: 'Cambio realizado con éxito'
+    })
+    await router.push({
+      name: 'admin-home'
+    })
+  } catch {
+    notify({
+      type: 'error',
+      title: 'Ha habido algún error',
+      text: 'Por favor, vuelve a intentarlo más tarde'
+    })
+  }
+}
+
 function cancel() {
-  router.back()
+  router.push({
+    name: 'admin-home'
+  })
 }
 </script>
