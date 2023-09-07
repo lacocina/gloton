@@ -14,8 +14,11 @@
   border-color: var(--color-feedback-error-400);
 }
 .input[disabled] {
-  background-color: var(--color-gray-400);
   border-color: transparent;
+  background-color: var(--color-gray-100);
+}
+:global(html.dark) .input[disabled] {
+  background-color: var(--color-gray-400);
 }
 
 .error-message {

@@ -1,8 +1,19 @@
 <template>
 <form @submit.prevent="updateData" class="base-form" :class="oStack.oStack">
   <div :class="baseInput.baseInput">
-      <label for="name" :class="baseInput.label">name label</label>
-      <input v-model.lazy="formConfig.name" id="name" :class="baseInput.input" type="text" placeholder="-"/>
+    <label for="name" :class="baseInput.label">name label</label>
+    <input v-model.lazy="formConfig.name"
+           @blur="validateName"
+           id="name"
+           :class="[
+               baseInput.input,
+               nameError ? baseInput.error : ''
+           ]"
+           type="text"
+           placeholder="-"/>
+    <p v-if="nameError" :class="baseInput.errorMessage">
+      *Este campo no puede estar vacío
+    </p>
   </div>
   <div :class="baseInput.baseInput">
       <label for="lastname" :class="baseInput.label">lastname label</label>
@@ -13,8 +24,19 @@
       <input v-model.lazy="formConfig.email" id="email" :class="baseInput.input" type="text" placeholder="-" disabled/>
   </div>
   <div :class="baseInput.baseInput">
-      <label for="phoneNumber" :class="baseInput.label">phoneNumber label</label>
-      <input v-model.lazy="formConfig.phoneNumber" id="phoneNumber" :class="baseInput.input" type="text" placeholder="-"/>
+    <label for="phoneNumber" :class="baseInput.label">phoneNumber label</label>
+    <input v-model.lazy="formConfig.phoneNumber"
+           @blur="validatePhoneNumber"
+           id="phoneNumber"
+           :class="[
+               baseInput.input,
+               phoneNumberError ? baseInput.error : ''
+           ]"
+           type="text"
+           placeholder="-"/>
+    <p v-if="phoneNumberError" :class="baseInput.errorMessage">
+      *Este campo no puede estar vacío
+    </p>
   </div>
   <div :class="[oFlex.endCenter, uGap.md]">
     <base-button button-style="secondary" @click="cancel">Cancelar</base-button>
@@ -24,7 +46,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive } from "vue"
+import { onMounted, reactive, ref } from "vue"
 import { useAdminStore } from "@store/backoffice/admin.ts"
 import oStack from '@css/objects/o-stack.module.css'
 import baseInput from '@css/components/atoms/base-input.module.css'
@@ -54,19 +76,38 @@ onMounted(() => {
   formConfig.phoneNumber = adminStore.user.phoneNumber
 })
 
+const nameError = ref(false)
+const phoneNumberError = ref(false)
+
+function validateName() {
+  nameError.value = !(!!formConfig.name)
+}
+
+function validatePhoneNumber() {
+  phoneNumberError.value = !(!!formConfig.phoneNumber)
+}
+
 async function updateData() {
-  try {
-    await adminStore.updateUser(formConfig)
-    notify({
-      type: 'success',
-      title: 'Cambio realizado con éxito'
-    })
-    router.back()
-  } catch (e) {
+  if (!nameError.value && !phoneNumberError.value) {
+    try {
+      await adminStore.updateUser(formConfig)
+      notify({
+        type: 'success',
+        title: 'Cambio realizado con éxito'
+      })
+      router.back()
+    } catch (e) {
+      notify({
+        type: 'error',
+        title: 'Ha habido algún error',
+        text: 'Por favor, vuelve a intentarlo más tarde'
+      })
+    }
+  } else {
     notify({
       type: 'error',
-      title: 'Ha habido algún error',
-      text: 'Por favor, vuelve a intentarlo más tarde'
+      title: 'Formulario incorrecto',
+      text: 'Algún campo del formulario no cumple las reglas. Por favor, revísalo mejor.'
     })
   }
 }

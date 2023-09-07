@@ -1,3 +1,5 @@
+@use "../../tools/dark-selector" as *;
+
 .base-input {
   display: grid;
   row-gap: var(--spacing-rem-xs);
@@ -15,8 +17,12 @@
   }
 
   &[disabled] {
-    background-color: var(--color-gray-400);
     border-color: transparent;
+    background-color: var(--color-gray-100);
+
+    @include t-dark-mode() {
+      background-color: var(--color-gray-400);
+    }
   }
 }
 
