@@ -81,6 +81,22 @@ export const useAdminStore = defineStore('admin', {
                 this.userLoading = false
             }
         },
+
+        async updateBusiness(businessData) {
+            try {
+                const { data} = await api.patch(
+                    `businesses/${this.business.id}`,
+                    businessData
+                )
+
+                this.business.name = data.name
+                this.business.email = data.email
+                this.business.phoneNumber = data.phoneNumber
+            } catch (e) {
+                throw e
+            }
+        },
+
         async updateCategories() {
             try {
                 const { data } = await api.get(`businesses/${this.business.id}/categories`)

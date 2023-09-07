@@ -95,7 +95,7 @@ async function updateData() {
         title: 'Cambio realizado con éxito'
       })
       router.back()
-    } catch (e) {
+    } catch {
       notify({
         type: 'error',
         title: 'Ha habido algún error',
